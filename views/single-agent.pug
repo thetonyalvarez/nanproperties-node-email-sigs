@@ -1,0 +1,215 @@
+extends layout
+
+block content
+
+    .agent-header
+        h1= displayName
+        table
+            tbody
+                tr.agent-header_row.agent-header_title
+                    td Title:
+                    td #{title}
+                tr.agent-header_row.agent-header_phone
+                    td Cell:
+                    td #{cellformat}
+                tr.agent-header_row.agent-header_license
+                    td License:
+                    td #{licenseNumber}
+ 
+
+    section#webmail-apps
+        .section-title
+            h2 Email Signatures
+            p If you open email using browsers like Google Chrome, Safari, or Firefox, use these templates to copy and paste signatures into your email signature through your web browser.
+        .section-container
+            .email-wrapper.webmail-gmail
+                table(width='485' border='0' cellspacing='0' cellpadding='0' style='font-family:arial')
+                    if title == "Realtor Associate"
+                        tbody
+                            tr
+                                td
+                                    a(href="https://members.har.com/mhf/terms/dispBrokerInfo.cfm?sitetype=aws&cid=" + licenseNumber, style='color:#1155cc' target='_blank' data-saferedirecturl='https://www.google.com/url?q=http://nanproperties.com/&source=gmail&ust=1551449162934000&usg=AFQjCNHt6vQIQhW7C9w8FJOnLajD_LDl0Q')
+                                        font(size='2' color='#1155cc') Information About Brokerage Services
+                                    br
+                                    a(href='https://www.trec.texas.gov/sites/default/files/pdf-forms/CN%201-2.pdf' style='color:#1155cc' target='_blank' data-saferedirecturl='https://www.google.com/url?q=http://nanproperties.com/&source=gmail&ust=1551449162934000&usg=AFQjCNHt6vQIQhW7C9w8FJOnLajD_LDl0Q')
+                                        font(size='2' color='#1155cc') Texas Real Estate Commission Consumer Protection Notice
+                                    br
+                                    br
+                        tbody
+                    else    
+
+                    table
+                    table(width='485' border='0' cellspacing='0' cellpadding='0' style='font-size:12.8px;width:485px')
+                        tbody
+                            tr(valign='top')
+                                td(style='font-size:12.8px;width:10px;padding-right:10px')
+                                    img.CToWUd(src='https://ci5.googleusercontent.com/proxy/xJfyUdVPQkmenOxWAzkOo2BqMX_-Z62aRGQ_ZD2hQ9rMjF5kMtBo3ef4sfhNQ3-Xs_HZOLW4pcp-Ve3kzA_dYCBrqRN4Tu0Q_XdYaxwXaOS1paTDmO4ykJK9FPI0q3HldN6PNBkeqTydHdTCcKqW4aiti3D4a3X_jJFkdtOQYj9UlsDbPCl92V-sWnImZW3W1Q37SgPzE-939uSswCoR1KGsbqOsLZThQjRJvfz7ip6iCWSqGsp_CEkbpG5WR12FSka7qfkDmv6wMLp9EkGMeBTgCLdeMKi__bKCh4Foh0mqDe75KWM=s0-d-e1-ft#https://s3.amazonaws.com/ucwebapp.wisestamp.com/45e1539a-97de-483f-a127-6d5ae71332e1/NanChristies_Logo_LockupVertical__NoBorder_DarkGray_Transparent_V22.crop_3713x3545_344,564.preview.format_png.resize_200x.png' alt='photo' width='96' height='91')
+                                    br
+                                td(style='font-size:12.8px;border-right:1px solid #f37b01')
+                                td(style='font-family:arial;display:inline-block;text-align:initial;font-stretch:normal;line-height:normal;color:rgb(100,100,100);padding:0px 10px')
+                                    table(border='0' cellspacing='0' cellpadding='0')
+                                        tbody
+                                            tr
+                                                td(style='font-family:arial;display:inline-block;text-align:initial;font-stretch:normal;line-height:normal')
+                                                    b
+                                                        div(style='font-family:arial;display:inline') #{displayName}
+                                                    font(size='2')
+                                                        br
+                                                    div(style='font-family:arial;display:inline') #{title}
+                                                    br
+                                            tr
+                                                td(style='font-family:arial;font-stretch:normal;line-height:normal;padding:5px 0px')
+                                                    span(style='display:inline-block')
+                                                        font(color='#8d8d8d') C.
+                                                        font(color='#1155cc')
+                                                            a(href='tel:+1' + cell, value= '' + cell, style='color:#F16624' target='_blank') #{cellformat} 
+                                                    font(color='#666666')
+                                                        div(style='font-family:arial;display:inline')
+                                                    span(style='color:#f37b01;display:inline-block')
+                                                        | &nbsp;|&nbsp;
+                                                        font(color='#8d8d8d') O.
+                                                        font(color='#1155cc')
+                                                            a(href='tel:+17137146454' value='+17137146454' style='color:#F16624' target='_blank') 713.714.6454 
+                                                        br
+                                                    font(color='#8d8d8d' style='font-size:12.8px') &nbsp;
+                                                    font(color='#8d8d8d')
+                                                        div(style='font-family:arial;display:inline')
+                                                    span(style='text-align:initial;font-size:12.8px;color:rgb(141,141,141);display:inline-block')
+                                                        a(href='https://maps.google.com/?q=2200+Post+Oak+Boulevard&entry=gmail&source=g' style='color:#7c7d7d' target='_blank' data-saferedirecturl='https://www.google.com/url?q=https://maps.google.com/?q%3D2200%2BPost%2BOak%2BBoulevard%26entry%3Dgmail%26source%3Dg&source=gmail&ust=1551449162934000&usg=AFQjCNGkBXOw0aqPEtfQ1vSedsuWBTQ9mw') 2200 Post Oak Boulevard 1475 Houston, TX 77056
+                                                        br
+                                                    font(color='#8d8d8d')
+                                                        br
+                                                        a(href='http://nanproperties.com/' style='color:#1155cc' target='_blank' data-saferedirecturl='https://www.google.com/url?q=http://nanproperties.com/&source=gmail&ust=1551449162934000&usg=AFQjCNHt6vQIQhW7C9w8FJOnLajD_LDl0Q')
+                                                            font(color='#F16624') nanproperties.com
+                                            tr
+                                                td(style='margin-top:5px')
+                                                    a(href='http://www.facebook.com/nanandcompanyproperties/' style='color:#1155cc' target='_blank' data-saferedirecturl='https://www.google.com/url?q=http://www.facebook.com/nanandcompanyproperties/&source=gmail&ust=1551449162934000&usg=AFQjCNFWDpjvkE8Z4j180ryQzmlNrnkY6Q')
+                                                        font(color='#1155cc')
+                                                            img.CToWUd(width='16' height='16' src='https://ci5.googleusercontent.com/proxy/Dp7f8rr_8Ld8v3goLNf3DYcH0hOiy4631GYS9LsLfok3a9KnSCFZ49AZQlDTETHbDXHkG-VCg4Sq6fuQrQTM4m2_QOZ4uJ-xch6LzTbLO9clYQf2WOQ=s0-d-e1-ft#https://s3.amazonaws.com/images.wisestamp.com/icons_32/facebook.png' style='border-radius:0px;border:0px;width:16px;height:16px')
+                                                    a(href='http://www.linkedin.com/company/3961833?trk=tyah&trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A3961833%2Cidx%3A1-1-1%2CtarId%3A1480977656088%2Ctas%3A%20nan%20and%20com' style='color:#1155cc' target='_blank' data-saferedirecturl='https://www.google.com/url?q=http://www.linkedin.com/company/3961833?trk%3Dtyah%26trkInfo%3DclickedVertical%253Acompany%252CclickedEntityId%253A3961833%252Cidx%253A1-1-1%252CtarId%253A1480977656088%252Ctas%253A%2520nan%2520and%2520com&source=gmail&ust=1551449162934000&usg=AFQjCNFApm433yMUhml0jFJY5H2LXem6uQ')
+                                                        img.CToWUd(width='16' height='16' src='https://ci4.googleusercontent.com/proxy/0ibLimFTH_7YQ5uEUq_efD8fLVCbQS1gqqg99-axoCFqqkl6i57PIxCsk1SCBx2LJ9kJ6cAYib-qb1BlG40apJSL2vLDb-A0KnEG_A2WFqCrfo3NP-Q=s0-d-e1-ft#https://s3.amazonaws.com/images.wisestamp.com/icons_32/linkedin.png' style='border-radius:0px;border:0px;width:16px;height:16px')
+                                                    a(href='http://twitter.com/nanproperties' style='color:#1155cc' target='_blank' data-saferedirecturl='https://www.google.com/url?q=http://twitter.com/nanproperties&source=gmail&ust=1551449162934000&usg=AFQjCNFJXLvAVu79J9EC5oG7Ec8r2oKcrA')
+                                                        img.CToWUd(width='16' height='16' src='https://ci5.googleusercontent.com/proxy/uuNTpGDbsTi0fZ7xN8_x4eZQzyj-EMkA8U43ZxwLp0adjLaL8mpAF3o2IAlS1VHVeZOsIqT7JzxC5g59MdSUcfK8T5rAIyc209Fkxui3tGzuun0UaA=s0-d-e1-ft#https://s3.amazonaws.com/images.wisestamp.com/icons_32/twitter.png' style='border-radius:0px;border:0px;width:16px;height:16px')
+                                                    a(href='http://instagram.com/nanproperties' style='color:#1155cc' target='_blank' data-saferedirecturl='https://www.google.com/url?q=http://instagram.com/nanproperties&source=gmail&ust=1551449162934000&usg=AFQjCNHKQNcmI6rSfvukpXKHvF0WKjVpug')
+                                                        img.CToWUd(width='16' height='16' src='https://ci6.googleusercontent.com/proxy/x3MKPm-otmLDpyv8LP37CGeBLonWkVMsuthjLiIHwGLOK4Z74aChak3EL2zvwBUemDqZfxEuHKLTmSF6aGx4cHel76Cq6GuwoEW3DDFBc-8peDRPj_rm=s0-d-e1-ft#https://s3.amazonaws.com/images.wisestamp.com/icons_32/instagram.png' style='border-radius:0px;border:0px;width:16px;height:16px')
+                                                    a(href='https://www.youtube.com/channel/UCy_Lo0gLaK3AdAwi-nuUjDg' style='color:#1155cc' target='_blank' data-saferedirecturl='https://www.google.com/url?q=https://www.youtube.com/channel/UCy_Lo0gLaK3AdAwi-nuUjDg&source=gmail&ust=1551449162934000&usg=AFQjCNEt2kdAkFAuu6VktPgZvDMzoKO_0w')
+                                                        img.CToWUd(width='16' height='16' src='https://drive.google.com/uc?export=view&id=19zR3c-pmU3DdAqTMdxuG43rOx66qDS4X')
+                                                    br
+                                                    br
+        
+            // .email-wrapper.webmail-outlook
+
+
+//-
+    section#desktop-apps
+        .section-title
+            h2 Desktop Mail Apps
+            p Do you use apps on your desktop or laptop like Apple Mail, Postbox, Airmail, or the Outlook App? Use these signatures to copy and paste straight into your desktop app.
+        .section-container
+            .desktop-airmail
+            .desktop-applemail
+            .desktop-outlook-2000-03
+            .desktop-outlook-2007-16
+            .desktop-outlook-express
+            .desktop-outlook-for-mac
+            .desktop-postbox
+            .desktop-thunderbird
+            .desktop-windows-10-mail
+            .desktop-windows-live-mail
+        
+
+        .email-render
+            table(width='485' border='0' cellspacing='0' cellpadding='0' style='font-family:arial')
+                tbody
+                    tr
+                        td
+                            a(href="https://members.har.com/mhf/terms/dispBrokerInfo.cfm?sitetype=aws&cid=" + licenseNumber, style='color:#1155cc' target='_blank' data-saferedirecturl='https://www.google.com/url?q=http://nanproperties.com/&source=gmail&ust=1551449162934000&usg=AFQjCNHt6vQIQhW7C9w8FJOnLajD_LDl0Q')
+                                font(size='2' color='#1155cc') Information About Brokerage Services
+                            br
+                            a(href='https://www.trec.texas.gov/sites/default/files/pdf-forms/CN%201-2.pdf' style='color:#1155cc' target='_blank' data-saferedirecturl='https://www.google.com/url?q=http://nanproperties.com/&source=gmail&ust=1551449162934000&usg=AFQjCNHt6vQIQhW7C9w8FJOnLajD_LDl0Q')
+                                font(size='2' color='#1155cc') Texas Real Estate Commission Consumer Protection Notice
+                            br
+                            br
+                tbody
+                table
+                table(width='485' border='0' cellspacing='0' cellpadding='0' style='font-size:12.8px;width:485px')
+                    tbody
+                        tr(valign='top')
+                            td(style='font-size:12.8px;width:10px;padding-right:10px')
+                                img.CToWUd(src='https://ci5.googleusercontent.com/proxy/xJfyUdVPQkmenOxWAzkOo2BqMX_-Z62aRGQ_ZD2hQ9rMjF5kMtBo3ef4sfhNQ3-Xs_HZOLW4pcp-Ve3kzA_dYCBrqRN4Tu0Q_XdYaxwXaOS1paTDmO4ykJK9FPI0q3HldN6PNBkeqTydHdTCcKqW4aiti3D4a3X_jJFkdtOQYj9UlsDbPCl92V-sWnImZW3W1Q37SgPzE-939uSswCoR1KGsbqOsLZThQjRJvfz7ip6iCWSqGsp_CEkbpG5WR12FSka7qfkDmv6wMLp9EkGMeBTgCLdeMKi__bKCh4Foh0mqDe75KWM=s0-d-e1-ft#https://s3.amazonaws.com/ucwebapp.wisestamp.com/45e1539a-97de-483f-a127-6d5ae71332e1/NanChristies_Logo_LockupVertical__NoBorder_DarkGray_Transparent_V22.crop_3713x3545_344,564.preview.format_png.resize_200x.png' alt='Nan and Company Properties logo' width='96' height='91')
+                                br
+                            td(style='font-size:12.8px;border-right:1px solid #f37b01')
+                            td(style='font-family:arial;display:inline-block;text-align:initial;font-stretch:normal;line-height:normal;color:rgb(100,100,100);padding:0px 10px')
+                                table(border='0' cellspacing='0' cellpadding='0')
+                                    tbody
+                                        tr
+                                            td(style='font-family:arial;display:inline-block;text-align:initial;font-stretch:normal;line-height:normal')
+                                                b
+                                                    div(style='font-family:arial;display:inline') #{displayName}
+                                                font(size='2')
+                                                    br
+                                                div(style='font-family:arial;display:inline') #{title}
+                                                br
+                                        tr
+                                            td(style='font-family:arial;font-stretch:normal;line-height:normal;padding:5px 0px')
+                                                span(style='display:inline-block')
+                                                    font(color='#8d8d8d') C.
+                                                    font(color='#1155cc')
+                                                        a(href='tel:+1#{cell}' value='#{cell}' style='color:#F16624' target='_blank') #{cellformat} 
+                                                font(color='#666666')
+                                                    div(style='font-family:arial;display:inline')
+                                                span(style='color:#f37b01;display:inline-block')
+                                                    | &nbsp;|&nbsp;
+                                                    font(color='#8d8d8d') O.
+                                                    font(color='#1155cc')
+                                                        a(href='tel:+17137146454' value='+17137146454' style='color:#F16624' target='_blank') 713.714.6454 
+                                                    br
+                                                font(color='#8d8d8d' style='font-size:12.8px') &nbsp;
+                                                font(color='#8d8d8d')
+                                                    div(style='font-family:arial;display:inline')
+                                                span(style='text-align:initial;font-size:12.8px;color:rgb(141,141,141);display:inline-block')
+                                                    a(href='https://maps.google.com/?q=2200+Post+Oak+Boulevard&entry=gmail&source=g' style='color:#7c7d7d' target='_blank' data-saferedirecturl='https://www.google.com/url?q=https://maps.google.com/?q%3D2200%2BPost%2BOak%2BBoulevard%26entry%3Dgmail%26source%3Dg&source=gmail&ust=1551449162934000&usg=AFQjCNGkBXOw0aqPEtfQ1vSedsuWBTQ9mw') 2200 Post Oak Boulevard 1475 Houston, TX 77056
+                                                    br
+                                                font(color='#8d8d8d')
+                                                    br
+                                                    a(href='http://nanproperties.com/' style='color:#1155cc' target='_blank' data-saferedirecturl='https://www.google.com/url?q=http://nanproperties.com/&source=gmail&ust=1551449162934000&usg=AFQjCNHt6vQIQhW7C9w8FJOnLajD_LDl0Q')
+                                                        font(color='#F16624') nanproperties.com
+                                        tr
+                                            td(style='margin-top:5px')
+                                                a(href='http://www.facebook.com/nanandcompanyproperties/' style='color:#1155cc' target='_blank' data-saferedirecturl='https://www.google.com/url?q=http://www.facebook.com/nanandcompanyproperties/&source=gmail&ust=1551449162934000&usg=AFQjCNFWDpjvkE8Z4j180ryQzmlNrnkY6Q')
+                                                    font(color='#1155cc')
+                                                        img.CToWUd(width='16' height='16' src='https://ci5.googleusercontent.com/proxy/Dp7f8rr_8Ld8v3goLNf3DYcH0hOiy4631GYS9LsLfok3a9KnSCFZ49AZQlDTETHbDXHkG-VCg4Sq6fuQrQTM4m2_QOZ4uJ-xch6LzTbLO9clYQf2WOQ=s0-d-e1-ft#https://s3.amazonaws.com/images.wisestamp.com/icons_32/facebook.png' style='border-radius:0px;border:0px;width:16px;height:16px')
+                                                a(href='http://www.linkedin.com/company/3961833?trk=tyah&trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A3961833%2Cidx%3A1-1-1%2CtarId%3A1480977656088%2Ctas%3A%20nan%20and%20com' style='color:#1155cc' target='_blank' data-saferedirecturl='https://www.google.com/url?q=http://www.linkedin.com/company/3961833?trk%3Dtyah%26trkInfo%3DclickedVertical%253Acompany%252CclickedEntityId%253A3961833%252Cidx%253A1-1-1%252CtarId%253A1480977656088%252Ctas%253A%2520nan%2520and%2520com&source=gmail&ust=1551449162934000&usg=AFQjCNFApm433yMUhml0jFJY5H2LXem6uQ')
+                                                    img.CToWUd(width='16' height='16' src='https://ci4.googleusercontent.com/proxy/0ibLimFTH_7YQ5uEUq_efD8fLVCbQS1gqqg99-axoCFqqkl6i57PIxCsk1SCBx2LJ9kJ6cAYib-qb1BlG40apJSL2vLDb-A0KnEG_A2WFqCrfo3NP-Q=s0-d-e1-ft#https://s3.amazonaws.com/images.wisestamp.com/icons_32/linkedin.png' style='border-radius:0px;border:0px;width:16px;height:16px')
+                                                a(href='http://twitter.com/nanproperties' style='color:#1155cc' target='_blank' data-saferedirecturl='https://www.google.com/url?q=http://twitter.com/nanproperties&source=gmail&ust=1551449162934000&usg=AFQjCNFJXLvAVu79J9EC5oG7Ec8r2oKcrA')
+                                                    img.CToWUd(width='16' height='16' src='https://ci5.googleusercontent.com/proxy/uuNTpGDbsTi0fZ7xN8_x4eZQzyj-EMkA8U43ZxwLp0adjLaL8mpAF3o2IAlS1VHVeZOsIqT7JzxC5g59MdSUcfK8T5rAIyc209Fkxui3tGzuun0UaA=s0-d-e1-ft#https://s3.amazonaws.com/images.wisestamp.com/icons_32/twitter.png' style='border-radius:0px;border:0px;width:16px;height:16px')
+                                                a(href='http://instagram.com/nanproperties' style='color:#1155cc' target='_blank' data-saferedirecturl='https://www.google.com/url?q=http://instagram.com/nanproperties&source=gmail&ust=1551449162934000&usg=AFQjCNHKQNcmI6rSfvukpXKHvF0WKjVpug')
+                                                    img.CToWUd(width='16' height='16' src='https://ci6.googleusercontent.com/proxy/x3MKPm-otmLDpyv8LP37CGeBLonWkVMsuthjLiIHwGLOK4Z74aChak3EL2zvwBUemDqZfxEuHKLTmSF6aGx4cHel76Cq6GuwoEW3DDFBc-8peDRPj_rm=s0-d-e1-ft#https://s3.amazonaws.com/images.wisestamp.com/icons_32/instagram.png' style='border-radius:0px;border:0px;width:16px;height:16px')
+                                                a(href='https://www.youtube.com/channel/UCy_Lo0gLaK3AdAwi-nuUjDg' style='color:#1155cc' target='_blank' data-saferedirecturl='https://www.google.com/url?q=https://www.youtube.com/channel/UCy_Lo0gLaK3AdAwi-nuUjDg&source=gmail&ust=1551449162934000&usg=AFQjCNEt2kdAkFAuu6VktPgZvDMzoKO_0w')
+                                                    img.CToWUd(width='16' height='16' src='https://drive.google.com/uc?export=view&id=19zR3c-pmU3DdAqTMdxuG43rOx66qDS4X')
+                                                br
+                                                br
+
+    section#mobile-apps
+        .section-title
+            h2 Mobile Apps
+            p If you use email on your smartphone, use these templates for your device.
+        .section-container
+            .mobile-android-422
+            .mobile-android-444
+            .mobile-blackberry
+            .mobile-gmail-android
+            .mobile-gmail-ios
+            .mobile-gmail-ios
+            .mobile-google-inbox-android
+            .mobile-google-inbox-ios
+            .mobile-ios-10
+            .mobile-ios-11
+            .mobile-outlook-android
+            .mobile-outlook-ios
+            .mobile-sparrow
+            .mobile-windows-phone-8
+            
+            
+
+    

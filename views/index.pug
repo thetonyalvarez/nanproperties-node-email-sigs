@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1= title
+  .class1
+    .email1
+        each item in items
+          div Agent Name: !{item["displayName"]}
+          br

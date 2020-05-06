@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  .class1
+    .email1
+        each item in items
+          div Agent Name: !{item["Please enter your Name"]}
+          div Title: !{item["Please enter your Title"]}
+          div Cell Phone: !{item["Please enter your cell phone number"]}
+          div License Number: !{item["IABS"]}
+          br

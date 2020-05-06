@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  .agentList-container
+    each item in items
+      .agentList-item
+        a(href="/agents/" + item["userName"]) !{item["displayName"]}
