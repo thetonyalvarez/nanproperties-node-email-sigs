@@ -1,92 +1,92 @@
-ID,Timestamp,firstName,lastName,userName,displayName,title,cell,licenseNumber
-1,12/9/2019 13:07:44,Abby,Jones,abby-jones,Abby Jones,Realtor Associate,9798200168,655352
-2,4/17/2019 9:17:58,Adriana,Alaniz,adriana-alaniz,Adriana Alaniz,Realtor Associate,7138191924,718585
-3,3/13/2019 16:23:46,Alexis,Weiner,alexis-weiner,Alexis Paige Weiner,Realtor Associate,7134431042,643246
-4,3/18/2019 9:39:27,Alexsa,Velez,alexsa-velez,Alexsa Velez,Realtor Associate,8328580066,717285
-5,11/20/2019 14:50:07,Anastasia,Gaido,anastasia-gaido,Anastasia Gaido,Realtor Associate,8087658765,699791
-6,4/5/2019 23:48:22,Carlos,Veyna,carlos-veyna,Carlos Veyna,Realtor Associate,2812533147,649796
-7,7/3/2019 10:52:56,Ce'Mon,Johnson,ce'mon-johnson,Ce'Mon Johnson,Realtor Associate,3467795793,669468
-8,5/13/2019 14:44:40,Daniel,Rodriguez,daniel-rodriguez,Daniel Rodriguez,Realtor Associate,8326461649,720654
-9,12/12/2019 15:16:02,Demi,Campion,demi-campion,Demi Campion,Realtor Associate,2819350551,649145
-10,3/14/2019 9:09:41,Derrick,Barrera,derrick-barrera,Derrick Barrera,Realtor Associate,3464016001,717962
-11,3/14/2019 11:28:14,Despina,Scrutchin,despina-scrutchin,Despina Scrutchin,Realtor Associate,7132026444,610483
-12,10/31/2019 19:17:45,Erika,Eros,erika-eros,Erika Eros,Realtor Associate,8322321489,524675
-13,11/13/2019 16:09:24,Eunice,Kim,eunice-kim,Eunice Kim,Realtor Associate,7134560870,725518
-14,5/21/2019 13:29:07,Gabrielle,Strout,gabrielle-strout,Gabrielle Strout,Realtor Associate,2814353729,
-15,3/21/2019 13:13:27,Heather,Mountain,heather-mountain,Heather Mountain,Broker Associate,7132031099,509338
-16,7/1/2019 13:35:00,Ivanna,Montenegro,ivanna-montenegro,Ivanna Montenegro,Realtor Associate,8322328191,
-17,7/10/2019 14:59:34,Jessica,DeMuth,jessica-demuth,Jessica DeMuth,Realtor Associate,7135041101,683396
-18,3/14/2019 9:26:55,Jessica,Dodson,jessica-dodson,Jessica Dodson,Realtor Associate,8322153689,681911
-19,3/13/2019 13:42:53,Jimmy,Bhavsar,jimmy-bhavsar,Jimmy Bhavsar,Team Administrator,8327324645,n/a
-20,5/22/2019 16:51:23,Kelly,Finnerman,kelly-finnerman,Kelly Finnerman,Realtor Associate,2816874159,716529
-21,4/8/2019 10:33:33,Kristi,Delafuente,kristi-delafuente,Kristi Delafuente,Realtor Associate,7133054490,698505
-22,12/5/2019 11:26:30,Liliana,Rostro,liliana-rostro,Liliana Rostro,Realtor Associate,8328071522,724450
-23,3/18/2019 18:53:12,Loan,Hoang,loan-hoang,Loan Hoang,Realtor Associate,8323643629,717039
-24,5/21/2019 13:42:28,Luanne,Marshall,luanne-marshall,Luanne Marshall,Realtor Associate,8324190685,542682
-25,11/15/2019 11:26:46,Maria,Torres,maria-torres,Maria Torres,Realtor Associate,8327822826,632180
-26,4/5/2019 16:40:38,Mariela,Perez,mariela-perez,Mariela Perez,Realtor Associate,7135307327,672445
-27,3/3/2019 13:54:42,Maritza,Canenguez-Botsford,maritza-canenguez-botsford,Maritza Canenguez-Botsford,Realtor Associate,8322487303,582290
-28,4/3/2019 10:07:21,Mary,Ellett,mary-ellett,Mary Ellett,Realtor Associate,8322770240,?
-29,1/5/2020 22:30:58,Nicole,Sabbagh,nicole-sabbagh,Nicole Sabbagh,Realtor Associate,7132318996,
-30,3/13/2019 13:30:38,Octavia,Jennings,octavia-jennings,"Octavia Jennings, MBA",Realtor Associate,8323201078,699572
-31,7/17/2019 11:16:06,Paloma,Uranga,paloma-uranga,Paloma Uranga,Realtor Associate,3462475549,723839
-32,12/9/2019 15:17:19,Rebecca,Torres,rebecca-torres,Rebecca Torres,Realtor Associate,8327665246,686003
-33,4/5/2019 10:19:48,Roula,Gerguis,roula-gerguis,Roula Gerguis,Realtor Associate,7134449041,624361
-34,4/23/2019 22:27:53,Saira,Alvarez,saira-alvarez,Saira Alvarez,Realtor Associate,8329070735,672547
-35,3/26/2019 13:07:21,Sarah,Przybyla,sarah-przybyla,Sarah Przybyla,Realtor Associate,7135042394,717295
-36,12/30/2019 8:37:45,Sarita,Castorena,sarita-castorena,Sarita Castorena,Assistant,7138511455,678022
-37,5/13/2019 13:56:24,Sydney,Suarezz,sydney-suarezz,Sydney Suarezz,Client Relations,8326580513,n/a
-38,8/6/2019 11:17:40,Tabbetha,Lopez,tabbetha-lopez,Tabbetha Lopez,Realtor Associate,7135161382,725595
-39,2/28/2019 15:01:08,Test,,test-,Test,Realtor Associate,28155555555,
-40,7/15/2019 13:25:28,Trey,,trey-,Trey,Realtor Associate,8325745308,722117
-41,8/6/2019 12:23:11,Trey,Elliott,trey-elliott,Trey Elliott,Realtor Associate,8325745308,722117
-42,3/13/2019 13:30:54,Tyson,Cline,tyson-cline,"Tyson H. Cline, MBA, ALHS, CHMS, TRLP",Realtor Associate,8323201093,651858
-43,10/22/2019 10:02:54,Victoria,,victoria-,Victoria,Realtor Associate,7138701625,728946
-44,2/28/2019 15:55:14,Vidalia,Martinez,vidalia-martinez,Vidalia Martinez,Realtor Associate,8326751758,
-45,7/19/2019 14:35:31,Vivian,Nguyen,vivian-nguyen,Vivian Nguyen,Realtor Associate,18322354551,
-46,1/9/2020 22:35:58,Leyanis,Hernandez,leyanis-hernandez,Leyanis Hernandez,Realtor Associate,8323294824,729777
-47,1/10/2020 11:11:59,Stephanie,Liu,stephanie-liu,Stephanie Liu,Realtor Associate,8322832912,709484
-48,1/10/2020 12:27:11,Vanessa,Thompson,vanessa-thompson,Vanessa Thompson,Realtor Associate,8328831956,667440
-49,1/13/2020 10:28:58,Samantha,Houtchens,samantha-houtchens,Samantha Houtchens,Content Writer/ Marketing Assistant ,5132122954,N/A
-50,1/13/2020 10:47:56,Nyree,Faleski,nyree-faleski,Nyree Faleski,Realtor Associate,8324960148,58898
-51,1/15/2020 18:21:16,Rachael,Farnaby,rachael-farnaby,Rachael Farnaby,Realtor Associate,8323967331,732986
-52,1/16/2020 8:57:11,Thalina,Garcia,thalina-garcia,Thalina Garcia,Realtor Associate,7134449046,641210
-53,1/16/2020 9:03:04,Elise,Niefield,elise-niefield,Elise Niefield,Realtor Associate,7132981623,619938
-54,1/16/2020 10:07:35,Dina,Arrington,dina-arrington,Dina Arrington,Realtor Associate,8322447472,685132
-55,1/16/2020 12:06:25,Ashley,Heacock,ashley-heacock,Ashley Heacock,Realtor Associate,8325666091,703780%22
-56,1/16/2020 16:17:44,Daniel,Nalbandian,daniel-nalbandian,Daniel Nalbandian,Realtor Associate,8326618932,732236
-57,1/19/2020 15:52:47,Nikki,Hohman,nikki-hohman,Nikki Hohman,Realtor Associate,8326223149,661037
-58,1/21/2020 13:54:26,Bob,Jones,bob-jones,Bob Jones,Realtor Associate,7138761990,561650
-59,1/22/2020 10:26:33,Erica,Capistran,erica-capistran,Erica Capistran,Realtor Associate,7138597550,638858
-60,1/22/2020 10:28:31,Ashley,Alonzo,ashley-alonzo,Ashley Alonzo,Realtor Associate,4692370850,708914
-61,1/22/2020 10:34:43,Andrew,Lin,andrew-lin,Andrew Lin,Realtor Associate,7136533455,653842
-62,1/22/2020 10:49:32,Betty,Enriquez,betty-enriquez,Betty Enriquez,Realtor Associate,8323189102,699166
-63,1/23/2020 9:09:11,Natalite,Garza,natalite-garza,Natalite Garza,Realtor Associate,7133448764,678022
-64,1/24/2020 10:07:40,Miriam,Garcia,miriam-garcia,Miriam Garcia,Realtor Associate,8324201644,675894
-65,1/24/2020 20:17:13,Vanessa,Burban,vanessa-burban,Vanessa Burban,Realtor Associate,8324724101,
-66,1/27/2020 11:17:45,Jill,Falbey,jill-falbey,Jill Falbey,Realtor Associate,7132997626,713165
-67,1/28/2020 11:39:58,Carlos,Rodriguez,carlos-rodriguez,Carlos Rodriguez,Realtor Associate,8326921200,444166
-68,1/28/2020 15:12:44,Alma,Watts,alma-watts,Alma Watts,Realtor Associate,7134744212,
-69,1/29/2020 16:39:59,Greg,Cassity,greg-cassity,Greg Cassity,Realtor Associate,8327734262,No
-70,1/30/2020 10:42:23,Martina,Shirey,martina-shirey,Martina Shirey,Realtor Associate,8326032084,613236
-71,1/30/2020 11:48:53,Irma,Higuera,irma-higuera,Irma Higuera,Realtor Associate,2819235931,587564
-72,1/30/2020 21:20:45,Stephanie,Coronado,stephanie-coronado,Stephanie Coronado,Realtor Associate,2817043727,544111
-73,2/5/2020 11:20:30,Marissa,Hopkins,marissa-hopkins,Marissa Hopkins,Realtor Associate,8322535057,529794
-74,2/5/2020 12:01:08,Amanda,Escamilla,amanda-escamilla,Amanda Escamilla,Realtor Associate,2818328820,671221
-75,2/10/2020 9:33:19,Kelsey,Sledge,kelsey-sledge,Kelsey Sledge,Realtor Associate,2816589209,
-76,2/12/2020 15:08:26,Tatiana,Micolta,tatiana-micolta,Tatiana Micolta,Realtor Associate,8324528573,652148
-77,2/12/2020 19:35:05,Kimberly,Morgan,kimberly-morgan,Kimberly Morgan,Realtor Associate,2817481856,529794
-78,2/17/2020 11:10:40,Angela,Ford,angela-ford,Angela Ford,Realtor Associate,4243336632,701437
-79,2/19/2020 18:57:29,Erika,Cruz,erika-cruz,Erika Cruz,Realtor Associate,8328083218,
-80,2/21/2020 10:36:32,Thomas,Eureste,thomas-eureste,Thomas Eureste,Realtor Associate,8328663208,675453
-81,2/21/2020 11:23:36,Saira,Vehra,saira-vehra,Saira Vehra,Realtor Associate,8324542210,test
-82,3/3/2020 15:59:04,sai,vehra,sai-vehra,sai vehra,Realtor Associate,8324542210,test
-83,3/3/2020 16:20:58,Leah,Christman,leah-christman,Leah Oliver Christman,Realtor Associate,8324442669,644504
-84,3/4/2020 9:15:04,Jose,Sanchez,jose-sanchez,Jose E Sanchez,Realtor Associate,8325387025,691845
-85,3/4/2020 13:14:47,Tamika,Lamark,tamika-lamark,Tamika Lamark,Realtor Associate,8328910383,590663
-86,3/4/2020 16:21:24,Tiy,Jones,tiy-jones,Tiy Jones,Realtor Associate,8328574979,714702
-87,3/4/2020 21:36:26,Kye,Sampson,kye-sampson,Kye Sampson,Realtor Associate,7133649795,
-88,3/10/2020 16:27:54,Deborah,McGuire,deborah-mcguire,Deborah McGuire,Realtor Associate,2817726920,688125
-89,3/11/2020 16:00:58,Meaghan,Maier,meaghan-maier,Meaghan Maier,Realtor Associate,2819439588,734393
-90,3/16/2020 0:02:58,Blanca,Ramirez,blanca-ramirez,Blanca Ramirez,Realtor Associate,8324393136,674256
-91,3/18/2020 14:59:58,Gris,Marchon,gris-marchon,Gris Marchon,Realtor Associate,7138288256,496235
+ID,Timestamp,firstName,lastName,userName,displayName,title,cell,licenseNumber,topProducer,CIRELuxurySpecialist
+1,12/9/2019 13:07:44,Abby,Jones,abby-jones,Abby Jones,Realtor Associate,9798200168,655352,,
+2,4/17/2019 9:17:58,Adriana,Alaniz,adriana-alaniz,Adriana Alaniz,Realtor Associate,7138191924,718585,,
+3,3/13/2019 16:23:46,Alexis,Weiner,alexis-weiner,Alexis Paige Weiner,Realtor Associate,7134431042,643246,,
+4,3/18/2019 9:39:27,Alexsa,Velez,alexsa-velez,Alexsa Velez,Realtor Associate,8328580066,717285,,
+5,11/20/2019 14:50:07,Anastasia,Gaido,anastasia-gaido,Anastasia Gaido,Realtor Associate,8087658765,699791,,
+6,4/5/2019 23:48:22,Carlos,Veyna,carlos-veyna,Carlos Veyna,Realtor Associate,2812533147,649796,,
+7,7/3/2019 10:52:56,Ce'Mon,Johnson,ce'mon-johnson,Ce'Mon Johnson,Realtor Associate,3467795793,669468,,
+8,5/13/2019 14:44:40,Daniel,Rodriguez,daniel-rodriguez,Daniel Rodriguez,Realtor Associate,8326461649,720654,,
+9,12/12/2019 15:16:02,Demi,Campion,demi-campion,Demi Campion,Realtor Associate,2819350551,649145,,
+10,3/14/2019 9:09:41,Derrick,Barrera,derrick-barrera,Derrick Barrera,Realtor Associate,3464016001,717962,,
+11,3/14/2019 11:28:14,Despina,Scrutchin,despina-scrutchin,Despina Scrutchin,Realtor Associate,7132026444,610483,,
+12,10/31/2019 19:17:45,Erika,Eros,erika-eros,Erika Eros,Realtor Associate,8322321489,524675,,
+13,11/13/2019 16:09:24,Eunice,Kim,eunice-kim,Eunice Kim,Realtor Associate,7134560870,725518,,
+14,5/21/2019 13:29:07,Gabrielle,Strout,gabrielle-strout,Gabrielle Strout,Realtor Associate,2814353729,,,
+15,3/21/2019 13:13:27,Heather,Mountain,heather-mountain,Heather Mountain,Broker Associate,7132031099,509338,,
+16,7/1/2019 13:35:00,Ivanna,Montenegro,ivanna-montenegro,Ivanna Montenegro,Realtor Associate,8322328191,,,
+17,7/10/2019 14:59:34,Jessica,DeMuth,jessica-demuth,Jessica DeMuth,Realtor Associate,7135041101,683396,,
+18,3/14/2019 9:26:55,Jessica,Dodson,jessica-dodson,Jessica Dodson,Realtor Associate,8322153689,681911,,
+19,3/13/2019 13:42:53,Jimmy,Bhavsar,jimmy-bhavsar,Jimmy Bhavsar,Team Administrator,8327324645,n/a,,
+20,5/22/2019 16:51:23,Kelly,Finnerman,kelly-finnerman,Kelly Finnerman,Realtor Associate,2816874159,716529,,
+21,4/8/2019 10:33:33,Kristi,Delafuente,kristi-delafuente,Kristi Delafuente,Realtor Associate,7133054490,698505,,
+22,12/5/2019 11:26:30,Liliana,Rostro,liliana-rostro,Liliana Rostro,Realtor Associate,8328071522,724450,,
+23,3/18/2019 18:53:12,Loan,Hoang,loan-hoang,Loan Hoang,Realtor Associate,8323643629,717039,,
+24,5/21/2019 13:42:28,Luanne,Marshall,luanne-marshall,Luanne Marshall,Realtor Associate,8324190685,542682,,Yes
+25,11/15/2019 11:26:46,Maria,Torres,maria-torres,Maria Torres,Realtor Associate,8327822826,632180,,
+26,4/5/2019 16:40:38,Mariela,Perez,mariela-perez,Mariela Perez,Realtor Associate,7135307327,672445,,
+27,3/3/2019 13:54:42,Maritza,Canenguez-Botsford,maritza-canenguez-botsford,Maritza Canenguez-Botsford,Realtor Associate,8322487303,582290,,
+28,4/3/2019 10:07:21,Mary,Ellett,mary-ellett,Mary Ellett,Realtor Associate,8322770240,?,,
+29,1/5/2020 22:30:58,Nicole,Sabbagh,nicole-sabbagh,Nicole Sabbagh,Realtor Associate,7132318996,,,
+30,3/13/2019 13:30:38,Octavia,Jennings,octavia-jennings,"Octavia Jennings, MBA",Realtor Associate,8323201078,699572,,
+31,7/17/2019 11:16:06,Paloma,Uranga,paloma-uranga,Paloma Uranga,Realtor Associate,3462475549,723839,,
+32,12/9/2019 15:17:19,Rebecca,Torres,rebecca-torres,Rebecca Torres,Realtor Associate,8327665246,686003,,
+33,4/5/2019 10:19:48,Roula,Gerguis,roula-gerguis,Roula Gerguis,Realtor Associate,7134449041,624361,,
+34,4/23/2019 22:27:53,Saira,Alvarez,saira-alvarez,Saira Alvarez,Realtor Associate,8329070735,672547,,
+35,3/26/2019 13:07:21,Sarah,Przybyla,sarah-przybyla,Sarah Przybyla,Realtor Associate,7135042394,717295,,
+36,12/30/2019 8:37:45,Sarita,Castorena,sarita-castorena,Sarita Castorena,Assistant,7138511455,678022,,
+37,5/13/2019 13:56:24,Sydney,Suarezz,sydney-suarezz,Sydney Suarezz,Client Relations,8326580513,n/a,,
+38,8/6/2019 11:17:40,Tabbetha,Lopez,tabbetha-lopez,Tabbetha Lopez,Realtor Associate,7135161382,725595,,
+39,2/28/2019 15:01:08,Test,,test-,Test,Realtor Associate,28155555555,,,
+40,7/15/2019 13:25:28,Trey,,trey-,Trey,Realtor Associate,8325745308,722117,,
+41,8/6/2019 12:23:11,Trey,Elliott,trey-elliott,Trey Elliott,Realtor Associate,8325745308,722117,,
+42,3/13/2019 13:30:54,Tyson,Cline,tyson-cline,"Tyson H. Cline, MBA, ALHS, CHMS, TRLP",Realtor Associate,8323201093,651858,,
+43,10/22/2019 10:02:54,Victoria,,victoria-,Victoria,Realtor Associate,7138701625,728946,,
+44,2/28/2019 15:55:14,Vidalia,Martinez,vidalia-martinez,Vidalia Martinez,Realtor Associate,8326751758,,,
+45,7/19/2019 14:35:31,Vivian,Nguyen,vivian-nguyen,Vivian Nguyen,Realtor Associate,18322354551,,,
+46,1/9/2020 22:35:58,Leyanis,Hernandez,leyanis-hernandez,Leyanis Hernandez,Realtor Associate,8323294824,729777,,
+47,1/10/2020 11:11:59,Stephanie,Liu,stephanie-liu,Stephanie Liu,Realtor Associate,8322832912,709484,,
+48,1/10/2020 12:27:11,Vanessa,Thompson,vanessa-thompson,Vanessa Thompson,Realtor Associate,8328831956,667440,,
+49,1/13/2020 10:28:58,Samantha,Houtchens,samantha-houtchens,Samantha Houtchens,Content Writer/ Marketing Assistant ,5132122954,N/A,,
+50,1/13/2020 10:47:56,Nyree,Faleski,nyree-faleski,Nyree Faleski,Realtor Associate,8324960148,58898,,
+51,1/15/2020 18:21:16,Rachael,Farnaby,rachael-farnaby,Rachael Farnaby,Realtor Associate,8323967331,732986,,
+52,1/16/2020 8:57:11,Thalina,Garcia,thalina-garcia,Thalina Garcia,Realtor Associate,7134449046,641210,,
+53,1/16/2020 9:03:04,Elise,Niefield,elise-niefield,Elise Niefield,Realtor Associate,7132981623,619938,,
+54,1/16/2020 10:07:35,Dina,Arrington,dina-arrington,Dina Arrington,Realtor Associate,8322447472,685132,,
+55,1/16/2020 12:06:25,Ashley,Heacock,ashley-heacock,Ashley Heacock,Realtor Associate,8325666091,703780%22,,
+56,1/16/2020 16:17:44,Daniel,Nalbandian,daniel-nalbandian,Daniel Nalbandian,Realtor Associate,8326618932,732236,,
+57,1/19/2020 15:52:47,Nikki,Hohman,nikki-hohman,Nikki Hohman,Realtor Associate,8326223149,661037,,
+58,1/21/2020 13:54:26,Bob,Jones,bob-jones,Bob Jones,Realtor Associate,7138761990,561650,,
+59,1/22/2020 10:26:33,Erica,Capistran,erica-capistran,Erica Capistran,Realtor Associate,7138597550,638858,,
+60,1/22/2020 10:28:31,Ashley,Alonzo,ashley-alonzo,Ashley Alonzo,Realtor Associate,4692370850,708914,,
+61,1/22/2020 10:34:43,Andrew,Lin,andrew-lin,Andrew Lin,Realtor Associate,7136533455,653842,,
+62,1/22/2020 10:49:32,Betty,Enriquez,betty-enriquez,Betty Enriquez,Realtor Associate,8323189102,699166,,
+63,1/23/2020 9:09:11,Natalite,Garza,natalite-garza,Natalite Garza,Realtor Associate,7133448764,678022,,
+64,1/24/2020 10:07:40,Miriam,Garcia,miriam-garcia,Miriam Garcia,Realtor Associate,8324201644,675894,,
+65,1/24/2020 20:17:13,Vanessa,Burban,vanessa-burban,Vanessa Burban,Realtor Associate,8324724101,,,
+66,1/27/2020 11:17:45,Jill,Falbey,jill-falbey,Jill Falbey,Realtor Associate,7132997626,713165,,
+67,1/28/2020 11:39:58,Carlos,Rodriguez,carlos-rodriguez,Carlos Rodriguez,Realtor Associate,8326921200,444166,,
+68,1/28/2020 15:12:44,Alma,Watts,alma-watts,Alma Watts,Realtor Associate,7134744212,,,
+69,1/29/2020 16:39:59,Greg,Cassity,greg-cassity,Greg Cassity,Realtor Associate,8327734262,No,,
+70,1/30/2020 10:42:23,Martina,Shirey,martina-shirey,Martina Shirey,Realtor Associate,8326032084,613236,,
+71,1/30/2020 11:48:53,Irma,Higuera,irma-higuera,Irma Higuera,Realtor Associate,2819235931,587564,,
+72,1/30/2020 21:20:45,Stephanie,Coronado,stephanie-coronado,Stephanie Coronado,Realtor Associate,2817043727,544111,,
+73,2/5/2020 11:20:30,Marissa,Hopkins,marissa-hopkins,Marissa Hopkins,Realtor Associate,8322535057,529794,,
+74,2/5/2020 12:01:08,Amanda,Escamilla,amanda-escamilla,Amanda Escamilla,Realtor Associate,2818328820,671221,,
+75,2/10/2020 9:33:19,Kelsey,Sledge,kelsey-sledge,Kelsey Sledge,Realtor Associate,2816589209,,,
+76,2/12/2020 15:08:26,Tatiana,Micolta,tatiana-micolta,Tatiana Micolta,Realtor Associate,8324528573,652148,,
+77,2/12/2020 19:35:05,Kimberly,Morgan,kimberly-morgan,Kimberly Morgan,Realtor Associate,2817481856,529794,,
+78,2/17/2020 11:10:40,Angela,Ford,angela-ford,Angela Ford,Realtor Associate,4243336632,701437,,
+79,2/19/2020 18:57:29,Erika,Cruz,erika-cruz,Erika Cruz,Realtor Associate,8328083218,,,
+80,2/21/2020 10:36:32,Thomas,Eureste,thomas-eureste,Thomas Eureste,Realtor Associate,8328663208,675453,,
+81,2/21/2020 11:23:36,Saira,Vehra,saira-vehra,Saira Vehra,Realtor Associate,8324542210,test,,
+82,3/3/2020 15:59:04,sai,vehra,sai-vehra,sai vehra,Realtor Associate,8324542210,test,,
+83,3/3/2020 16:20:58,Leah,Christman,leah-christman,Leah Oliver Christman,Realtor Associate,8324442669,644504,,
+84,3/4/2020 9:15:04,Jose,Sanchez,jose-sanchez,Jose E Sanchez,Realtor Associate,8325387025,691845,,
+85,3/4/2020 13:14:47,Tamika,Lamark,tamika-lamark,Tamika Lamark,Realtor Associate,8328910383,590663,,
+86,3/4/2020 16:21:24,Tiy,Jones,tiy-jones,Tiy Jones,Realtor Associate,8328574979,714702,,
+87,3/4/2020 21:36:26,Kye,Sampson,kye-sampson,Kye Sampson,Realtor Associate,7133649795,,,
+88,3/10/2020 16:27:54,Deborah,McGuire,deborah-mcguire,Deborah McGuire,Realtor Associate,2817726920,688125,,
+89,3/11/2020 16:00:58,Meaghan,Maier,meaghan-maier,Meaghan Maier,Realtor Associate,2819439588,734393,,
+90,3/16/2020 0:02:58,Blanca,Ramirez,blanca-ramirez,Blanca Ramirez,Realtor Associate,8324393136,674256,,
+91,3/18/2020 14:59:58,Gris,Marchon,gris-marchon,Gris Marchon,Realtor Associate,7138288256,496235,,
