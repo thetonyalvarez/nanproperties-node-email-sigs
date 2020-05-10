@@ -1,0 +1,41 @@
+.development
+    .development__img-container
+        if (!n.listingUrl)
+            img.development__img-container--img(alt=n.listingAddress src=n.listingImage)
+        else
+            a(href=n.listingUrl)
+                img.development__img-container--img(alt=n.listingAddress src=n.listingImage)
+    .development__info
+        p.development__info--area
+            != n.listingAddress
+        h3.development__info--development
+            != n.listingTitle
+        h4.development__info--builder
+            != n.listingBuilderName
+        p.development__info--description
+            if (n.listingDescription !== '')
+                != n.listingDescription.substr(0,250) + '...'
+            else
+                | More information about this development coming soon.
+        if (n.listingUrl !== '')
+            a.development__info--link(href=n.listingUrl)
+                | More Information
+        else
+
+    //- - console.log(n.otherListingURL ? n.otherListingURL : NULL)
+//-
+    - const metascraper = require('metascraper')([
+        - require('metascraper-image')()
+    - ])
+
+    - const got = require('got')
+
+    - const targetUrl = (n.otherListingURL ? n.otherListingURL : NULL)
+
+    - ;(async () => {
+    -     const { body: html, url } = await got(targetUrl)
+    -     const metadata = await metascraper({ html, url })
+    -     console.log(metadata)
+    - })()
+
+    - console.log(targetUrl)

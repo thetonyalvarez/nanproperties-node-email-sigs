@@ -1,0 +1,296 @@
+style(type='text/css').
+    :root {
+        --orange: #f16624;
+        --light-gray: #a3aaad;
+        --gray: #7c7d7d;
+        --dark-gray: #434647;
+        --default-font: sans-serif, arial, 'Helvetica Neue', Helvetica, 'Lucida Grande';
+        --bb: 1px solid black;
+        --font2: georgia, serif;
+        --font3: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+        --font4: Compass Sans, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+        font-family: var(--default-font);
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    p {
+        color: var(--light-gray);
+        text-align: justify;
+        font-size: 17px;
+        font-family: var(--font4);
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    a h3 {
+        font-size: 15px;
+    }
+
+    li {
+        list-style: none;
+        color: var(--light-gray);
+    }
+
+    h2 {
+        font-family: var(--font3);
+        color: var(--dark-gray);
+    }
+
+    h3 {
+        font-family: var(--font2);
+        color: var(--orange) !important;
+    }
+
+    main {
+        display: grid;
+        grid-template-columns: 7fr 3fr;
+        grid-row-gap: 15px;
+        grid-column-gap: 30px;
+        grid-template-areas: 'main info''main inquiry''main feature''main media''main .''title .';
+    }
+
+    @media screen and (max-width: 1000px) {
+        main {
+            grid-template-columns: 1fr;
+            grid-template-areas: 'main''main''title ''feature''media''info''inquiry';
+        }
+        #carousel {
+            max-width: 700px !important;
+        }
+        .slick-slide h2 {
+            font-size: 10px !important;
+        }
+        .slick-slide h3 {
+            font-size: 15px;
+        }
+        .slider-nav {
+            width: 30%;
+        }
+        .subtitle h2 {
+            font-size: 20px !important;
+        }
+        .subtitle h3 {
+            font-size: 25px !important;
+        }
+        #feature_title {
+            font-size: 1em !important;
+            text-align: left !important;
+        }
+        .propertyElement {
+            margin-left: 0 !important;
+        }
+        .propertyElement>span {
+            font-size: 1em !important;
+        }
+        iframe {
+            width: 100%;
+        }
+        div>p {
+            font-size: 16px !important;
+        }
+    }
+
+    @media screen and (max-width: 450px) {
+        .subtitle h2 {
+            font-size: 15px !important;
+        }
+        .subtitle h3 {
+            font-size: 22px !important;
+        }
+        #feature_title {
+            font-size: 0.9em !important;
+        }
+        .propertyElement>span {
+            font-size: 0.9em !important;
+        }
+        div>p {
+            font-size: 14px !important;
+        }
+        .modal-close {
+            right: 3% !important;
+        }
+        .slick-dots {
+            margin-left: 10% !important;
+        }
+    }
+
+    @media screen and (max-width: 350px) {
+        #carousel {
+            max-width: 280px !important;
+        }
+        iframe,
+        button {
+            width: 280px
+        }
+        .slick-dots {
+            margin-left: 0 !important;
+        }
+    }
+
+    #carousel {
+        grid-area: main;
+    }
+
+    .agent_info {
+        grid-area: info;
+        display: flex;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+    }
+
+    .description {
+        color: var(--light-gray);
+        text-align: justify;
+        font-size: 17px;
+        font-family: var(--font4);
+    }
+
+    .contact {
+        height: 50px;
+        grid-area: inquiry;
+        background-color: var(--orange);
+        cursor: pointer;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .property_features {
+        grid-area: feature;
+    }
+
+    #feature_title {
+        color: var(--dark-gray);
+        margin: 0 0 0.5vw 0;
+        text-align: center;
+        font-size: 1.2em;
+        font-weight: bold !important;
+        font-family: var(--font1);
+        letter-spacing: 2px;
+    }
+
+    .propertyElement {
+        display: flex;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        align-items: center;
+        line-height: 40px;
+        margin: 0.2vw 0 0 0;
+        font-family: var(--font3);
+    }
+
+    .propertyElement img {
+        margin: 0;
+    }
+
+    .propertyElement>span {
+        margin-left: 10px;
+        font-size: 1em;
+        font-family: var(--font3);
+        letter-spacing: 1px;
+    }
+
+    .videomap {
+        grid-area: media;
+        text-align: center;
+    }
+
+    .subtitle {
+        grid-area: title;
+    }
+
+
+    /* ///////////////////// */
+
+
+    /* MODAL */
+
+
+    /* ///////////////////// */
+
+
+    /* ///////////////////// */
+
+    .modal-close {
+        cursor: pointer;
+        position: absolute;
+        z-index: 6;
+        right: 7%;
+        top: 13em;
+        display: none;
+    }
+
+    .modal-container div {
+        margin-top: 14em;
+        text-align: center;
+    }
+
+    .modal-container div img {
+        width: 80%;
+        display: none;
+    }
+
+
+    /* ///////////////////// */
+
+
+    /* SLIDER START HERE */
+
+
+    /* ///////////////////// */
+
+
+    /* ///////////////////// */
+
+
+    /* main nav */
+
+    .slick-slide {
+        margin: 0;
+        padding: 0;
+    }
+
+    .slider-single {
+        cursor: pointer;
+    }
+
+    .slider-single img {
+        width: 100%;
+        object-fit: fill;
+        margin: 0 !important;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+        color: rgba(0, 0, 0, 0.4);
+        top: 20%;
+    }
+
+    .slick-slide img {
+        width: 100%;
+    }
+
+    .slider-nav {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .slider-nav .slick-slide {
+        cursor: pointer;
+        padding: 0;
+        margin: auto 2px;
+        opacity: 1 !important;
+    }
+
+    .slick-dots {
+        margin-left: 30%;
+        text-align: left;
+    }

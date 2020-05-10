@@ -1,10 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-
-
-
-
 // const agentlist     = require("./assets/json/email-list.json"); //(with path)
 
 const csvToJson     = require("csv-file-to-json");

@@ -1,0 +1,32 @@
+extends layout-nan
+
+block content
+    include inline-css/_site-css
+    include inline-css/taxonomy-affiliates-css
+
+
+    .affiliates__content
+        .affiliates__sidebar
+            h3 Select a Region
+            ul
+                each region in regions
+                    li
+                        a(href='#' + region.toLowerCase().replace(/\s/g, '-').replace(/\./g,''))= region    
+        .affiliates__list
+            each region in regions
+                .affiliate__region
+                    .affiliate__region--title(id=region.toLowerCase().replace(/\s/g, '-').replace(/\./g,''))= region
+
+                    each item in items
+                        if (item["Country"] === region)
+                            .affiliate__affiliateOffice
+                                p= item["AffiliateName"]
+                                .affiliate__affiliateOffice--details
+                                    .affiliate__affiliateOffice--col.affiliate__affiliateOffice--col-1
+                                        | #{item.StreetAddress}
+                                        br
+                                        | #{item.Locality}, #{item.Region} #{item.PostalCode}
+                                    .affiliate__affiliateOffice--col.affiliate__affiliateOffice--col-2
+                                        if (item["AffiliateURL"])
+                                            .affiliate__affiliateWebsiteWrapper
+                                                a.affiliate__affiliateWebsiteWrapper--website(href= item["AffiliateURL"] target='_blank') Website

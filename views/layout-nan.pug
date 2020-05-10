@@ -1,0 +1,1157 @@
+doctype transitional
+head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    script.
+        window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"9a08320af4","applicationID":"65946","transactionName":"cw5XERQJXFpTSxpHB1cESkoVDl9B","queueTime":4,"applicationTime":396,"agent":"","atts":"S0NMR1wdEl5ZSkEVXBIWThJICFFYRktaRwNCFVAAFUhTWVsbGRUSWARUAERcEkVDSVBFOUQJXAgDRBwURlhSUjlEGEkARFwSdXtqFWcHVwQbGBs="}
+    script.
+        (window.NREUM||(NREUM={})).loader_config={xpid:"VQQGU1JADgYJUFc=",licenseKey:"9a08320af4",applicationID:"65946"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(25),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,s){try{l?l-=1:o(s||new UncaughtException(t,e,n),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t,e){var n=e?null:c.now();i("err",[t,n])}var i=t("handle"),a=t(26),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,p="nr@seenError",l=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(13),t(12),"addEventListener"in window&&t(6),c.xhrWrappable&&t(14),d=!0)}s.on("fn-start",function(t,e,n){d&&(l+=1)}),s.on("fn-err",function(t,e,n){d&&!n[p]&&(f(n,p,function(){return!0}),this.thrown=!0,o(n))}),s.on("fn-end",function(){d&&!this.thrown&&l>0&&(l-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(){L++,C=g.hash,this[u]=y.now()}function o(){L--,g.hash!==C&&i(0,!0);var t=y.now();this[h]=~~this[h]+t-this[u],this[d]=t}function i(t,e){E.emit("newURL",[""+g,e])}function a(t,e){t.on(e,function(){this[e]=y.now()})}var s="-start",c="-end",f="-body",u="fn"+s,d="fn"+c,p="cb"+s,l="cb"+c,h="jsTime",m="fetch",v="addEventListener",w=window,g=w.location,y=t("loader");if(w[v]&&y.xhrWrappable){var x=t(10),b=t(11),E=t(8),O=t(6),R=t(13),P=t(7),T=t(14),N=t(9),M=t("ee"),S=M.get("tracer");t(16),y.features.spa=!0;var C,L=0;M.on(u,r),M.on(p,r),M.on(d,o),M.on(l,o),M.buffer([u,d,"xhr-done","xhr-resolved"]),O.buffer([u]),R.buffer(["setTimeout"+c,"clearTimeout"+s,u]),T.buffer([u,"new-xhr","send-xhr"+s]),P.buffer([m+s,m+"-done",m+f+s,m+f+c]),E.buffer(["newURL"]),x.buffer([u]),b.buffer(["propagate",p,l,"executor-err","resolve"+s]),S.buffer([u,"no-"+u]),N.buffer(["new-jsonp","cb-start","jsonp-error","jsonp-end"]),a(T,"send-xhr"+s),a(M,"xhr-resolved"),a(M,"xhr-done"),a(P,m+s),a(P,m+"-done"),a(N,"new-jsonp"),a(N,"jsonp-end"),a(N,"cb-start"),E.on("pushState-end",i),E.on("replaceState-end",i),w[v]("hashchange",i,!0),w[v]("load",i,!0),w[v]("popstate",function(){i(0,L>1)},!0)}},{}],5:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(13),s=t(12),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",p="resource",l="-start",h="-end",m="fn"+l,v="fn"+h,w="bstTimer",g="pushState",y=t("loader");y.features.stn=!0,t(8),"addEventListener"in window&&t(6);var x=NREUM.o.EV;o.on(m,function(t,e){var n=t[0];n instanceof x&&(this.bstStart=y.now())}),o.on(v,function(t,e){var n=t[0];n instanceof x&&i("bst",[n,e,this.bstStart,y.now()])}),a.on(m,function(t,e,n){this.bstStart=y.now(),this.bstType=n}),a.on(v,function(t,e){i(w,[e,this.bstStart,y.now(),this.bstType])}),s.on(m,function(){this.bstStart=y.now()}),s.on(v,function(t,e){i(w,[e,this.bstStart,y.now(),"requestAnimationFrame"])}),o.on(g+l,function(t){this.time=y.now(),this.startPath=location.pathname+location.hash}),o.on(g+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(p)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(p)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],6:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t("wrap-function")(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1],r=c(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?s(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],7:[function(t,e,n){function r(t,e,n){var r=t[e];"function"==typeof r&&(t[e]=function(){var t=i(arguments),e={};o.emit(n+"before-start",[t],e);var a;e[m]&&e[m].dt&&(a=e[m].dt);var s=r.apply(this,t);return o.emit(n+"start",[t,a],s),s.then(function(t){return o.emit(n+"end",[null,t],s),t},function(t){throw o.emit(n+"end",[t],s),t})})}var o=t("ee").get("fetch"),i=t(26),a=t(25);e.exports=o;var s=window,c="fetch-",f=c+"body-",u=["arrayBuffer","blob","json","text","formData"],d=s.Request,p=s.Response,l=s.fetch,h="prototype",m="nr@context";d&&p&&l&&(a(u,function(t,e){r(d[h],e,f),r(p[h],e,f)}),r(s,"fetch",c),o.on(c+"end",function(t,e){var n=this;if(e){var r=e.headers.get("content-length");null!==r&&(n.rxSize=r),o.emit(c+"done",[null,e],n)}else o.emit(c+"done",[t],n)}))},{}],8:[function(t,e,n){var r=t("ee").get("history"),o=t("wrap-function")(r);e.exports=r;var i=window.history&&window.history.constructor&&window.history.constructor.prototype,a=window.history;i&&i.pushState&&i.replaceState&&(a=i),o.inPlace(a,["pushState","replaceState"],"-")},{}],9:[function(t,e,n){function r(t){function e(){c.emit("jsonp-end",[],p),t.removeEventListener("load",e,!1),t.removeEventListener("error",n,!1)}function n(){c.emit("jsonp-error",[],p),c.emit("jsonp-end",[],p),t.removeEventListener("load",e,!1),t.removeEventListener("error",n,!1)}var r=t&&"string"==typeof t.nodeName&&"script"===t.nodeName.toLowerCase();if(r){var o="function"==typeof t.addEventListener;if(o){var a=i(t.src);if(a){var u=s(a),d="function"==typeof u.parent[u.key];if(d){var p={};f.inPlace(u.parent,[u.key],"cb-",p),t.addEventListener("load",e,!1),t.addEventListener("error",n,!1),c.emit("new-jsonp",[t.src],p)}}}}}function o(){return"addEventListener"in window}function i(t){var e=t.match(u);return e?e[1]:null}function a(t,e){var n=t.match(p),r=n[1],o=n[3];return o?a(o,e[r]):e[r]}function s(t){var e=t.match(d);return e&&e.length>=3?{key:e[2],parent:a(e[1],window)}:{key:t,parent:window}}var c=t("ee").get("jsonp"),f=t("wrap-function")(c);if(e.exports=c,o()){var u=/[?&](?:callback|cb)=([^&#]+)/,d=/(.*)\\.([^.]+)/,p=/^(\w+)(\.|$)(.*)$/,l=["appendChild","insertBefore","replaceChild"];Node&&Node.prototype&&Node.prototype.appendChild?f.inPlace(Node.prototype,l,"dom-"):(f.inPlace(HTMLElement.prototype,l,"dom-"),f.inPlace(HTMLHeadElement.prototype,l,"dom-"),f.inPlace(HTMLBodyElement.prototype,l,"dom-")),c.on("dom-start",function(t){r(t[0])})}},{}],10:[function(t,e,n){var r=t("ee").get("mutation"),o=t("wrap-function")(r),i=NREUM.o.MO;e.exports=r,i&&(window.MutationObserver=function(t){return this instanceof i?new i(o(t,"fn-")):i.apply(this,arguments)},MutationObserver.prototype=i.prototype)},{}],11:[function(t,e,n){function r(t){var e=a.context(),n=s(t,"executor-",e),r=new f(n);return a.context(r).getCtx=function(){return e},a.emit("new-promise",[r,e],e),r}function o(t,e){return e}var i=t("wrap-function"),a=t("ee").get("promise"),s=i(a),c=t(25),f=NREUM.o.PR;e.exports=a,f&&(window.Promise=r,["all","race"].forEach(function(t){var e=f[t];f[t]=function(n){function r(t){return function(){a.emit("propagate",[null,!o],i),o=o||!t}}var o=!1;c(n,function(e,n){Promise.resolve(n).then(r("all"===t),r(!1))});var i=e.apply(f,arguments),s=f.resolve(i);return s}}),["resolve","reject"].forEach(function(t){var e=f[t];f[t]=function(t){var n=e.apply(f,arguments);return t!==n&&a.emit("propagate",[t,!0],n),n}}),f.prototype["catch"]=function(t){return this.then(null,t)},f.prototype=Object.create(f.prototype,{constructor:{value:r}}),c(Object.getOwnPropertyNames(f),function(t,e){try{r[e]=f[e]}catch(n){}}),a.on("executor-start",function(t){t[0]=s(t[0],"resolve-",this),t[1]=s(t[1],"resolve-",this)}),a.on("executor-err",function(t,e,n){t[1](n)}),s.inPlace(f.prototype,["then"],"then-",o),a.on("then-start",function(t,e){this.promise=e,t[0]=s(t[0],"cb-",this),t[1]=s(t[1],"cb-",this)}),a.on("then-end",function(t,e,n){this.nextPromise=n;var r=this.promise;a.emit("propagate",[r,!0],n)}),a.on("cb-end",function(t,e,n){a.emit("propagate",[n,!0],this.nextPromise)}),a.on("propagate",function(t,e,n){this.getCtx&&!e||(this.getCtx=function(){if(t instanceof Promise)var e=a.context(t);return e&&e.getCtx?e.getCtx():this})}),r.toString=function(){return""+f})},{}],12:[function(t,e,n){var r=t("ee").get("raf"),o=t("wrap-function")(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],13:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t("wrap-function")(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],14:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,g,"fn-",s)}function i(t){y.push(t),h&&(b?b.then(a):v?v(a):(E=-E,O.data=E))}function a(){for(var t=0;t<y.length;t++)r([],y[t]);y.length&&(y=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(6);var f=t("ee"),u=f.get("xhr"),d=t("wrap-function")(u),p=NREUM.o,l=p.XHR,h=p.MO,m=p.PR,v=p.SI,w="readystatechange",g=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],y=[];e.exports=u;var x=window.XMLHttpRequest=function(t){var e=new l(t);try{u.emit("new-xhr",[e],e),e.addEventListener(w,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(l,x),x.prototype=l.prototype,d.inPlace(x.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var b=m&&m.resolve();if(!v&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===w||a()})},{}],15:[function(t,e,n){function r(t){if(!i(t))return null;var e=window.NREUM;if(!e.loader_config)return null;var n=(e.loader_config.accountID||"").toString()||null,r=(e.loader_config.agentID||"").toString()||null,s=(e.loader_config.trustKey||"").toString()||null;if(!n||!r)return null;var c=a.generateCatId(),f=a.generateCatId(),u=Date.now(),d=o(c,f,u,n,r,s);return{header:d,guid:c,traceId:f,timestamp:u}}function o(t,e,n,r,o,i){var a="btoa"in window&&"function"==typeof window.btoa;if(!a)return null;var s={v:[0,1],d:{ty:"Browser",ac:r,ap:o,id:t,tr:e,ti:n}};return i&&r!==i&&(s.d.tk=i),btoa(JSON.stringify(s))}function i(t){var e=!1,n=!1,r={};if("init"in NREUM&&"distributed_tracing"in NREUM.init&&(r=NREUM.init.distributed_tracing,n=!!r.enabled),n)if(t.sameOrigin)e=!0;else if(r.allowed_origins instanceof Array)for(var o=0;o<r.allowed_origins.length;o++){var i=s(r.allowed_origins[o]);if(t.hostname===i.hostname&&t.protocol===i.protocol&&t.port===i.port){e=!0;break}}return n&&e}var a=t(23),s=t(17);e.exports={generateTracePayload:r,shouldGenerateTrace:i}},{}],16:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<p;r++)t.removeEventListener(d[r],this.listener,!1);e.aborted||(n.duration=a.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==e.status&&(e.status=0):i(this,t),n.cbTime=this.cbTime,u.emit("xhr-done",[t],t),s("xhr",[e,n,this.startTime]))}}function o(t,e){var n=c(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.parsedOrigin=c(e),t.sameOrigin=t.parsedOrigin.sameOrigin}function i(t,e){t.params.status=e.status;var n=v(e,t.lastSize);if(n&&(t.metrics.rxSize=n),t.sameOrigin){var r=e.getResponseHeader("X-NewRelic-App-Data");r&&(t.params.cat=r.split(", ").pop())}t.loadCaptureCalled=!0}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(17),f=t(15).generateTracePayload,u=t("ee"),d=["load","error","abort","timeout"],p=d.length,l=t("id"),h=t(21),m=t(20),v=t(18),w=window.XMLHttpRequest;a.features.xhr=!0,t(14),t(7),u.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,e.loadCaptureCalled=!1,t.addEventListener("load",function(n){i(e,t)},!1),h&&(h>34||h<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),u.on("open-xhr-start",function(t){this.params={method:t[0]},o(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid);var n=f(this.parsedOrigin);n&&n.header&&(e.setRequestHeader("newrelic",n.header),this.dt=n)}),u.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=m(r);i&&(n.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"!==t.type||o.loadCaptureCalled||(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}};for(var s=0;s<p;s++)e.addEventListener(d[s],this.listener,!1)}),u.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),u.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),u.on("addEventListener-end",function(t,e){e instanceof w&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],e)}),u.on("removeEventListener-end",function(t,e){e instanceof w&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],e)}),u.on("fn-start",function(t,e,n){e instanceof w&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),u.on("fn-end",function(t,e){this.xhrCbStart&&u.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,e],e)}),u.on("fetch-before-start",function(t){var e,n=t[1]||{};"string"==typeof t[0]?e=t[0]:t[0]&&t[0].url&&(e=t[0].url),e&&(this.parsedOrigin=c(e),this.sameOrigin=this.parsedOrigin.sameOrigin);var r=f(this.parsedOrigin);if(r&&r.header){var o=r.header;if("string"==typeof t[0]){var i={};for(var a in n)i[a]=n[a];i.headers=new Headers(n.headers||{}),i.headers.set("newrelic",o),this.dt=r,t.length>1?t[1]=i:t.push(i)}else t[0]&&t[0].headers&&(t[0].headers.append("newrelic",o),this.dt=r)}})}},{}],17:[function(t,e,n){var r={};e.exports=function(t){if(t in r)return r[t];var e=document.createElement("a"),n=window.location,o={};e.href=t,o.port=e.port;var i=e.href.split("://");!o.port&&i[1]&&(o.port=i[1].split("/")[0].split("@").pop().split(":")[1]),o.port&&"0"!==o.port||(o.port="https"===i[0]?"443":"80"),o.hostname=e.hostname||n.hostname,o.pathname=e.pathname,o.protocol=i[0],"/"!==o.pathname.charAt(0)&&(o.pathname="/"+o.pathname);var a=!e.protocol||":"===e.protocol||e.protocol===n.protocol,s=e.hostname===document.domain&&e.port===n.port;return o.sameOrigin=a&&(!e.hostname||s),"/"===o.pathname&&(r[t]=o),o}},{}],18:[function(t,e,n){function r(t,e){var n=t.responseType;return"json"===n&&null!==e?e:"arraybuffer"===n||"blob"===n||"json"===n?o(t.response):"text"===n||"document"===n||""===n||void 0===n?o(t.responseText):void 0}var o=t(20);e.exports=r},{}],19:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[f.now()].concat(s(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(25),s=t(26),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(t,e){u[e]=o(p+e,!0,"api")}),u.addPageAction=o(p+"addPageAction",!0),u.setCurrentRouteName=o(p+"routeName",!0),e.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(l+"tracer",[f.now(),t,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return e.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],n),t}finally{c.emit("fn-end",[f.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){h[e]=o(l+e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now(),!1,e])}},{}],20:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],21:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],22:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?c("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&c("timing",["fcp",Math.floor(t.startTime)])})}function o(t,e){var n=t.getEntries();n.length>0&&c("lcp",[n[n.length-1]])}function i(t){if(t instanceof u&&!p){var e,n=Math.round(t.timeStamp);e=n>1e12?Date.now()-n:f.now()-n,p=!0,c("timing",["fi",n,{type:t.type,fid:e}])}}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var a,s,c=t("handle"),f=t("loader"),u=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){a=new PerformanceObserver(r),s=new PerformanceObserver(o);try{a.observe({entryTypes:["paint"]}),s.observe({entryTypes:["largest-contentful-paint"]})}catch(d){}}if("addEventListener"in document){var p=!1,l=["click","keydown","mousedown","pointerdown","touchstart"];l.forEach(function(t){document.addEventListener(t,i,!1)})}}},{}],23:[function(t,e,n){function r(){function t(){return e?15&e[n++]:16*Math.random()|0}var e=null,n=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(e=r.getRandomValues(new Uint8Array(31)));for(var o,i="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",a="",s=0;s<i.length;s++)o=i[s],"x"===o?a+=t().toString(16):"y"===o?(o=3&t()|8,a+=o.toString(16)):a+=o;return a}function o(){function t(){return e?15&e[n++]:16*Math.random()|0}var e=null,n=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&Uint8Array&&(e=r.getRandomValues(new Uint8Array(31)));for(var o=[],i=0;i<16;i++)o.push(t().toString(16));return o.join("")}e.exports={generateUuid:r,generateCatId:o}},{}],24:[function(t,e,n){function r(t,e){if(!o)return!1;if(t!==o)return!1;if(!e)return!0;if(!i)return!1;for(var n=i.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}e.exports={agent:o,version:i,match:r}},{}],25:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],26:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],27:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function n(n,r,o,i){if(!p.aborted||i){t&&t(n,r,o);for(var a=e(o),s=m(n),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[y[n]];return d&&d.push([x,n,r,a]),a}}function l(t,e){g[t]=m(t).concat(e)}function h(t,e){var n=g[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return g[t]||[]}function v(t){return d[t]=d[t]||o(n)}function w(t,e){f(t,function(t,n){e=e||"feature",y[n]=e,e in u||(u[e]=[])})}var g={},y={},x={on:l,addEventListener:l,removeEventListener:h,emit:n,get:v,listeners:m,context:e,buffer:w,abort:a,aborted:!1};return x}function i(){return new r}function a(){(u.api||u.feature)&&(p.aborted=!0,u=p.backlog={})}var s="nr@context",c=t("gos"),f=t(25),u={},d={},p=e.exports=o();p.backlog=u},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!E++){var t=b.info=NREUM.info,e=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return u.abort();f(y,function(e,n){t[e]||(t[e]=n)}),c("mark",["onload",a()+b.offset],null,"api");var n=l.createElement("script");n.src="https://"+t.agent,e.parentNode.insertBefore(n,e)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(25),u=t("ee"),d=t(24),p=window,l=p.document,h="addEventListener",m="attachEvent",v=p.XMLHttpRequest,w=v&&v.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:v,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var g=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-spa-1167.min.js"},x=v&&w&&w[h]&&!/CriOS/.test(navigator.userAgent),b=e.exports={offset:s,now:a,origin:g,features:{},xhrWrappable:x,userAgent:d};t(19),t(22),l[h]?(l[h]("DOMContentLoaded",i,!1),p[h]("load",r,!1)):(l[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",s],null,"api");var E=0,O=t(27)},{}],"wrap-function":[function(t,e,n){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(26),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;e.exports=function(t,e){function n(t,e,n,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof n?n(r,a):n||{}}catch(f){p([f,"",[r,a,o],s])}u(e+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(e+"err",[r,a,d],s),d}finally{u(e+"end",[r,a,c],s)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,e,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<e.length;c++)s=e[c],a=t[s],r(a)||(t[s]=n(a,f?s+o:o,i,s))}function u(n,r,o){if(!c||e){var i=c;c=!0;try{t.emit(n,r,o,e)}catch(a){p([a,n,r,o])}c=i}}function d(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){p([r])}for(var o in t)s.call(t,o)&&(e[o]=t[o]);return e}function p(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),n.inPlace=f,n.flag=a,n}},{}]},{},["loader",2,16,5,3,4]);
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    title Nan and Company Properties
+    meta(name='Description' content='')
+    meta(name='Keywords' content='')
+    meta(name='format-detection' content='telephone=no')
+    meta(name='theme-color' content='#f16624')
+    meta(name='google-site-verification' content='2yTNM0SyApJm2kcEW_yTZF3ZvjUMoVuzg6PiR8RwHY4')
+    meta(name='msvalidate.01' content='6B3F866B71C3A50ECC0FB57F652E1639')
+    link(rel='canonical' href='https://www.nanproperties.com/our-developments-page')
+    meta(property='og:title' content='')
+    meta(property='og:type' content='website')
+    meta(property='og:url' content='https://www.nanproperties.com/our-developments-page')
+    meta(property='og:site_name' content='Nan and Company Properties')
+    meta(property='og:description' content='')
+    meta(name='twitter:card' content='summary')
+    meta(name='twitter:site' content='')
+    meta(name='twitter:title' content='Nan and Company Properties')
+    meta(name='twitter:description' content='Our Developments')
+    meta(property='og:image' content='https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/assets/uploads/page/banner_image/1292956/optimized_62825a735ed6065211a83b416d6210dc.jpg')
+    meta(name='twitter:image' content='https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/assets/uploads/page/banner_image/1292956/optimized_62825a735ed6065211a83b416d6210dc.jpg')
+    link(rel='shortcut icon' href='https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/assets/uploads/setting/favicon/19551/favicon1.ico')
+    link(href='https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i&display=optional' rel='stylesheet')
+    link(rel='stylesheet' media='screen' href='https://blp-prodcdn3.scdn2.secure.raxcdn.com/assets/responsive_base-af3d4d962ac9e124242299ba64435569a86bb449b076a25d29d3f7c012f1ab0d.css')
+    link(rel='stylesheet' media='screen' href='https://blp-prodcdn0.scdn5.secure.raxcdn.com/assets/super_theme-f8ca6c480f6d2cef84abd9ee5e0c6d3c6dd62e3cd395c4ff477fa1685c734fb1.css')
+    link(rel='stylesheet' media='screen' href='https://blp-prodcdn0.scdn5.secure.raxcdn.com/company_super_theme_19770_623f224371a67d7f4629e495d06bb5eb_1586463238.css')
+    link(rel='stylesheet' media='print' href='https://blp-prodcdn1.scdn4.secure.raxcdn.com/assets/responsive_print-7a9f7423797caf01895f7a203e8faaea3a084160787688a0fa03c19a9ce380fb.css')
+    script.
+        dataLayer = typeof(dataLayer) == 'undefined' ? [] : dataLayer;
+    // Google Tag Manager
+    noscript
+        iframe(src='//www.googletagmanager.com/ns.html?id=GTM-NZ9XSLH' height='0' width='0' style='display:none;visibility:hidden')
+    script.
+        (function(w,d,s,l,i){
+        w[l]=w[l]||[];
+        w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+        var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+        j.async=true;
+        j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;
+        f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-NZ9XSLH');
+    // End Google Tag Manager
+    script(type='text/javascript').
+        var parentGTM = false;
+        var univAnalytics = true;
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', '', 'auto');
+        ga('create', 'UA-46686204-2', 'auto', {'name': 'globalTracker', 'cookieDomain': 'nanproperties.com'});
+        ga('send', 'pageview');
+        ga('globalTracker.send', 'pageview');
+    meta(name='csrf-param' content='authenticity_token')
+    meta(name='csrf-token' content='AUzxpPo4/6mCt2bTEsn4HQAj/xFBYSoi8xXorep3BQNE+w6G0ssbDvzGsljUPyMD2Pbwv9HNgc/57wvVAHGuWQ==')
+#navbar-color.header.header-classic.dropdown-indicator
+    nav#main-nav.navbar.navbar-default.background-1.header-page-interior
+        button#main-nav-toggle.navbar-toggle.collapsed(type='button')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+            span.icon-close
+                svg#hamburger-x(version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewbox='0 90 612 612' enable-background='new 0 90 612 612' xml:space='preserve')
+                    path(d='M365.7,396l234-233.9c16.4-16.5,16.4-43.3,0-59.7c-16.5-16.5-43.3-16.5-59.7,0L306,336.2L72.1,102.3 c-16.5-16.5-43.3-16.5-59.7,0s-16.5,43.3,0,59.7L246.2,396l-233.9,234c-16.5,16.4-16.5,43.3,0,59.7c16.5,16.4,43.3,16.4,59.7,0 l233.9-234l234,234c16.4,16.4,43.3,16.4,59.7,0c16.4-16.5,16.4-43.3,0-59.7L365.7,396z')
+        .navbar-container.mobile-kill-padding
+            .mobile-restore-padding.primary-nav-wrapper
+                #top-half-header.background-5.clearfix.top-half
+                    .container
+                        .row(style='display:flex;')
+                            .hidden-xs(style='flex:1;')
+                                #header-social.social-container.hidden-xs
+                                    .social
+                                        a.li(target='_blank' href='https://www.linkedin.com/company/nanandcompanyproperties')
+                                            svg(version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewbox='0 110.3 611.9 611.9' enable-background='new 0 110.3 611.9 611.9' xml:space='preserve')
+                                                path.social_backing_square(d='M391.2,689.4h97c48.3,0,91-43.2,91-91V234c0-48.3-43.2-91-91-91H123.8c-48.3,0-91,43.2-91,91\
+                                                v364.4c0,48.3,43.2,91,91,91h182.6')
+                                                circle.social_backing_circle(cx='306' cy='416.3' r='306')
+                                                path(d='M481.8,454.4v130h-75.4V463.1c0-30.4-10.8-51.5-38.5-51.5c-20.7,0-33,14-38.5,27.6\
+                                                c-2.1,4.9-2.7,11.4-2.7,18.4v126.8h-75.4c0,0,1.1-205.9,0-227h75.4v32l-0.5,0.5h0.5v-0.5c10.2-15.7,28.2-37.3,68.2-37.3\
+                                                C444.5,352.6,481.8,385.1,481.8,454.4z M172.4,248c-26,0-42.7,16.9-42.7,39c0,21.7,16.3,39,41.7,39h0.5c26.6,0,42.7-17.4,42.7-39\
+                                                C214.2,265.4,198.4,248,172.4,248z M134,585h75.4V358H134V585z')
+                                        a.ig(target='_blank' href='https://www.instagram.com/nanproperties/')
+                                            svg(version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewbox='0 0 611.9 611.9' style='enable-background:new 0 0 611.9 611.9;' xml:space='preserve')
+                                                path.social_backing_square(d='M391.2,579.1h97c48.3,0,91-43.2,91-91V123.7c0-48.3-43.2-91-91-91H123.8c-48.3,0-91,43.2-91,91\
+                                                v364.4c0,48.3,43.2,91,91,91h182.6')
+                                                circle.social_backing_circle(cx='306' cy='306' r='306')
+                                                path(d='M484,232.2c-0.9-19.1-3.9-32.1-8.3-43.5c-4.6-11.8-10.7-21.8-20.7-31.7c-10-10-19.9-16.1-31.7-20.7\
+                                                c-11.4-4.4-24.4-7.5-43.5-8.3c-19.1-0.9-25.2-1.1-73.8-1.1c-48.6,0-54.7,0.2-73.8,1.1c-19.1,0.9-32.1,3.9-43.5,8.3\
+                                                c-11.8,4.6-21.8,10.7-31.7,20.7c-10,10-16.1,19.9-20.7,31.7c-4.4,11.4-7.5,24.4-8.3,43.5c-0.9,19.1-1.1,25.2-1.1,73.8\
+                                                c0,48.6,0.2,54.7,1.1,73.8c0.9,19.1,3.9,32.1,8.3,43.5c4.6,11.8,10.7,21.8,20.7,31.7c10,10,19.9,16.1,31.7,20.7\
+                                                c11.4,4.4,24.4,7.5,43.5,8.3c19.1,0.9,25.2,1.1,73.8,1.1c48.6,0,54.7-0.2,73.8-1.1c19.1-0.9,32.1-3.9,43.5-8.3\
+                                                c11.8-4.6,21.8-10.7,31.7-20.7c10-10,16.1-19.9,20.7-31.7c4.4-11.4,7.5-24.4,8.3-43.5c0.9-19.1,1.1-25.2,1.1-73.8\
+                                                S484.9,251.3,484,232.2z M451.8,378.4c-0.8,17.5-3.7,26.9-6.2,33.3c-3.2,8.4-7.1,14.3-13.4,20.6c-6.3,6.3-12.2,10.1-20.6,13.4\
+                                                c-6.3,2.5-15.8,5.4-33.3,6.2c-18.9,0.9-24.5,1-72.4,1s-53.5-0.2-72.4-1c-17.5-0.8-26.9-3.7-33.3-6.2c-8.4-3.2-14.3-7.1-20.6-13.4\
+                                                c-6.3-6.3-10.1-12.2-13.4-20.6c-2.5-6.3-5.4-15.8-6.2-33.3c-0.9-18.9-1-24.6-1-72.4s0.2-53.5,1-72.4c0.8-17.5,3.7-26.9,6.2-33.3\
+                                                c3.2-8.4,7.1-14.3,13.4-20.6c6.3-6.3,12.2-10.1,20.6-13.4c6.3-2.5,15.8-5.4,33.3-6.2c18.9-0.9,24.6-1,72.4-1c47.8,0,53.5,0.2,72.4,1\
+                                                c17.5,0.8,26.9,3.7,33.3,6.2c8.4,3.2,14.3,7.1,20.6,13.4c6.3,6.3,10.1,12.2,13.4,20.6c2.5,6.3,5.4,15.8,6.2,33.3\
+                                                c0.9,18.9,1,24.6,1,72.4S452.6,359.5,451.8,378.4z M306,214c-50.8,0-92,41.2-92,92s41.2,92,92,92c50.8,0,92-41.2,92-92\
+                                                S356.8,214,306,214z M306,365.7c-33,0-59.7-26.7-59.7-59.7s26.7-59.7,59.7-59.7c33,0,59.7,26.7,59.7,59.7S339,365.7,306,365.7z\
+                                                M423.1,210.4c0,11.9-9.6,21.5-21.5,21.5c-11.9,0-21.5-9.6-21.5-21.5s9.6-21.5,21.5-21.5C413.5,188.9,423.1,198.5,423.1,210.4z')
+                                        a.yt(target='_blank' href='https://www.youtube.com/channel/UCy_Lo0gLaK3AdAwi-nuUjDg')
+                                            svg(version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewbox='0 110.3 611.9 611.9' enable-background='new 0 110.3 611.9 611.9' xml:space='preserve')
+                                                path.social_backing_square(d='M391.2,689.4h97c48.3,0,91-43.2,91-91V234c0-48.3-43.2-91-91-91H123.8c-48.3,0-91,43.2-91,91\
+                                                v364.4c0,48.3,43.2,91,91,91h182.6')
+                                                circle.social_backing_circle(cx='306' cy='416.3' r='306')
+                                                path(d='M496,343.4c0-31.4-25.5-56.9-56.9-56.9h-266c-31.4,0-56.9,25.5-56.9,56.9v152.3\
+                                                c0,31.4,25.5,56.9,56.9,56.9h266.1c31.4,0,56.9-25.5,56.9-56.9L496,343.4L496,343.4z M268.4,483.2V340.6l108.3,71.6L268.4,483.2z')
+                                        a.tw(target='_blank' href='https://twitter.com/NanProperties')
+                                            svg#Icons(version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewbox='0 0 611.9 611.9' style='enable-background:new 0 0 611.9 611.9;' xml:space='preserve')
+                                                path.social_backing_square(d='M391.2,579.1h97c48.3,0,91-43.2,91-91V123.7c0-48.3-43.2-91-91-91H123.8c-48.3,0-91,43.2-91,91 v364.4c0,48.3,43.2,91,91,91h182.6')
+                                                circle.social_backing_circle(cx='306' cy='306' r='306')
+                                                path(d='M522.3,171.9c-15.9,7.1-33,11.8-51,14c18.3-11,32.4-28.4,39-49.1c-17.2,10.2-36.2,17.5-56.4,21.5 c-16.2-17.3-39.2-28-64.8-28c-49,0-88.7,39.7-88.7,88.7c0,6.9,0.8,13.7,2.3,20.2c-73.7-3.7-139.1-39-182.9-92.7 c-7.7,13.1-12,28.3-12,44.6c0,30.8,15.7,58,39.5,73.9c-14.5-0.5-28.2-4.5-40.2-11.1v1.1c0,43,30.6,78.9,71.2,87 c-7.4,2-15.3,3.1-23.4,3.1c-5.7,0-11.3-0.6-16.7-1.6c11.3,35.3,44.1,60.9,82.9,61.6c-30.4,23.8-68.6,37.9-110.2,37.9 c-7.2,0-14.2-0.4-21.2-1.2c39.3,25.2,85.9,39.9,136,39.9c163.2,0,252.5-135.2,252.5-252.5l-0.3-11.5 C495.3,205.3,510.4,189.7,522.3,171.9z')
+                                        a.fb(target='_blank' href='https://www.facebook.com/nanandcompanyproperties')
+                                            svg(version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewbox='0 110.3 611.9 611.9' enable-background='new 0 110.3 611.9 611.9' xml:space='preserve')
+                                                path.social_backing_square(d='M391.2,689.4h97c48.3,0,91-43.2,91-91V234c0-48.3-43.2-91-91-91H123.8c-48.3,0-91,43.2-91,91\
+                                                v364.4c0,48.3,43.2,91,91,91h182.6')
+                                                circle.social_backing_circle(cx='306' cy='416.3' r='306')
+                                                path(d='M252,638.4V434.3h-66v-90h66v-34.8c0-60.6,45.6-115.3,101.4-115.3h72.6v90\
+                                                h-72.6c-7.8,0-17.4,9.6-17.4,24v36h90v90h-90v204.1H252z')
+                                #header-contact.text-left.small-text
+                                    .smidge.visible-xs
+                                    .header-phone
+                                        a.non-link(data-type='Office' href='tel:713.714.6454') 713.714.6454
+                                    .header-email
+                                        a(data-type='Company' href='mailto:info@nanproperties.com') info@nanproperties.com
+                            #pre-desktop-header-logo
+                            #pre-mobile-header-logo
+                            #header-logo(style='flex:auto')
+                                .navbar-header.flex-box.flex-center
+                                    .navbar-brand(href='#')
+                                        a(title='Nan and Company Properties' href='/')
+                                            img(alt='Nan and Company Properties' title='Nan and Company Properties' src='https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/assets/uploads/setting/company_header_logo/19551/8769690d393361408952a0636ec0b5e2.png')
+                            #header-menu-social.text-right.clear-right.small-text.pull-right.hidden-xs(style='flex:1;')
+                                #pre-desktop-header-nav
+                                #header-nav.login-text.header-nav
+                                    div
+                                        ul
+                                            li.first_item
+                                                a(title='Sign Up' href='/users/new') Sign Up
+                                            li.last_item
+                                                a(title='Login' href='/login') Login
+                                #translate-outter
+                                    #google_translate_element(style='display:none;')
+                                    #translate_wrapper.translate_wrapper.hidden-xs
+                                        a(data-lang='English' title='English' target='_blank')
+                                            img(border='0' src='https://blp-prodcdn0.scdn5.secure.raxcdn.com/assets/flags/america-08e889bba153409c2e4455b0573aa78fa42004d531ce0e855ff34c1f1356813a.svg' alt='America')
+                                        a(data-lang='Spanish' title='Translate to Spanish' target='_blank')
+                                            img(border='0' src='https://blp-prodcdn0.scdn5.secure.raxcdn.com/assets/flags/spain-e440412eda09900b494799c043833ab5e8676b6787c6224907b9a616582f9609.svg' alt='Spain')
+                                        a(data-lang='Chinese' title='Translate to Chinese' target='_blank')
+                                            img(border='0' src='https://blp-prodcdn1.scdn4.secure.raxcdn.com/assets/flags/china-c5dc757145cb0a06a5f6cd8088b3e0a6e95fa649032b4d2bc3ac2054057c2ae3.svg' alt='China')
+                                        a(data-lang='French' title='Translate to French' target='_blank')
+                                            img(border='0' src='https://blp-prodcdn1.scdn4.secure.raxcdn.com/assets/flags/france-5218321afd9e9e17ce343143446cabfc3e0652c7ba9a07b9f036b188666e136f.svg' alt='France')
+                                        a(data-lang='Hindi' title='Translate to Hindi' target='_blank')
+                                            img(border='0' src='https://blp-prodcdn2.scdn5.secure.raxcdn.com/assets/flags/india-12ff505536eddd090f1355f86b14207898323ba8ca40efb69aa7c0c2d9093a99.svg' alt='India')
+                #bottom-half-header.background-6.bottom-half.clearfix
+                    .container
+                        #header-primary-nav.col-sm-24.kill-padding.mobile-restore-padding
+                            #bs-example-navbar-collapse-1.navbar-collapse
+                                .mobile-kill-row
+                                    #pre-desktop-header-main-nav
+                                    #pre-mobile-header-main-nav
+                                    #header-main-nav
+                                        ul.nav.navbar-nav.nav-links
+                                            li.first_item
+                                                a.main-nav-link(title='Home' href='/') Home
+                                            li.parent
+                                                a.main-nav-link.dropdown-toggle(title='About Us' data-toggle='hover-dropdown' aria-expanded='false' href='/about') About Us
+                                                ul.dropdown-menu(role='menu')
+                                                    li.not-current.first_item
+                                                        a.main-nav-link(title="About Christie's" href='/christies') About Christie&apos;s
+                                                    li.not-current
+                                                        a.main-nav-link(title='Team' href='/agents') Team
+                                                    li.not-current
+                                                        a.main-nav-link(title='Our Services' href='/services') Our Services
+                                                    li.not-current
+                                                        a.main-nav-link(title='Charity' href='/charitytesting') Charity
+                                                    li.not-current
+                                                        a.main-nav-link(title='Timeline' href='/testtimeline3') Timeline
+                                                    li.not-current.last_item
+                                                        a.main-nav-link(title='Contact Us' href='/contact') Contact Us
+                                            li.parent
+                                                a.main-nav-link.dropdown-toggle(title='Work With Us' data-toggle='hover-dropdown' aria-expanded='false' href='/contact') Work With Us
+                                                ul.dropdown-menu(role='menu')
+                                                    li.not-current.first_item
+                                                        a.main-nav-link(title='Builders' href='/builders') Builders
+                                                    li.not-current
+                                                        a.main-nav-link(title='Sellers' href='/selling') Sellers
+                                                    li.not-current
+                                                        a.main-nav-link(title='Buyers' href='/buyers') Buyers
+                                                    li.not-current
+                                                        a.main-nav-link(title='Renters' href='/renting') Renters
+                                                    li.not-current
+                                                        a.main-nav-link(title='Build on Your Own Lot' href='/buildyourownlot') Build on Your Own Lot
+                                                    li.not-current.last_item
+                                                        a.main-nav-link(title='Careers' href='/careers') Careers
+                                            li.parent
+                                                a.main-nav-link.dropdown-toggle(title='Homes For Sale' data-toggle='hover-dropdown' aria-expanded='false' href='/our-listings') Homes For Sale
+                                                ul.dropdown-menu(role='menu')
+                                                    li.not-current.first_item
+                                                        a.main-nav-link(title='First Time Buyer' href='/first-time-home-buyer') First Time Buyer
+                                                    li.not-current
+                                                        a.main-nav-link(title='Our Listings' href='/our-listings') Our Listings
+                                                    li.not-current
+                                                        a.main-nav-link(title='Open Houses' href='/open-houses') Open Houses
+                                                    li.not-current
+                                                        a.main-nav-link(title='Luxury Homes' href='/luxury') Luxury Homes
+                                                    li.not-current.last_item
+                                                        a.main-nav-link(title='Getaway Listings' href='/social-distancing') Getaway Listings
+                                            li
+                                                a.main-nav-link(title='Condos' href='/our-developments') Condos
+                                            li.current
+                                                a.main-nav-link(title='Developments' href='/our-developments-page') Developments
+                                            li
+                                                a.main-nav-link(title='Leasing' href='/featured-lease-buildings') Leasing
+                                            li
+                                                a.main-nav-link(title='Relocation' href='/market-insights/houston') Relocation
+                                            li
+                                                a.main-nav-link(title='Blog' href='/posts') Blog
+                                            li.last_item
+                                                a.main-nav-link(title='Bridge Loans' href='/test-bridge-loans') Bridge Loans
+                                .bumper.visible-xs
+                                #hamburger-footer.row
+                                    #translate-outter.visible-xs
+                                        #google_translate_elementhamb(style='display:none;')
+                                        #translate_wrapper.translate_wrapper
+                                            a(data-lang='English' title='English' target='_blank')
+                                                img(border='0' src='https://blp-prodcdn0.scdn5.secure.raxcdn.com/assets/flags/america-08e889bba153409c2e4455b0573aa78fa42004d531ce0e855ff34c1f1356813a.svg' alt='America')
+                                            a(data-lang='Spanish' title='Translate to Spanish' target='_blank')
+                                                img(border='0' src='https://blp-prodcdn0.scdn5.secure.raxcdn.com/assets/flags/spain-e440412eda09900b494799c043833ab5e8676b6787c6224907b9a616582f9609.svg' alt='Spain')
+                                            a(data-lang='Chinese' title='Translate to Chinese' target='_blank')
+                                                img(border='0' src='https://blp-prodcdn1.scdn4.secure.raxcdn.com/assets/flags/china-c5dc757145cb0a06a5f6cd8088b3e0a6e95fa649032b4d2bc3ac2054057c2ae3.svg' alt='China')
+                                            a(data-lang='French' title='Translate to French' target='_blank')
+                                                img(border='0' src='https://blp-prodcdn1.scdn4.secure.raxcdn.com/assets/flags/france-5218321afd9e9e17ce343143446cabfc3e0652c7ba9a07b9f036b188666e136f.svg' alt='France')
+                                            a(data-lang='Hindi' title='Translate to Hindi' target='_blank')
+                                                img(border='0' src='https://blp-prodcdn2.scdn5.secure.raxcdn.com/assets/flags/india-12ff505536eddd090f1355f86b14207898323ba8ca40efb69aa7c0c2d9093a99.svg' alt='India')
+                                    #hamburger-social.visible-xs.social-container.hamburger-social
+                                    #pre-mobile-header-nav.clear-both.visible-xs
+                                    #hamburger-contact.visible-xs
+                .fixed-header-container.hidden-xs
+                    .container
+                        .row(style='display:flex;')
+                            #pre-desktop-fixed-header-logo
+                            #pre-desktop-fixed-header-main-nav
+#mobile-head-spacer.visible-xs(style='height:56px;')
+#fixed_top_content.navbar-default
+    #mobile-fixed-top-content.visible-xs.mobile-tools
+    #mobile-fixed-sidebar.visible-xs
+    #mobile-fixed-quick-search.visible-xs
+.container.background-1.body-interior-top.mobile-kill-padding
+    #quick-search-panel.mobile-kill-row.row.collapse
+        #quicksearch-panel.col-sm-24.hidden(role='tabpanel')
+            .tab-content
+                #sales.tab-pane.active(role='tabpanel')
+                    .col-sm-24.background-3
+                        form#new_qs_sales_search.new_search(title='Perform a property search using the form.' action='/searches' accept-charset='UTF-8' method='post')
+                            input(name='utf8' type='hidden' value='✓')
+                            input(type='hidden' name='authenticity_token' value='cp2irwICFG8GjBrWmrOeIAkNiZZ/GwqEDCSrjqauQEc3Kl2NKvHwyHj9zl1cRUU+0diGOO+3oWkG3kj2TKjrHQ==')
+                            .smidge
+                            .row.row-min-padding
+                                .col-md-2.col-sm-4.pull-right.quarter-padding.search-field-margin.hidden-xs
+                                    // <div class="col-sm-24 kill_padding">&nbsp;</div>
+                                    label(for='fake_element') &nbsp;
+                                    input.btn.btn-default.btn-primary.btn-sm.full-width(type='submit' name='commit' value='Search')
+                                // ////////// radius search //////////
+                                .col-sm-8.col-md-6.search-field-margin.quarter-padding.radius-search-container.visible-xs
+                                    label(for='search_radius_search') Radius Search?
+                                    .radio.radius-checkbox
+                                        input#qs_search_radius_search_1(type='radio' value='1' name='search[radius_search]')
+                                        label(for='qs_search_radius_search_1') Yes
+                                        input#qs_search_radius_search_0(type='radio' value='0' name='search[radius_search]')
+                                        label(for='qs_search_radius_search_0') No
+                                .smidge.clear-both.visible-xs
+                                // ////////// Radius keyword search //////////
+                                #qs_radius_section.col-sm-14.col-md-6.quarter-padding(style='display:none;')
+                                    div
+                                        label(style='float:left;' for='qs_search_radius_origin') Type your Origin:
+                                        span#qs_gps_checkbox_section(style='float:right;')
+                                            input#qs_gps_origin(type='checkbox' name='qs_gps_origin' value='1')
+                                            label(for='qs_gps_origin') Use GPS location?
+                                    .clear-both.visible-xs
+                                    .col-sm-18.origin-search-container.quarter-padding.search-field-margin.mobile-kill-padding
+                                        input#qs_search_radius_origin.form-control.input-sm(type='text' name='search[radius_origin]')
+                                    .col-sm-6.distance-radius-container.quarter-padding.search-field-margin.mobile-kill-padding
+                                        select#search_radius_mi.form-control.input-sm(name='search[radius_mi]')
+                                            option(value='0.25') .25 miles
+                                            option(value='0.5') .5 miles
+                                            option(value='0.75') .75 miles
+                                            option(value='1') 1 mile
+                                            option(value='1.5') 1.5 miles
+                                            option(value='2') 2 miles
+                                            option(value='2.5') 2.5 miles
+                                            option(value='3') 3 miles
+                                            option(value='3.5') 3.5 miles
+                                            option(value='4') 4 miles
+                                            option(value='4.5') 4.5 miles
+                                            option(value='5') 5 miles
+                                    input#qs_search_radius_latitude(type='hidden' name='search[radius_latitude]')
+                                    input#qs_search_radius_longitude(type='hidden' name='search[radius_longitude]')
+                                    span#radius_origin_status.red
+                                #qs_location_section.col-md-6.col-sm-14.quarter-padding.search-field-margin
+                                    label(for='search_towns') Location
+                                    // <div class="col-sm-24 kill_padding">&nbsp;</div>
+                                    input#qs_search_super_locations(type='text' value='87-20760-0' name='search[super_locations]')
+                                .col-md-4.col-sm-6.quarter-padding.search-field-margin
+                                    label(for='search_prop_type') Type
+                                    // <div class="col-sm-24 kill_padding">Property Type</div>
+                                    select#search_prop_type_subtype.form-control.input-sm(title='Choose property types.' name='search[prop_type_subtype]')
+                                        option(value='') All
+                                        option(value='100015-0') Condo/Townhouse
+                                        option(value='100104-0') Country Homes/Acreage
+                                        option(value='100028-0') Lot &amp; Land
+                                        option(value='100105-0') Mid/Hi-Rise Condo
+                                        option(value='100059-0') Multi-Family
+                                        option(value='6-0') Rental
+                                        option(value='1-0') Single Family
+                                .clear-both.visible-xs
+                                .col-md-2.col-sm-6.col-xs-12.quarter-padding.search-field-margin
+                                    label(for='search_min_beds') Min Beds
+                                    // <div class="col-sm-24 kill_padding">Beds</div>
+                                    select#search_min_beds.form-control.input-sm(title='Select the minimum number of bedrooms.' name='search[min_beds]')
+                                        option(value='')
+                                        option(value='1') 1
+                                        option(value='2') 2
+                                        option(value='3') 3
+                                        option(value='4') 4
+                                        option(value='5') 5
+                                        option(value='6') 6
+                                        option(value='7') &gt; 6
+                                .col-md-2.col-sm-6.col-xs-12.quarter-padding.search-field-margin
+                                    label(for='search_min_baths') Min Baths
+                                    // <div class="col-sm-24 kill_padding">Baths</div>
+                                    select#search_min_baths.form-control.input-sm(title='Select the minimum number of bathrooms.' name='search[min_baths]')
+                                        option(value='')
+                                        option(value='1') 1
+                                        option(value='2') 2
+                                        option(value='3') 3
+                                        option(value='4') 4
+                                        option(value='5') 5
+                                        option(value='6') 6
+                                        option(value='7') &gt; 6
+                                .clear-both.visible-xs
+                                .col-md-4.col-sm-6.col-xs-12.quarter-padding.search-field-margin
+                                    label(for='search_min_price') Min Price
+                                    // <div class="col-sm-24 kill_padding">Property Type</div>
+                                    input#search_min_price_text.form-control.input-sm(title='Select a minimum price.' type='text' name='search[min_price_text]')
+                                .col-md-4.col-sm-6.col-xs-12.quarter-padding.search-field-margin
+                                    label(for='search_max_price') Max Price
+                                    // <div class="col-sm-24 kill_padding">Property Type</div>
+                                    input#search_max_price_text.form-control.input-sm(value='200,000' title='Select a maximum price.' type='text' name='search[max_price_text]')
+                                .clear-both.visible-xs
+                                .col-md-2.col-sm-4.quarter-padding.search-field-margin.visible-xs
+                                    // <div class="col-sm-24 kill_padding">&nbsp;</div>
+                                    label(for='fake_element') &nbsp;
+                                    input.btn.btn-default.btn-primary.btn-sm.full-width(type='submit' name='commit' value='Search')
+                                input#search_polygon_coordinates(value='' type='hidden' name='search[polygon_coordinates]')
+                    #current_gps_section.hidden
+                .clear-both
+            .bumper
+    .kill-padding.pull-right
+        .quicksearch-floater.hidden-xs.text-center
+            a.btn.btn-primary.collapsed(data-toggle='collapse' href='#quick-search-panel' aria-expanded='false' aria-controls='quick-search-panel')
+                span
+                    svg#Capa_1.magnifying-icon(version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='15' height='15' x='0px' y='0px' viewbox='6 118.6 556.4 556.4' enable-background='new 6 118.6 556.4 556.4' xml:space='preserve')
+                        path(d='M543.7,565.5l-61.1-61.1c-0.8-0.8-1.7-1.6-2.6-2.2c22.4-37.9,35.2-82,35.2-129c0-140.4-114.2-254.5-254.5-254.5\
+                        C120.2,118.6,6,232.8,6,373.1c0,140.4,114.2,254.5,254.5,254.5c47.1,0,91.2-12.9,129-35.2c0.7,0.9,1.4,1.8,2.2,2.6l61.1,61.1\
+                        c12.1,12.1,28.2,18.8,45.4,18.8c17.1,0,33.3-6.7,45.4-18.8C568.7,631.2,568.7,590.5,543.7,565.5z M82.4,373.1\
+                        c0-98.2,79.9-178.1,178.1-178.1c98.2,0,178.1,79.9,178.1,178.1s-79.9,178.1-178.1,178.1S82.4,471.3,82.4,373.1z')
+    .col-sm-14.small-text.kill-padding.mobile-restore-padding
+    .col-sm-24.small-text.kill-padding.clear-both
+#banner
+    img(src='https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/assets/uploads/page/banner_image/1292956/optimized_62825a735ed6065211a83b416d6210dc.jpg' alt='Optimized 62825a735ed6065211a83b416d6210dc')
+    span.banner-page-title
+        h1.body-title.cms-title.text-center
+            | Our Developments
+.body-interior.container.background-1
+    #main-body.col-sm-24.kill-padding
+        #content.clearfix
+            div
+                #cms-content.col-sm-24
+                    .row
+                        block content
+                .spacer.cms-content-spacer.clear-both
+                .spacer.clear-both
+                #cms-form
+                    h2.h2.text-center Contact Us
+                    .cms__form-wrapper
+                        form#new_form_submission.form_submission_form(action='/forms/56116/form_submissions' accept-charset='UTF-8' method='post')
+                            input(name='utf8' type='hidden' value='✓')
+                            input(type='hidden' name='authenticity_token' value='BukqLJpbRWswY5nn0/c1cT6Wdk9cq0ZeNZylWQGIPjBDXtUOsqihzE4STWwVAe5v5kN54cwH7bM/ZkYh646Vag==')
+                            #comment_body_container.d-none
+                                input#comment_body(type='text' name='comment_body')
+                                label(for='comment_body') Comment Body
+                            input#form_submission_agent_id(type='hidden' name='form_submission[agent_id]')
+                            input#page_id(type='hidden' name='page_id' value='1292956')
+                            input#landing_page(type='hidden' name='landing_page' value='false')
+                            .form-group
+                                label(for='form_submission_lead_attributes_first_name') First Name:
+                                .input-group
+                                    input#form_submission_lead_attributes_first_name.form-control(placeholder='First Name' type='text' name='form_submission[lead_attributes][first_name]')
+                                    span#basic-addon1.input-group-addon.required-asterisk.text-danger *
+                            .form-group
+                                label(for='form_submission_lead_attributes_last_name') Last Name:
+                                .input-group
+                                    input#form_submission_lead_attributes_last_name.form-control(placeholder='Last Name' type='text' name='form_submission[lead_attributes][last_name]')
+                                    span#basic-addon1.input-group-addon.required-asterisk.text-danger *
+                            .form-group
+                                label(for='form_submission_lead_attributes_user_attributes_email') Email:
+                                .input-group
+                                    input#form_submission_lead_attributes_user_attributes_email.form-control(placeholder='Email' type='text' name='form_submission[lead_attributes][user_attributes][email]')
+                                    span#basic-addon1.input-group-addon.required-asterisk.text-danger *
+                            .row
+                                .col-sm-18
+                                    .form-group
+                                        label(for='form_submission_lead_attributes_phone1') Phone:
+                                        .input-group
+                                            input#form_submission_lead_attributes_phone1.form-control(placeholder='Phone' type='text' name='form_submission[lead_attributes][phone1]')
+                                            span#basic-addon1.input-group-addon.required-asterisk.text-danger.password-req *
+                                .col-sm-6.kill-left-padding
+                                    .form-group
+                                        label(for='form_submission_lead_attributes_phone_type_1') Phone Type:
+                                        select#form_submission_lead_attributes_phone_type_1.form-control(name='form_submission[lead_attributes][phone_type_1]')
+                                            option(value='')
+                                            option(value='1') Home
+                                            option(value='2') Cell
+                                            option(value='3') Work
+                                            option(value='4') Fax
+                            .form-group
+                                #open_houses.checkbox
+                                    input(name='form_submission[lead_attributes][mailing_list_signup]' type='hidden' value='0')
+                                    input#form_submission_lead_attributes_mailing_list_signup.form-control(type='checkbox' value='1' checked='checked' name='form_submission[lead_attributes][mailing_list_signup]')
+                                    label(for='form_submission_lead_attributes_mailing_list_signup') Receive Our Email Updates
+                                a(target='_blank' href='/privacy-policy') Privacy Policy
+                            .row.text-center
+                                .dynamic-form-wrapper
+                                    .col-sm-24.clear-both
+                                        label.inline(for='form_submission_field_3d732f83ebba1b428174') Are you looking to buy, sell, or lease?
+                                        span.red *
+                                        br
+                                        .col-xs-24.radio
+                                            span.radio-option
+                                                input#form_submission_field_3d732f83ebba1b428174_Buying(type='radio' name='form_submission[field_3d732f83ebba1b428174]' value='Buying' checked='checked')
+                                                label(for='form_submission_field_3d732f83ebba1b428174_Buying' style='display:inline-block;') Buying
+                                            span.radio-option
+                                                input#form_submission_field_3d732f83ebba1b428174_Selling(type='radio' name='form_submission[field_3d732f83ebba1b428174]' value='Selling')
+                                                label(for='form_submission_field_3d732f83ebba1b428174_Selling' style='display:inline-block;') Selling
+                                            span.radio-option
+                                                input#form_submission_field_3d732f83ebba1b428174_Leasing(type='radio' name='form_submission[field_3d732f83ebba1b428174]' value='Leasing')
+                                                label(for='form_submission_field_3d732f83ebba1b428174_Leasing' style='display:inline-block;') Leasing
+                                            span.radio-option
+                                                input#form_submission_field_3d732f83ebba1b428174_Careers(type='radio' name='form_submission[field_3d732f83ebba1b428174]' value='Careers')
+                                                label(for='form_submission_field_3d732f83ebba1b428174_Careers' style='display:inline-block;') Careers
+                                    .col-sm-24.clear-both
+                                        label.inline(for='form_submission_field_70466df0fd2448e58ced') Comments, Questions.. ?
+                                        .col-xs-24.input-group
+                                            textarea#form_submission_field_70466df0fd2448e58ced.input-sm.form-control(name='form_submission[field_70466df0fd2448e58ced]')
+                                    .col-sm-24.clear-both
+                                        label.inline(for='form_submission_field_7c27388f8b1c81600f53') When are you ready?
+                                        span.red *
+                                        br
+                                        .col-xs-24.input-group
+                                            select#form_submission_field_7c27388f8b1c81600f53.input-sm.form-control(name='form_submission[field_7c27388f8b1c81600f53]')
+                                                option(value='1 - 3 months') 1 - 3 months
+                                                option(value='6 - 9 months') 6 - 9 months
+                                                option(value='Just Looking') Just Looking
+                            .clear-both
+                                .form-group.text-center
+                                    input.btn.btn-default.btn-primary.btn-sm.st-btn(type='submit' name='commit' value='Submit' data-disable-with='Please wait...')
+footer#footer-wrapper
+    .footer-container.footer-classic.background-3
+        .footer-page-interior.container
+            .row.hidden-xs
+                .row.hidden-xs
+                    #pre-desktop-footer-nav-section
+                    #footer-nav-section.full-screen-width.text-center.footer-nav-links.footer-color-band
+                        .container
+                            ul.nav.navbar-nav.nav-links
+                                li.first_item
+                                    a.main-nav-link(title='Home' href='/') Home
+                                li
+                                    a.main-nav-link(title='DMCA notice' href='/dmca-notice') DMCA notice
+                                li
+                                    a.main-nav-link(title='About' href='/services') About
+                                li
+                                    a.main-nav-link(title='Contact' href='/contact') Contact
+                                li
+                                    a.main-nav-link(title='Privacy Policy' href='/privacy-policy') Privacy Policy
+                                li.last_item.parent
+                                    a.main-nav-link.dropdown-toggle(title='IABS' target='_blank' data-toggle='hover-dropdown' aria-expanded='false' href='https://members.har.com/mhf/terms/dispBrokerInfo.cfm?sitetype=aws&cid=529794') IABS
+                                    ul.dropdown-menu(role='menu')
+                                        li.first_item
+                                            a.main-nav-link(title='Consumer Protection Notice' target='_blank' href='https://www.trec.texas.gov/sites/default/files/pdf-forms/CN%201-2.pdf') Consumer Protection Notice
+                .footer-content
+                    #pre-desktop-footer-logo
+                    #footer-logo.footer-logo.col-sm-5
+                        img(src='https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/assets/uploads/setting/company_footer_logo/19551/d6e6db8e71ace273a6347b2df993fe59.png' alt='D6e6db8e71ace273a6347b2df993fe59')
+                        .bumper.clear-both.visible-xs
+                    #pre-desktop-footer-company-info-section
+                    #footer-company-info-section.col-sm-14.col-xs-24.text-center.small-text
+                        .col-sm-24
+                            span.company-name Nan and Company Properties
+                            span.footer-address
+                                | 2200 Post Oak Blvd #1475, Houston, Texas 77056
+                            span.footer-phone
+                                a.non-link(data-type='Office' href='tel:713.714.6454') 713.714.6454
+                            span.footer-email
+                                a(data-type='Company' href='mailto:info@nanproperties.com') info@nanproperties.com
+                    #pre-desktop-footer-social-links-section
+                    #footer-social-links-section.col-sm-5.col-xs-24
+                        .social-container
+                            div
+                                #footer_share_wrapper.share_wrapper
+                                    #footer_share_button.share_button
+                                        a.share-button-icon
+                                            svg#Icons(version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewbox='0 110.3 611.9 611.9' enable-background='new 0 110.3 611.9 611.9' xml:space='preserve')
+                                                path.social_backing_square(d='M391.2,689.4h97c48.3,0,91-43.2,91-91V234c0-48.3-43.2-91-91-91H123.8c-48.3,0-91,43.2-91,91\
+                                                v364.4c0,48.3,43.2,91,91,91h182.6')
+                                                circle.social_backing_circle(cx='306' cy='416.3' r='306')
+                                                path(d='M252.5,418.6c0,1.2-0.3,2.4-0.4,3.7l130.3,65c11.1-9.4,25.4-15.3,41.2-15.3\
+                                                c35.4,0,64.1,28.7,64.1,64.1c0,35.5-28.7,64.2-64.1,64.2c-35.5,0-64.1-28.7-64.1-64.2c0-1.3,0.3-2.4,0.4-3.7l-130.2-65.1\
+                                                c-11.2,9.4-25.4,15.3-41.2,15.3c-35.4,0-64.1-28.7-64.1-64.1c0-35.5,28.7-64.2,64.1-64.2c15.8,0,30,5.9,41.2,15.3l130.2-65.1\
+                                                c-0.1-1.2-0.4-2.4-0.4-3.7c0-35.4,28.7-64.1,64.1-64.1s64.1,28.7,64.1,64.1c0,35.5-28.7,64.2-64.1,64.2c-15.8,0-30-5.9-41.2-15.4\
+                                                l-130.2,65.1C252.2,416.1,252.5,417.3,252.5,418.6z')
+                                    #footer_social_media_buttons.social_media_buttons(style='display: none;')
+                                        .tw_follow
+                                            a.twitter-follow-button(href='https://twitter.com/NanProperties' data-show-count='false' data-show-screen-name='false')
+                                        .tw_share
+                                            a.twitter-share-button(href='https://twitter.com/share' data-count='none' data-url='https://www.nanproperties.com/our-developments-page' data-text='Check out this site') Tweet
+                                        .fb-like(data-href='https://www.nanproperties.com/our-developments-page' data-width='50' data-layout='button' data-action='like' data-show-faces='false' data-share='false' style='height:20px; width: 20px;')
+                                        .fb-share-button(data-href='https://www.nanproperties.com/our-developments-page' data-layout='button' style='height:20px; width: 20px;')
+                                        .fb-send(data-href='https://www.nanproperties.com/our-developments-page' style='height:20px; width: 20px;')
+                                        .linkedin_share
+                                            script(type='IN/Share' data-url='https://www.nanproperties.com/our-developments-page' data-counter='none' data-onsuccess='linkedinShared').
+                                        .pinterest_share
+                                            a.pin-it-button(href='//www.pinterest.com/pin/create/button/?url=https%3A%2F%2Fwww.nanproperties.com%2Four-developments-page&media=https%3A%2F%2Fb386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com%2Fassets%2Fuploads%2Fpage%2Fbanner_image%2F1292956%2Foptimized_62825a735ed6065211a83b416d6210dc.jpg&description=' data-pin-do='buttonPin' data-pin-config='none')
+                                                img(border='0' src='//assets.pinterest.com/images/PinExt.png' title='Pin It')
+                            .social
+                                a.li(target='_blank' href='https://www.linkedin.com/company/nanandcompanyproperties')
+                                    svg(version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewbox='0 110.3 611.9 611.9' enable-background='new 0 110.3 611.9 611.9' xml:space='preserve')
+                                        path.social_backing_square(d='M391.2,689.4h97c48.3,0,91-43.2,91-91V234c0-48.3-43.2-91-91-91H123.8c-48.3,0-91,43.2-91,91\
+                                        v364.4c0,48.3,43.2,91,91,91h182.6')
+                                        circle.social_backing_circle(cx='306' cy='416.3' r='306')
+                                        path(d='M481.8,454.4v130h-75.4V463.1c0-30.4-10.8-51.5-38.5-51.5c-20.7,0-33,14-38.5,27.6\
+                                        c-2.1,4.9-2.7,11.4-2.7,18.4v126.8h-75.4c0,0,1.1-205.9,0-227h75.4v32l-0.5,0.5h0.5v-0.5c10.2-15.7,28.2-37.3,68.2-37.3\
+                                        C444.5,352.6,481.8,385.1,481.8,454.4z M172.4,248c-26,0-42.7,16.9-42.7,39c0,21.7,16.3,39,41.7,39h0.5c26.6,0,42.7-17.4,42.7-39\
+                                        C214.2,265.4,198.4,248,172.4,248z M134,585h75.4V358H134V585z')
+                                a.ig(target='_blank' href='https://www.instagram.com/nanproperties/')
+                                    svg(version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewbox='0 0 611.9 611.9' style='enable-background:new 0 0 611.9 611.9;' xml:space='preserve')
+                                        path.social_backing_square(d='M391.2,579.1h97c48.3,0,91-43.2,91-91V123.7c0-48.3-43.2-91-91-91H123.8c-48.3,0-91,43.2-91,91\
+                                        v364.4c0,48.3,43.2,91,91,91h182.6')
+                                        circle.social_backing_circle(cx='306' cy='306' r='306')
+                                        path(d='M484,232.2c-0.9-19.1-3.9-32.1-8.3-43.5c-4.6-11.8-10.7-21.8-20.7-31.7c-10-10-19.9-16.1-31.7-20.7\
+                                        c-11.4-4.4-24.4-7.5-43.5-8.3c-19.1-0.9-25.2-1.1-73.8-1.1c-48.6,0-54.7,0.2-73.8,1.1c-19.1,0.9-32.1,3.9-43.5,8.3\
+                                        c-11.8,4.6-21.8,10.7-31.7,20.7c-10,10-16.1,19.9-20.7,31.7c-4.4,11.4-7.5,24.4-8.3,43.5c-0.9,19.1-1.1,25.2-1.1,73.8\
+                                        c0,48.6,0.2,54.7,1.1,73.8c0.9,19.1,3.9,32.1,8.3,43.5c4.6,11.8,10.7,21.8,20.7,31.7c10,10,19.9,16.1,31.7,20.7\
+                                        c11.4,4.4,24.4,7.5,43.5,8.3c19.1,0.9,25.2,1.1,73.8,1.1c48.6,0,54.7-0.2,73.8-1.1c19.1-0.9,32.1-3.9,43.5-8.3\
+                                        c11.8-4.6,21.8-10.7,31.7-20.7c10-10,16.1-19.9,20.7-31.7c4.4-11.4,7.5-24.4,8.3-43.5c0.9-19.1,1.1-25.2,1.1-73.8\
+                                        S484.9,251.3,484,232.2z M451.8,378.4c-0.8,17.5-3.7,26.9-6.2,33.3c-3.2,8.4-7.1,14.3-13.4,20.6c-6.3,6.3-12.2,10.1-20.6,13.4\
+                                        c-6.3,2.5-15.8,5.4-33.3,6.2c-18.9,0.9-24.5,1-72.4,1s-53.5-0.2-72.4-1c-17.5-0.8-26.9-3.7-33.3-6.2c-8.4-3.2-14.3-7.1-20.6-13.4\
+                                        c-6.3-6.3-10.1-12.2-13.4-20.6c-2.5-6.3-5.4-15.8-6.2-33.3c-0.9-18.9-1-24.6-1-72.4s0.2-53.5,1-72.4c0.8-17.5,3.7-26.9,6.2-33.3\
+                                        c3.2-8.4,7.1-14.3,13.4-20.6c6.3-6.3,12.2-10.1,20.6-13.4c6.3-2.5,15.8-5.4,33.3-6.2c18.9-0.9,24.6-1,72.4-1c47.8,0,53.5,0.2,72.4,1\
+                                        c17.5,0.8,26.9,3.7,33.3,6.2c8.4,3.2,14.3,7.1,20.6,13.4c6.3,6.3,10.1,12.2,13.4,20.6c2.5,6.3,5.4,15.8,6.2,33.3\
+                                        c0.9,18.9,1,24.6,1,72.4S452.6,359.5,451.8,378.4z M306,214c-50.8,0-92,41.2-92,92s41.2,92,92,92c50.8,0,92-41.2,92-92\
+                                        S356.8,214,306,214z M306,365.7c-33,0-59.7-26.7-59.7-59.7s26.7-59.7,59.7-59.7c33,0,59.7,26.7,59.7,59.7S339,365.7,306,365.7z\
+                                        M423.1,210.4c0,11.9-9.6,21.5-21.5,21.5c-11.9,0-21.5-9.6-21.5-21.5s9.6-21.5,21.5-21.5C413.5,188.9,423.1,198.5,423.1,210.4z')
+                                a.yt(target='_blank' href='https://www.youtube.com/channel/UCy_Lo0gLaK3AdAwi-nuUjDg')
+                                    svg(version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewbox='0 110.3 611.9 611.9' enable-background='new 0 110.3 611.9 611.9' xml:space='preserve')
+                                        path.social_backing_square(d='M391.2,689.4h97c48.3,0,91-43.2,91-91V234c0-48.3-43.2-91-91-91H123.8c-48.3,0-91,43.2-91,91\
+                                        v364.4c0,48.3,43.2,91,91,91h182.6')
+                                        circle.social_backing_circle(cx='306' cy='416.3' r='306')
+                                        path(d='M496,343.4c0-31.4-25.5-56.9-56.9-56.9h-266c-31.4,0-56.9,25.5-56.9,56.9v152.3\
+                                        c0,31.4,25.5,56.9,56.9,56.9h266.1c31.4,0,56.9-25.5,56.9-56.9L496,343.4L496,343.4z M268.4,483.2V340.6l108.3,71.6L268.4,483.2z')
+                                a.tw(target='_blank' href='https://twitter.com/NanProperties')
+                                    svg#Icons(version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewbox='0 0 611.9 611.9' style='enable-background:new 0 0 611.9 611.9;' xml:space='preserve')
+                                        path.social_backing_square(d='M391.2,579.1h97c48.3,0,91-43.2,91-91V123.7c0-48.3-43.2-91-91-91H123.8c-48.3,0-91,43.2-91,91 v364.4c0,48.3,43.2,91,91,91h182.6')
+                                        circle.social_backing_circle(cx='306' cy='306' r='306')
+                                        path(d='M522.3,171.9c-15.9,7.1-33,11.8-51,14c18.3-11,32.4-28.4,39-49.1c-17.2,10.2-36.2,17.5-56.4,21.5 c-16.2-17.3-39.2-28-64.8-28c-49,0-88.7,39.7-88.7,88.7c0,6.9,0.8,13.7,2.3,20.2c-73.7-3.7-139.1-39-182.9-92.7 c-7.7,13.1-12,28.3-12,44.6c0,30.8,15.7,58,39.5,73.9c-14.5-0.5-28.2-4.5-40.2-11.1v1.1c0,43,30.6,78.9,71.2,87 c-7.4,2-15.3,3.1-23.4,3.1c-5.7,0-11.3-0.6-16.7-1.6c11.3,35.3,44.1,60.9,82.9,61.6c-30.4,23.8-68.6,37.9-110.2,37.9 c-7.2,0-14.2-0.4-21.2-1.2c39.3,25.2,85.9,39.9,136,39.9c163.2,0,252.5-135.2,252.5-252.5l-0.3-11.5 C495.3,205.3,510.4,189.7,522.3,171.9z')
+                                a.fb(target='_blank' href='https://www.facebook.com/nanandcompanyproperties')
+                                    svg(version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewbox='0 110.3 611.9 611.9' enable-background='new 0 110.3 611.9 611.9' xml:space='preserve')
+                                        path.social_backing_square(d='M391.2,689.4h97c48.3,0,91-43.2,91-91V234c0-48.3-43.2-91-91-91H123.8c-48.3,0-91,43.2-91,91\
+                                        v364.4c0,48.3,43.2,91,91,91h182.6')
+                                        circle.social_backing_circle(cx='306' cy='416.3' r='306')
+                                        path(d='M252,638.4V434.3h-66v-90h66v-34.8c0-60.6,45.6-115.3,101.4-115.3h72.6v90\
+                                        h-72.6c-7.8,0-17.4,9.6-17.4,24v36h90v90h-90v204.1H252z')
+                        #pre-desktop-footer-translation-widget
+                        #footer-translation-widget.text-right
+                            .smidge.clear-both
+                            #translate-outter
+                                #google_translate_elementfooter(style='display:none;')
+                                #translate_wrapper.translate_wrapper
+                                    a(data-lang='English' title='English' target='_blank')
+                                        img(border='0' src='https://blp-prodcdn0.scdn5.secure.raxcdn.com/assets/flags/america-08e889bba153409c2e4455b0573aa78fa42004d531ce0e855ff34c1f1356813a.svg' alt='America')
+                                    a(data-lang='Spanish' title='Translate to Spanish' target='_blank')
+                                        img(border='0' src='https://blp-prodcdn0.scdn5.secure.raxcdn.com/assets/flags/spain-e440412eda09900b494799c043833ab5e8676b6787c6224907b9a616582f9609.svg' alt='Spain')
+                                    a(data-lang='Chinese' title='Translate to Chinese' target='_blank')
+                                        img(border='0' src='https://blp-prodcdn1.scdn4.secure.raxcdn.com/assets/flags/china-c5dc757145cb0a06a5f6cd8088b3e0a6e95fa649032b4d2bc3ac2054057c2ae3.svg' alt='China')
+                                    a(data-lang='French' title='Translate to French' target='_blank')
+                                        img(border='0' src='https://blp-prodcdn1.scdn4.secure.raxcdn.com/assets/flags/france-5218321afd9e9e17ce343143446cabfc3e0652c7ba9a07b9f036b188666e136f.svg' alt='France')
+                                    a(data-lang='Hindi' title='Translate to Hindi' target='_blank')
+                                        img(border='0' src='https://blp-prodcdn2.scdn5.secure.raxcdn.com/assets/flags/india-12ff505536eddd090f1355f86b14207898323ba8ca40efb69aa7c0c2d9093a99.svg' alt='India')
+                            .bumper.clear-both.visible-xs
+            .mobile-footer-container.visible-xs.text-center
+                #pre-mobile-footer-nav-section
+                #pre-mobile-footer-social-links-section
+                .clear-both.visible-xs
+                #pre-mobile-footer-logo
+                #pre-mobile-footer-translation-widget
+                #pre-mobile-footer-company-info-section
+                .bumper.clear-both
+                // <div id="pre-mobile-footer-disclaimer"></div>
+        .footer-copy
+            .footer-page-interior.container
+                // disclaimer logos from settings
+                // <div id="pre-desktop-footer-disclaimer"></div>
+                #footer-disclaimer.text-center.small-text
+                    .bumper.clear-both
+                    .copyright
+                        | Copyright &copy; 2020 Nan and Company Properties. All rights reserved.
+                    .c-footer__credit
+                        a(target='_blank' rel='nofollow' href='https://www.propertybase.com/') Built by Propertybase Inc.
+                    #seo-footer
+                        script(type='application/ld+json').
+                            {
+                            "@context": "http://schema.org/",
+                            "@type": "Organization",
+                            "name": "Nan and Company Properties",
+                            "description": "Nan and Company Properties, Christies International Real Estate is the industry leader in servicing the Houston real estate market, as well as foreign national clientele.",
+                            "url": "https://www.nanproperties.com",
+                            "sameAs": [
+                            "https://www.facebook.com/nanandcompanyproperties",
+                            "https://www.linkedin.com/company/nanandcompanyproperties",
+                            "https://twitter.com/NanProperties",
+                            "",
+                            "https://www.youtube.com/channel/UCy_Lo0gLaK3AdAwi-nuUjDg",
+                            "https://www.instagram.com/nanproperties/"
+                            ],
+                            "image": "https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/assets/uploads/setting/company_print_email_logo/19551/89224668e83de7417b9d16d2166e05ce.jpg"
+                            }
+script(src='https://blp-prodcdn1.scdn4.secure.raxcdn.com/assets/responsive_base-639c8945024d8559bd1d68e34d9acd161fcbb03aee215fd8a74dc4a58c194711.js')
+script.
+    var mySwiper;
+    var navHeight;
+    var suppressDropdownsInit = true;
+    $(function() {
+    navHeight = $('nav#main-nav').height() - $('.header-band').height();
+    populateHamburgerInfo();
+    $('[data-toggle="hover-dropdown"]').dropdownHoverTogle();
+    shrunkenNavDisplay();
+    setSidebarClasses(true);
+    updateMatchedHeights();
+    $('.token-input-input-token-facebook input').trigger('blur');
+    var msg = $('#messages, .alert');
+    if(msg.length && !msg.html().match(/\\<a /) && !msg.html().match(/unsubscribed from/)){
+    setTimeout(function(){
+    $('#messages, .alert').fadeOut();
+    }, 5000);
+    }
+    setFullWidths();
+    menuOverflow();
+    window.addEventListener('resize', menuOverflow);
+    window.addEventListener('load', menuOverflow);
+    });
+    $(window).bind('scroll', function(){
+    shrunkenNavDisplay();
+    setToolbarStyle();
+    });
+    $(window).bind('resize', function(){
+    populateHamburgerInfo();
+    shrunkenNavDisplay();
+    setSidebarClasses(true);
+    updateMatchedHeights();
+    if(typeof(mySwiper) !== 'undefined'){
+    toggleSwiper();
+    }
+    setToolbarStyle();
+    updateMatchedHeights();
+    setFullWidths();
+    });
+    $(window).bind('load', function(){
+    $("#header-primary-nav").removeClass("hidden-xs");
+    updateMatchedHeights();
+    });
+    $('.property-list-icons .layout-button-wrapper').on('click', function(){
+    var base_container = '.'+$(this).parent('.property-list-icons').data('controls');
+    $(this).parent('.property-list-icons').children('.layout-button-wrapper').each(function(){
+    $(this).removeClass('active');
+    });
+    $(this).addClass('active');
+    if($(this).hasClass('list-view-icon')){
+    $(base_container).addClass('list-view');
+    // whole container
+    $(base_container+' .property-listings.col-md-6.col-sm-8').each(function(){
+    $(this).removeClass('col-md-6').removeClass('col-sm-8').addClass('col-sm-24');
+    });
+    // whole container
+    $(base_container+' .property-listings.col-md-8.col-sm-12').each(function(){
+    $(this).removeClass('col-md-8').removeClass('col-sm-12').addClass('col-sm-24');
+    });
+    // whole container
+    $(base_container+' .property-listings.col-md-6.col-sm-12').each(function(){
+    $(this).removeClass('col-md-6').removeClass('col-sm-12').addClass('col-sm-24');
+    });
+    // photo container
+    $(base_container+' .col-sm-24.col-xs-12.kill-padding').each(function(){
+    $(this).removeClass('col-sm-24').addClass('col-sm-6');
+    });
+    // address, price, etc info
+    $(base_container+' .col-sm-24.col-xs-12').each(function(){
+    $(this).removeClass('col-sm-24').addClass('col-sm-7').addClass('col-md-6');
+    });
+    $(base_container+' .property-details').each(function(){
+    $(this).removeClass('row');
+    });
+    $(base_container+' .favorites-icon-container').each(function(){
+    $(this).prependTo($(this).parent('.mls_result_row').find('#result-icons'));
+    });
+    }else{
+    $(base_container).removeClass('list-view');
+    // whole container
+    $(base_container+' .property-listings.col-sm-24').each(function(){
+    $(this).addClass('col-md-6').addClass('col-sm-8').removeClass('col-sm-24');
+    });
+    // whole container
+    // $(base_container+' .property-listings.col-sm-16').each(function(){
+    //   $(this).addClass('col-md-6').addClass('col-sm-8').removeClass('col-sm-16');
+    // });
+    // photo info
+    $(base_container+' .col-sm-6.col-xs-12.kill-padding').each(function(){
+    $(this).removeClass('col-sm-6').addClass('col-sm-24');
+    });
+    // address, price, etc info
+    $(base_container+' .col-md-6.col-sm-7.col-xs-12').each(function(){
+    $(this).removeClass('col-sm-7').removeClass('col-md-6').addClass('col-sm-24');
+    });
+    $(base_container+' .property-details').each(function(){
+    $(this).addClass('row');
+    });
+    $(base_container+' .favorites-icon-container').each(function(){
+    $(this).prependTo($(this).parents('.mls_result_row')[0]);
+    });
+    }
+    updateMatchedHeights();
+    });
+    function populateHamburgerInfo() {
+    if(window.innerWidth < 768) {
+    if ($('#hamburger-social').is(':empty')){
+    $('#hamburger-social').html($('#header-social').html());
+    $('#hamburger-social #header_share_wrapper').attr('id', 'hamburger_share_wrapper');
+    $('#hamburger-social #header_share_button').attr('id', 'hamburger_share_button');
+    $('#hamburger-social #header_social_media_buttons').attr('id', 'hamburger_social_media_buttons');
+    observeLocationTooltip('hamburger');
+    $('#hamburger_share_button').on('mouseover', function(){
+    if(!$(this).hasClass('loaded')){
+    $(this).addClass('loaded');
+    loadTwitterJS('');
+    loadFacebookJS('https://www.nanproperties.com/channel.html', '', false);
+    loadLinkedInJS('');
+    loadPinterestJS('false');
+    }
+    });
+    }
+    if ($('#hamburger-contact').is(':empty')){
+    $('#hamburger-contact').html($('#header-contact').html());
+    }
+    }
+    }
+    function shrunkenNavDisplay() {
+    var nav = $('nav#main-nav');
+    var shrunkenHeaderOffset = nav.height() + 40;
+    setHeaderPositions();
+    if(window.innerWidth >= 768 && ($(window).scrollTop() > shrunkenHeaderOffset)) {
+    $('body').css('padding-top', navHeight);
+    if (!nav.hasClass('shrink')) {
+    nav.hide();
+    nav.addClass('shrink');
+    nav.fadeIn('slow');
+    menuOverflow();
+    }
+    if($('#fixed_top_content').css('position') == 'fixed'){
+    $('#fixed_top_content').css('top', nav.css('height'));
+    }
+    }
+    else {
+    $('body').css('padding-top', 0);
+    nav.removeClass('shrink');
+    $('#fixed_top_content.fixed-nav').removeClass('fixed-nav');
+    menuOverflow();
+    }
+    }
+    function setSidebarClasses(initial_setup){
+    var initial_setup = initial_setup || false;
+    var doc_width = window.innerWidth;
+    if(!initial_setup){
+    if(doc_width < 1140){
+    $('.property-listings.mls_result_row').removeClass('col-sm-16').addClass('col-lg-16').addClass('col-sm-24');
+    }else{
+    $('.property-listings.mls_result_row').addClass('col-sm-16').removeClass('col-lg-16').removeClass('col-sm-24');
+    }
+    }
+    }
+    function updateMatchedHeights(){
+    adjusted_parents = [];
+    $('.matched-height').each(function(){
+    if(adjusted_parents.indexOf($(this).data('parent')) == -1){
+    adjusted_parents.push($(this).data('parent'));
+    }
+    });
+    $.each(adjusted_parents, function(index, parent_id){
+    var tallest = 0;
+    $('#'+parent_id).find('.matched-height').each(function(){
+    $(this).css('height', 'auto');
+    height = parseInt($(this).css('height').replace('px', ''));
+    if(height > tallest){
+    tallest = height;
+    }
+    });
+    $('#'+parent_id).find('.matched-height').each(function(){
+    if(tallest > 0){
+    $(this).css('height', tallest + 'px');
+    }
+    });
+    });
+    }
+    function setToolbarStyle(){
+    setFooterPositions();
+    if(window.innerWidth < 768) {
+    // $('#footer-social-links-section').after($('#footer-nav-section'));
+    // $('#footer-company-info-section').after($('#footer-social-links-section'));
+    $('#in-body-tool-container nav#prop-toolbar-nav').appendTo('#mobile-fixed-top-content');
+    $('#fixed_top_content > nav#prop-toolbar-nav').appendTo('#mobile-fixed-top-content');
+    $('#sidebar #sidebar-wrapper').appendTo('#mobile-fixed-sidebar');
+    $('.navbar-container #header-primary-nav').appendTo('#fixed_top_content');
+    $('#quick-search-panel #quicksearch-panel').appendTo('#mobile-fixed-quick-search');
+    var main_nav_height = $('#main-nav').css('height');
+    $('#mobile-fixed-top-content, #header-primary-nav, #mobile-fixed-sidebar, #mobile-fixed-quick-search').css({'top': main_nav_height});
+    $('#fixed_top_content').removeClass('navbar');
+    $('#tool_wrap').addClass('mobile-view');
+    if($('#mobile-pic-wrapper').length){
+    $('#pic-content-section').appendTo('#mobile-pic-wrapper');
+    }
+    $('body').css('padding-bottom', 0);
+    $('.body-interior').css('min-height', 10);
+    $('.mls_result_row').removeClass('matched-height').css('height', 'auto');
+    $('#mobile-head-spacer').css('height', $('#main-nav').height() + 10);
+    }else{
+    // $('#footer-social-links-section').after($('#footer-company-info-section'));
+    // $('#footer-nav-section').after($('#footer-social-links-section'));
+    if($('#mobile-pic-wrapper').length){
+    $('#pic-content-section').appendTo('#full-pic-wrapper');
+    }
+    if($('#in-body-tool-container').length && $('#in-body-tool-container').offset().top < $(window).scrollTop()) {
+    if(!$('#fixed_top_content').hasClass('fixed-nav')){
+    $('nav#prop-toolbar-nav, #fixed_top_content').hide();
+    $('nav#prop-toolbar-nav').appendTo('#fixed_top_content');
+    $('#fixed_top_content').css('top', $('#main-nav').css('height')).css('position', 'fixed').addClass('fixed-nav');
+    $('nav#prop-toolbar-nav, #fixed_top_content').fadeIn('slow');
+    }
+    }else{
+    $('nav#prop-toolbar-nav').appendTo('#in-body-tool-container');
+    $('#fixed_top_content').removeClass('fixed-nav');
+    }
+    $('#fixed_top_content').addClass('navbar');
+    $('#sidebar-wrapper').appendTo('#sidebar.left-column');
+    $('#mobile-fixed-quick-search #quicksearch-panel').appendTo('#quick-search-panel');
+    $('#mobile-fixed-top-content, #header-primary-nav, #mobile-fixed-sidebar, #mobile-fixed-quick-search').css({'top': 'auto'});
+    $('#fixed_top_content #header-primary-nav').removeClass('open').appendTo('#bottom-half-header > .container');
+    $('#main-nav-toggle').addClass('collapsed');
+    $('body').css('padding-bottom', $('#footer-wrapper').height());
+    $('.body-interior').css('min-height', window.innerHeight - ($('#main-nav').height() + $('footer#footer-wrapper').height() + $('.body-interior-top').height() + $('#banner').height() + $('#homepage-slider').height() + ($('.body-interior-top').length ? 30 : 0)));
+    $('.mls_result_row').addClass('matched-height');
+    }
+    }
+    function setupPropToolbar(){
+    $('nav#main-nav button#main-nav-toggle').after('<button class=\\"visible-xs tool-icon-container \" id=\"property-tool-toggle\">\n  <svg version=\"1.1\" id=\"tools\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 20 19\" style=\"enable-background:new 0 0 20 19;\" xml:space=\"preserve\" class=\"tool-icon\">\n    <path d=\"M17.7,17.1H2.3c-0.3,0-0.5-0.3-0.5-0.5v-6.3h3.1c0,0.1-0.1,0.1-0.1,0.2v0.9c0,0.2,0.2,0.4,0.4,0.4\n  		h2.2c0.2,0,0.4-0.2,0.4-0.4v-0.9c0-0.1-0.1-0.2-0.1-0.2h4.4c0,0.1-0.1,0.1-0.1,0.2v0.9c0,0.2,0.2,0.4,0.4,0.4h2.2\n  		c0.2,0,0.4-0.2,0.4-0.4v-0.9c0-0.1,0-0.2-0.1-0.2h3.1v6.3C18.2,16.9,18,17.1,17.7,17.1L17.7,17.1z M2.3,4.5h4.9c0,0,0,0,0,0h5.4\n  		c0,0,0,0,0,0h4.9c0.3,0,0.5,0.2,0.5,0.5v3.8H1.8V5.1C1.8,4.8,2,4.5,2.3,4.5L2.3,4.5z M7.3,2.7l0-0.9l5.4,0v0.8c0,0,0,0,0,0h-1\n  		L7.3,2.7z M17.7,2.7h-3.1c0,0,0,0,0,0V1.8c0-1-0.8-1.8-1.8-1.8H7.3c-1,0-1.8,0.8-1.8,1.8v0.8c0,0,0,0,0,0H2.3C1.1,2.7,0,3.8,0,5.1\n  		v11.5c0,1.3,1.1,2.3,2.3,2.3h15.3c1.3,0,2.3-1.1,2.3-2.3V5.1C20,3.8,18.9,2.7,17.7,2.7L17.7,2.7z\"/>\n  <\/svg>\n<\/button>\n');
+    $('#property-tool-toggle').css('right', ((($('nav#main-nav button').length - 2) * 25) + 26));
+    setToolbarStyle();
+    $('#property-tool-toggle').on('click', function(){
+    $('#header-primary-nav, #mobile-fixed-sidebar, #mobile-fixed-quick-search').removeClass('open');
+    $('#mobile-fixed-top-content').toggleClass('open');
+    $('#main-nav-toggle').addClass('collapsed');
+    });
+    }
+    function setFullWidths(){
+    $.each($('.full-screen-width'), function(){
+    $(this).css({'left': 'auto', 'width': 'inherit'});
+    if(window.innerWidth >= 768){
+    $(this).css({
+    'width': $(window).innerWidth(),
+    'left': 0 - ($(this).offset().left),
+    'position': 'relative'
+    });
+    }
+    });
+    }
+    $('#main-nav-toggle').on('click', function(){
+    $('#mobile-fixed-top-content, #mobile-fixed-sidebar, #mobile-fixed-quick-search').removeClass('open');
+    $('#main-nav-toggle').toggleClass('collapsed');
+    $('#header-primary-nav').toggleClass('open');
+    disableBodyScroll('#header-primary-nav');
+    });
+    $('#mobile-sidebar-toggle').on('click', function(){
+    $('#mobile-fixed-top-content, #header-primary-nav, #mobile-fixed-quick-search').removeClass('open');
+    $('#main-nav-toggle').addClass('collapsed');
+    $('#mobile-fixed-sidebar').toggleClass('open');
+    disableBodyScroll('#mobile-fixed-sidebar');
+    });
+    $('a[data-toggle="modal"]').on('click', function(){
+    $('#mobile-fixed-top-content, #header-primary-nav, #mobile-fixed-sidebar, #mobile-fixed-quick-search').removeClass('open');
+    $('#main-nav-toggle').addClass('collapsed');
+    $('body').css({'overflow-y': 'scroll'});
+    });
+    $('nav#main-nav button#main-nav-toggle').after('<button class=\\"visible-xs search-icon-container\" id=\"mobile-qs-toggle\">\n  <svg class=\"search-icon\" version=\"1.1\" id=\"Capa_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n     viewBox=\"-556.3 -94.8 275.6 275.5\" enable-background=\"new -556.3 -94.8 275.6 275.5\" xml:space=\"preserve\">\n    <path d=\"M-290,126.6l-30.3-30.3c-0.4-0.4-0.8-0.8-1.3-1.1c11.1-18.8,17.4-40.6,17.4-63.9c0-69.6-56.6-126.1-126.1-126.1\n    c-69.6,0-126.2,56.5-126.2,126c0,69.6,56.6,126.1,126.1,126.1c23.3,0,45.2-6.4,63.9-17.4c0.3,0.4,0.7,0.9,1.1,1.3l30.3,30.3\n    c6,6,14,9.3,22.5,9.3c8.5,0,16.5-3.3,22.5-9.3C-277.6,159.1-277.6,139-290,126.6z M-518.5,31.3c0-48.6,39.6-88.2,88.2-88.2\n    S-342-17.4-342,31.3s-39.6,88.2-88.2,88.2S-518.5,79.9-518.5,31.3z\"/>\n  <\/svg>\n<\/button>');
+    if($('#mobile-sidebar-toggle').length){
+    $('#mobile-sidebar-toggle').css('right', ((($('nav#main-nav button').length - 2) * 25) + 20));
+    }
+    $('#mobile-qs-toggle').on('click', function(){
+    $('#header-primary-nav, #mobile-fixed-sidebar, #mobile-fixed-top-content').removeClass('open');
+    $('#mobile-fixed-quick-search').toggleClass('open');
+    $('#main-nav-toggle').addClass('collapsed');
+    disableBodyScroll('#mobile-fixed-quick-search');
+    });
+    setToolbarStyle();
+    $('.modal').on('show.bs.modal', function () {
+    dialog_margin = window.innerWidth < 768 ? $('#main-nav').css('height') + ' auto' : '200px auto';
+    $('.modal-dialog').css('margin', dialog_margin);
+    });
+    $("input").blur(function() {
+    $("#fixed-top-content").css('position', 'fixed');
+    });
+    $("input").focus(function() {
+    $("#fixed-top-content").css('position', 'relative');
+    });
+    function setFooterPositions(){
+    if(window.innerWidth >= 768){
+    $('div[id^="pre-desktop-footer-"]').each(function(){
+    $(this).after($('#'+$(this).attr('id').replace('pre-desktop-','')));
+    });
+    }else{
+    $('div[id^="pre-mobile-footer-"]').each(function(){
+    $(this).after($('#'+$(this).attr('id').replace('pre-mobile-','')));
+    });
+    }
+    }
+    function setHeaderPositions(){
+    if(window.innerWidth >= 768){
+    if($(window).scrollTop() > ($('nav#main-nav').height() + 40)){
+    if (!$('nav#main-nav').hasClass('shrink')) {
+    $('div[id^="pre-desktop-fixed-header-"]').each(function(){
+    $(this).after($('#'+$(this).attr('id').replace('pre-desktop-fixed-','')));
+    });
+    }
+    }else{
+    $('div[id^="pre-desktop-header-"]').each(function(){
+    $(this).after($('#'+$(this).attr('id').replace('pre-desktop-','')));
+    });
+    }
+    }else{
+    $('div[id^="pre-mobile-header-"]').each(function(){
+    $(this).after($('#'+$(this).attr('id').replace('pre-mobile-','')));
+    });
+    }
+    }
+    function updateMatchedHeights(){
+    adjusted_parents = [];
+    $('.matched-height').each(function(){
+    if(adjusted_parents.indexOf($(this).data('parent')) == -1){
+    adjusted_parents.push($(this).data('parent'));
+    }
+    });
+    $.each(adjusted_parents, function(index, parent_id){
+    var tallest = 0;
+    $('#'+parent_id).find('.matched-height').each(function(){
+    $(this).css('height', 'auto');
+    height = parseInt($(this).css('height').replace('px', ''));
+    if(height > tallest){
+    tallest = height;
+    }
+    });
+    $('#'+parent_id).find('.matched-height').each(function(){
+    if(tallest > 0){
+    $(this).css('height', tallest + 'px');
+    }
+    });
+    });
+    $('.matched-heighter').each(function(){
+    height = parseInt($('#'+$(this).data('parent')).find('.matched-heightee').css('height').replace('px', ''));
+    $(this).css('height', height + 'px');
+    });
+    }
+    if(getCookie('listings_layout') != ''){
+    $('.'+getCookie('listings_layout').toLowerCase()+'-view-icon').trigger('click');
+    }
+    var menuOverflow = function() {
+    var navbar = $('.navbar-container .navbar-nav');
+    var moreBtn = $("<li style='display:none;' class='parent nav-item more-item'><a href='javascript:void(0)' aria-expanded='false' class='main-nav-link dropdown-toggle' data-toggle='hover-dropdown' title='More'>More</a><ul role='menu' class='dropdown-menu nav-more-menu'></ul></li>");
+    var navbarWidth = navbar.width();
+    var cumulativeWidth = 77;
+    var overflowList = [];
+    // Skip this if mobile or hamburger menu
+    if ($('.header-hamburger').length) {
+    return;
+    }
+    // Append more btn if doesn't exist
+    if(!$('.more-item').length){
+    navbar.append(moreBtn)
+    navbar.find('.more-item > .dropdown-toggle').dropdownHoverTogle();
+    }
+    // Force this so nav item position is relative to parent
+    navbar.css('position', 'relative');
+    // Need to show elements to get actual nav width each time
+    navbar.find('> li:not(.more-item)').show();
+    lastMenuItem = navbar.find('> li:not(.more-item):last');
+    items_width = 0;
+    navbar.find('> li:not(.more-item)').each(function(){
+    items_width = items_width + $(this).width();
+    });
+    if(items_width > navbar.width()){
+    navbar.find('> li:not(.more-item)').each(function() {
+    cumulativeWidth = cumulativeWidth + $(this).width();
+    if((cumulativeWidth > navbarWidth) && $(window).width() > 767){
+    overflowList.push([this.outerHTML, $(this).width()]);
+    $(this).hide();
+    } else {
+    $(this).css('display', 'flex');
+    }
+    navbarWidth = navbar.width();
+    });
+    }else{
+    navbar.find('> li:not(.more-item)').css('display', 'flex');
+    }
+    // Loop through overflow list and add to
+    // more dropdown. Initialize chevrons as well
+    if(overflowList.length){
+    $('.more-item').css('display', 'flex');
+    navbar.find('.nav-more-menu').html('');
+    $.each(overflowList.reverse(), function(){
+    var item = $(this[0]);
+    item.find('.nav-link').removeClass('nav-link').addClass('dropdown-item');
+    item.find('span').remove();
+    navbar.find('.nav-more-menu').append(item[0].outerHTML)
+    });
+    navbar.find('.nav-more-menu').find('> li > [data-toggle="hover-dropdown"]').dropdownHoverTogle();
+    } else { $('.more-item').hide(); }
+    };
+script.
+    $(function(){
+    $('#cms-form input, #cms-form select').on('focus', function(){
+    if((getCookie('user_id') == false || getCookie('user_id') == '') && !$('#cms-form').hasClass('tracked')) {
+    $('#cms-form').addClass('tracked');
+    google_track_event("Dynamic Form, Contact Us", 'Signup', 'Anonymous View - Signup');
+    }
+    });
+    });
+script.
+    setupLinkTracking();
+script(type='text/javascript').
+    function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,es,zh-CN,fr,hi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+    $('html').css('height', 'auto');
+    }
+script(type='text/javascript' src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit')
+script.
+    setupGoogleTranslate();
+script(type='text/javascript').
+    function googleTranslateElementInithamb() {
+    new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,es,zh-CN,fr,hi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_elementhamb');
+    $('html').css('height', 'auto');
+    }
+script(type='text/javascript' src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInithamb')
+script.
+    setupGoogleTranslate();
+script.
+    tokeninput_options = JSON.parse('{}');
+    super_location_array = typeof(super_location_array) == 'undefined' ? [] : super_location_array;
+    fetching_super_locations = typeof(fetching_super_locations) == 'undefined' ? false : fetching_super_locations;
+    orig_placeholders = typeof(orig_placeholders) == 'undefined' ? {} : orig_placeholders;
+    locations_polls = typeof(locations_polls) == 'undefined' ? {} : locations_polls;
+    setup_super_location_type_ahead(
+    'qs_search_super_locations',
+    'super_locations-autocomplete',
+    '',
+    tokeninput_options,
+    '19770',
+    '150',
+    '',
+    'https://blp-prodcdn0.scdn5.secure.raxcdn.com/company_super_locations_19770_150_1.json'
+    );
+script.
+    $(function() {
+    $("input:submit[name='commit'][value='Search']").on('click', function(e) {
+    set_polygon_search_coordinates(e.target.form.id, 'search_polygon_coordinates', false, e);
+    });
+    });
+script.
+    setupRadiusSearch('qs_', 'securesequoiares.com');
+    if(window.innerWidth > 768){
+    $('#qs_search_radius_search_0').trigger('click');
+    }
+    $(window).bind('resize', function(){
+    if(window.innerWidth > 768){
+    $('#qs_search_radius_search_0').trigger('click');
+    }
+    });
+script.
+    $('#quicksearch-panel').removeClass('hidden');
+script(type='text/javascript').
+    $(function(){
+    observeLocationTooltip('footer');
+    $('#footer_share_button').on('mouseover', function(){
+    if(!$(this).hasClass('loaded')){
+    $(this).addClass('loaded');
+    loadTwitterJS('');
+    loadFacebookJS('https://www.nanproperties.com/channel.html', '', false);
+    loadLinkedInJS('');
+    loadPinterestJS('false');
+    setTimeout(function(){
+    $('.fb-send').css({width: 'auto', height: 'auto'});
+    }, 1500);
+    }
+    });
+    });
+script(type='text/javascript').
+    function googleTranslateElementInitfooter() {
+    new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,es,zh-CN,fr,hi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_elementfooter');
+    $('html').css('height', 'auto');
+    }
+script(type='text/javascript' src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInitfooter')
+script.
+    setupGoogleTranslate();
+script.
+    fb_params = {};
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','//connect.facebook.net/en_US/fbevents.js'); fbq('init',
+    '1306132086133349'); fbq('track', 'PageView');
+    setCustomAudienceCheckoutListeners();
+noscript
+    img(style='display:none' src='https://www.facebook.com/tr?id=1306132086133349&ev=PageView&noscript=1' alt='Tr?id=1306132086133349&ev=pageview&noscript=1' width='1' height='1')
+script.
+    $('input[type="text"], textarea, select, .input-group.date, .token-input-list-facebook, .c-search-bar').on('mouseover', disablePinchZoom);
+    $('input[type="text"], textarea, select, .input-group.date, .token-input-list-facebook, .c-search-bar').on('mouseout', enablePinchZoom);
+    $(function(){
+    $('.navbar-container').show();
+    });
+script.
+    window.onscroll = function() {
+    (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) ? document.getElementById("TopButton").style.display = "block": document.getElementById("TopButton").style.display = "none";
+    };

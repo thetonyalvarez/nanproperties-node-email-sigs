@@ -1,0 +1,129 @@
+extends layout-nan
+
+block content
+    include inline-css/_site-css
+    include inline-css/taxonomy-developments-css
+
+    #menu.development-areas-menu
+        p
+            a#TopButton.development-areas-menu--area__content(href='#menu')
+                | Top
+        p.development-areas-menu--area
+            a.development-areas-menu--area__content(href='#current')
+                | Current
+                br
+                span.arrow
+                    | &darr;
+        p.development-areas-menu--area
+            a.development-areas-menu--area__content(href='#sold')
+                | Sold
+                br
+                span.arrow
+                    | &darr;
+    
+    mixin development(status)
+
+        .developments-category-wrapper
+                
+            h2#current.developments-category= status
+
+            - var tier1 = (listings => listings.listingPriceRange == 'Over $1MM' && listings.listingStatus == status === true)
+            if (listings.some(tier1)) === true
+                .developments-category__price
+                    h4.developments-price_range
+                        | Over $1 Million
+                    each n in listings
+                        if n.listingPriceRange == 'Over $1MM' && n.listingStatus == status
+                            include partials/development-snippet.pug
+            else
+
+            - var tier2 = (listings => listings.listingPriceRange == '$500k - $1MM' && listings.listingStatus == status === true)
+            if (listings.some(tier2)) === true
+                .developments-category__price
+                    h4.developments-price_range
+                        | $500,000 - $1,000,000
+                    each n in listings
+                        if n.listingPriceRange == '$500k - $1MM' && n.listingStatus == status
+                            include partials/development-snippet.pug
+            else
+
+            - var tier3 = (listings => listings.listingPriceRange == '$200k - $500k' && listings.listingStatus == status === true)
+            if (listings.some(tier3)) === true
+                .developments-category__price
+                    h4.developments-price_range
+                        | $200,000 - $500,000
+                    each n in listings
+                        if n.listingPriceRange == '$200k - $500k' && n.listingStatus == status
+                            include partials/development-snippet.pug
+            else
+
+            - var tier4 = (listings => listings.listingPriceRange == 'Under $200k' && listings.listingStatus == status === true)
+            if (listings.some(tier4)) === true
+                .developments-category__price
+                    h4.developments-price_range
+                        | Under $200,000
+                    each n in listings
+                        if n.listingPriceRange == '$Under $200k' && n.listingStatus == status
+                            include partials/development-snippet.pug
+            else
+
+            - var tier5 = (listings => listings.listingPriceRange !== 'Over $1MM' && listings.listingPriceRange !== '$500k - $1MM' && listings.listingPriceRange !== '$200k - $500k' && listings.listingPriceRange !== 'Under $200k' && listings.listingStatus == status === true)
+            if (listings.some(tier5)) === true
+                .developments-category__price
+                    h4.developments-price_range
+                        | Other Listings
+                    each n in listings
+                        if n.listingPriceRange !== 'Over $1MM' && n.listingPriceRange !== '$500k - $1MM' && n.listingPriceRange !== '$200k - $500k' && n.listingPriceRange !== '$Under $200k' && n.listingStatus == status
+                            include partials/development-snippet.pug
+            else
+
+
+
+
+
+    //- script.
+        console.log(!{JSON.stringify(records.listings)})
+
+    //- var listings = records.listings
+
+    - var currentListings = (listings => listings.listingStatus == 'Current' === true)
+
+    if listings.some(currentListings) === true
+
+        - console.log("Current : Yes")
+
+        +development('Current')
+
+    else
+        
+        - console.log("No Current Listings")
+        
+
+
+        
+    - var comingSoonListings = (listings => listings.listingStatus == 'ComingSoon' === true)
+
+    if listings.some(comingSoonListings) === true
+        
+        - console.log("Coming Soon : Yes")
+
+        +development('Coming Soon')
+
+    else
+
+        - console.log("No Coming Soon Listings")
+
+
+        
+    - var soldListings = (listings => listings.listingStatus == 'Sold' === true)
+
+    if listings.some(soldListings) === true
+        
+        - console.log("Sold : Yes")
+
+        +development('Sold')
+
+    else
+
+        - console.log("No Sold Listings")
+

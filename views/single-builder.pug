@@ -1,0 +1,32 @@
+extends layout-nan
+
+block content
+    script.
+        - console.log(items)
+
+    include inline-css/_site-css
+    include inline-css/single-builder-css
+
+    .builder__title
+        h2(style="text-align:center;")= listingBuilderName
+    .builder__content
+        .builder__about
+            .builder__video
+                .embed-container
+                    iframe(src='https://www.youtube.com/embed/' + videoid, frameborder='0' allowfullscreen='')
+            .builder__description
+                h3 About #{builderName}
+                p= builderDescription
+        .builder__sidebar
+            h3 Find listings from this builder
+            .builder__listings
+                each item in items
+                    .builder__listing
+                        a(href= listingUrl)
+                            .embed-container
+                                img(src= listingImage, alt= listingBuilderName)
+                        .builder__listing__title= BuilderLink1Title
+                        .builder__listing__description= listingDescription.substr(0,100) + '...'
+                        a(href= listingUrl).builder__listing__link
+                            | More Information
+                    
