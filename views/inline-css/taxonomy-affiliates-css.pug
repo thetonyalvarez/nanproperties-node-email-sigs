@@ -23,6 +23,33 @@ style.
         overflow:visible;
         padding-top: 40px;
     }
+    .affiliates__sidebar--mobile {
+        display:none;
+    }
+    @media (max-width:899px) {
+        .affiliates__content {
+            display:block;
+        }
+        .affiliates__sidebar {
+            display:none;
+        }
+        .affiliates__sidebar--mobile {
+            display:block;
+            width:100%;
+        }
+        .affiliates__sidebar--mobile select {
+            width:100%;
+            padding:20px;
+            border:1px solid var(--orange);
+        }
+        .affiliates__sidebar--mobile select:after {
+            color: #999999;
+            content: ' ▾';
+        }
+        .affiliates__list {
+            width:100%!important;
+        }
+    }
     .affiliates__sidebar h3 {
         margin-top:0;
 

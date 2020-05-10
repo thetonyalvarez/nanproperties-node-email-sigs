@@ -6,12 +6,20 @@ block content
 
 
     .affiliates__content
-        .affiliates__sidebar
-            h3 Select a Region
-            ul
-                each region in regions
-                    li
-                        a(href='#' + region.toLowerCase().replace(/\s/g, '-').replace(/\./g,''))= region    
+        nav
+            .affiliates__sidebar
+                h3 Select a Region
+                ul
+                    each region in regions
+                        li
+                            a(href='#' + region.toLowerCase().replace(/\s/g, '-').replace(/\./g,''))= region    
+            .affiliates__sidebar--mobile
+                //- h3 Select a Region
+                select
+                    option(value='' selected='selected') Select a region...
+                    each region in regions
+                        option(value='#' + region.toLowerCase().replace(/\s/g, '-').replace(/\./g,''))= region    
+                        
         .affiliates__list
             each region in regions
                 .affiliate__region
