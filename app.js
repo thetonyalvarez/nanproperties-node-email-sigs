@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var agentsRouter = require('./routes/agents');
 var developmentsRouter = require('./routes/developments');
 var affiliatesRouter = require('./routes/affiliates')
+var globalPropertiesRouter = require('./routes/global-properties')
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use('/users', usersRouter);
 app.use('/agents', agentsRouter);
 app.use('/our-developments-page', developmentsRouter);
 app.use('/affiliates', affiliatesRouter);
+app.use('/global-properties', globalPropertiesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

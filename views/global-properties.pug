@@ -1,0 +1,17 @@
+extends layout-nan
+
+block content
+    include inline-css/global-properties-css
+
+    .globalProps__title
+        h2 Find stunning properties around the globe.
+        p As a Christie’s Int’l affiliate, we do this. As a Christie’s Int’l affiliate, we do this. As a Christie’s Int’l affiliate, we do this. As a Christie’s Int’l affiliate, we do this. As a Christie’s Int’l affiliate, we do this.
+
+    .globalProps__grid.globalProps__regions
+        each item in items
+            a.globalProps__grid__item.globalProps__regions__region(href="/global-properties/" + item.toLowerCase().replace(/\s/g, '-').replace(/&./g,''))
+                h2= item
+    
+    .divider__orange
+
+    include partials/about-christies-block

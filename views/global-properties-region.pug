@@ -1,0 +1,17 @@
+extends layout-nan
+
+block content
+    include inline-css/global-properties-css
+
+    .globalProps__title.globalProps__title__regionsPage
+        h2 Explore Properties In #{continent}
+        p A quick blurb about North America here.A quick blurb about North America here.A quick blurb about North America here.A quick blurb about North America here.A quick blurb about North America here.
+
+    .globalProps__grid.globalRegions__cities
+        each item in items
+            a.globalProps__grid__item.globalRegions__cities__city(href="/global-properties/" + item.Locality.toLowerCase().replace(/\s/g, '-').replace(/&./g,''))
+                h2= item.Locality
+    
+    .divider__orange
+
+    include partials/about-christies-block

@@ -67,9 +67,11 @@ block content
                                                     span(style='color:#f37b01;display:inline-block')
                                                         | &nbsp;|&nbsp;
                                                         font(color= nanGrey) O.
-                                                        font(color= linkBlueHex)
+                                                        font
                                                             a(href='tel:+1' + officePhone, value='+1' + officePhone, style='color:' + nanOrange, target='_blank') #{officePhoneFormat}
                                                         br
+                                                        font
+                                                            a(href='mailto:' + email, value=email, style='color:' + nanOrange, target='_blank') #{email}
                                                     font(color= nanGrey style='font-size:12.8px') &nbsp;
                                                     font(color= nanGrey)
                                                         div(style='font-family:arial;display:inline')

@@ -1,7 +1,6 @@
 extends layout-nan
 
 block content
-    include inline-css/_site-css
     include inline-css/taxonomy-affiliates-css
 
 
@@ -37,4 +36,4 @@ block content
                                     .affiliate__affiliateOffice--col.affiliate__affiliateOffice--col-2
                                         if (item["AffiliateURL"])
                                             .affiliate__affiliateWebsiteWrapper
-                                                a.affiliate__affiliateWebsiteWrapper--website(href= item["AffiliateURL"] target='_blank') Website
+                                                a.nan-btn-primary(href= item["AffiliateURL"] target='_blank') Website
