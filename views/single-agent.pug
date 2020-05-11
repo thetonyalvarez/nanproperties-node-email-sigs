@@ -70,6 +70,8 @@ block content
                                                         font
                                                             a(href='tel:+1' + officePhone, value='+1' + officePhone, style='color:' + nanOrange, target='_blank') #{officePhoneFormat}
                                                         br
+                                                    span(style='display:inline-block')
+                                                        font(color= nanGrey) E.
                                                         font
                                                             a(href='mailto:' + email, value=email, style='color:' + nanOrange, target='_blank') #{email}
                                                     font(color= nanGrey style='font-size:12.8px') &nbsp;
@@ -130,7 +132,9 @@ block content
                             a(href='tel:+1' + officePhone, style='color:' + nanGreyDark, target='_blank') #{officePhoneFormat}
                             span(style='color:' + nanOrange)  |
                             |  C. 
-                            a(href='tel:+1' + cell, style='color:' + nanGreyDark, target='_blank') #{cellformat}
+                            a(href='tel:+1' + cell, style='color:' + nanGreyDark, target='_blank') #{cellformat}  |
+                            |  E. 
+                            a(href='mailto:' + email, value=email, style='color:' + nanGreyDark, target='_blank') #{email}
                         li(style='fontsize:12.8px;color:' + nanGrey)
                             | 2200 Post Oak Boulevard 1475, Houston, TX 77056 
                             br
