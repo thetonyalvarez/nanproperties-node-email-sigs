@@ -313,12 +313,40 @@ block content
                     //- p If you open email using browsers like Google Chrome, Safari, or Firefox, use these templates to copy and paste signatures into your email signature through your web browser.
                     p Copy-paste the code below into your Propertybase account. Scroll down for a step-by-step walkthrough on where to find and paste your signature inside Propertybase.
                 .section-container
-                    .email-wrapper.webmail-gmail#propertybase__signature(style="background-color:#f0f0f0;margin-bottom:20px;")
+                    .email-wrapper.webmail-gmail#propertybase__signature(style="background-color:#f0f0f0")
                         - var propertybasecode = '<a href="' + iabsUrlPrefix + licenseNumber + '">Info About Brokerage Services</a><br/><a href="' + trecUrl + '">TREC Consumer Protection Notice</a><div style="margin-top:10px;display:block;height:20px"></div><div style="display:flex;"><img src="' + logoUrl + '" style="maxwidth:100px;max-height:100px;border-right:1px solid ' + nanOrange + '"><ul style="list-style: none; font-family:arial;display:inline-block;font-stretch:normal;margin: 0;padding:0px 10px;lineheight:20px;"><li><b>' + displayName + '</b></li><li>' + title + '</li><li style="color:' + nanGrey + '">O. <a href="tel:+1' + officePhone + '" style="color:' + nanGreyDark + '" target="_blank">' + officePhoneFormat + '</a><span style="color:' + nanOrange + '"> |</span> C. <a href="tel:+1' + cell + '" style="color:' + nanGreyDark + '" target="_blank">' + cellformat + '  |</a> E. <a href="mailto:' + email + '" value="' + email + '" style="color:' + nanGreyDark + '" target="_blank">' + email + '</a></li><li style="fontsize:12.8px;color:' + nanGrey + '">2200 Post Oak Boulevard 1475, Houston, TX 77056 <br><a style="text-decoration:none;" href="' + nanUrl + '">' + nanUrlPretty + '</a></li></ul></div>'
                         pre.escapedCode(style="white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;")
                             code
                                 | #{propertybasecode}
-                    .howToAdd_Wrapper#propertybase__howTo(style="margin-bottom:40px;")
+                    .signature-preview
+                        h3 Propertybase Signature Preview
+                        p This is what your Propertybase email signature will look like:
+                        .email-wrapper.webmail-gmail
+                            a(href= iabsUrlPrefix + licenseNumber) Info About Brokerage Services
+                            br
+                            a(href= trecUrl) TREC Consumer Protection Notice
+                            div(style='margin-top:10px;display:block;height:20px')
+                            div(style='display:flex;')
+                                img(src= logoUrl, style='maxwidth:100px;max-height:100px;border-right:1px solid ' + nanOrange)
+                                ul(style='list-style: none; font-family:arial;display:inline-block;font-stretch:normal;margin: 0;padding:0px 10px;lineheight:20px;')
+                                    li
+                                        b= displayName
+                                    li= title
+                                    li(style='color:' + nanGrey)
+                                        | O. 
+                                        a(href='tel:+1' + officePhone, style='color:' + nanGreyDark, target='_blank') #{officePhoneFormat}
+                                        span(style='color:' + nanOrange)  |
+                                        |  C. 
+                                        a(href='tel:+1' + cell, style='color:' + nanGreyDark, target='_blank') #{cellformat}  |
+                                        |  E. 
+                                        a(href='mailto:' + email, value=email, style='color:' + nanGreyDark, target='_blank') #{email}
+                                    li(style='fontsize:12.8px;color:' + nanGrey)
+                                        | 2200 Post Oak Boulevard 1475, Houston, TX 77056 
+                                        br
+                                        a(style='text-decoration:none;' href= nanUrl) #{nanUrlPretty}
+                            
+
+                    .howToAdd_Wrapper#propertybase__howTo
                         h3 Where To Add Your Propertybase Signature:
                         ol
                             li Click on your image in the upper-right hand corner, then click on 
@@ -342,34 +370,6 @@ block content
                         p If your email signature's code exceeds this limit, please contact 
                             a(href="mailto:marketing@nanproperties.com" style="color:" + nanOrange + "" ) marketing@nanproperties.com
                             |  so that we can adjust this code to fit within the character limit.
-
-
-                    h3 Propertybase Signature Preview
-                    p This is what your Propertybase email signature will look like:
-                    .email-wrapper.webmail-gmail
-                        a(href= iabsUrlPrefix + licenseNumber) Info About Brokerage Services
-                        br
-                        a(href= trecUrl) TREC Consumer Protection Notice
-                        div(style='margin-top:10px;display:block;height:20px')
-                        div(style='display:flex;')
-                            img(src= logoUrl, style='maxwidth:100px;max-height:100px;border-right:1px solid ' + nanOrange)
-                            ul(style='list-style: none; font-family:arial;display:inline-block;font-stretch:normal;margin: 0;padding:0px 10px;lineheight:20px;')
-                                li
-                                    b= displayName
-                                li= title
-                                li(style='color:' + nanGrey)
-                                    | O. 
-                                    a(href='tel:+1' + officePhone, style='color:' + nanGreyDark, target='_blank') #{officePhoneFormat}
-                                    span(style='color:' + nanOrange)  |
-                                    |  C. 
-                                    a(href='tel:+1' + cell, style='color:' + nanGreyDark, target='_blank') #{cellformat}  |
-                                    |  E. 
-                                    a(href='mailto:' + email, value=email, style='color:' + nanGreyDark, target='_blank') #{email}
-                                li(style='fontsize:12.8px;color:' + nanGrey)
-                                    | 2200 Post Oak Boulevard 1475, Houston, TX 77056 
-                                    br
-                                    a(style='text-decoration:none;' href= nanUrl) #{nanUrlPretty}
-                        
 
 
                     //-
