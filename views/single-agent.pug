@@ -2,7 +2,7 @@ extends layout
 
 block content
 
-    .agent-header
+    .agent-header(style="margin-bottom:100px;")
         h1= displayName
         table
             tbody
@@ -17,10 +17,9 @@ block content
                     td #{licenseNumber}
  
 
-    section#webmail-apps
+    section#webmail-apps(style="margin-bottom:100px;")
         .section-title
             h2 Email Signatures for Browsers + Apps
-            //- p If you open email using browsers like Google Chrome, Safari, or Firefox, use these templates to copy and paste signatures into your email signature through your web browser.
         .section-container
             .email-wrapper.webmail-gmail
                 table(width='485' border='0' cellspacing='0' cellpadding='0' style='font-family:arial')
@@ -101,26 +100,69 @@ block content
                                                     span 
                                                     a(href='https://www.youtube.com/channel/UCy_Lo0gLaK3AdAwi-nuUjDg' style='color:'+ linkBlueHex, target='_blank' data-saferedirecturl='https://www.google.com/url?q=https://www.youtube.com/channel/UCy_Lo0gLaK3AdAwi-nuUjDg&source=gmail&ust=1551449162934000&usg=AFQjCNEt2kdAkFAuu6VktPgZvDMzoKO_0w')
                                                         img.CToWUd(width='16' height='16' src= youtubeLogo32)
-                    if (CIRELuxurySpecialist == 'Yes')
+                    
+                    if (CIREMastersCircle == 'Yes') || (CIRELuxurySpecialist == 'Yes')
+
                         table(width='204' border='0' cellspacing='0' cellpadding='0' style='font-size:12.8px;width:204px')
                             tbody
                                 tr
                                     td(height="20")
-                                tr(valign='top')
-                                    td(style='font-size:12.8px;width:10px;padding-right:10px')
-                                        img.CToWUd(src= luxSpecLogo, alt='photo' width='150' height='44')
-            // .email-wrapper.webmail-outlook
+                                tr(valign='center')
+                                    if (CIREMastersCircle == 'Yes')
+                                        td(height="70")
+                                            table(width='70' border='0' cellspacing='0' cellpadding='0' style='font-size:12.8px;width:70px')
+                                                tr(valign='center')
+                                                    td(style='font-size:12.8px;width:10px;padding-right:10px')
+                                                        img.CToWUd(src= CIREMastersLogo, alt='photo' width='70' height='70')
+                                        td(height="50")
+                                            table(width='10' border='0' cellspacing='0' cellpadding='0')
+                                                tr
+                                                    td
+
+
+                                    if (CIRELuxurySpecialist == 'Yes')
+                                        td(height="44")
+                                            table(width='150' border='0' cellspacing='0' cellpadding='0' style='font-size:12.8px;width:150px')
+                                                tr(valign='center')
+                                                    td(style='font-size:12.8px;width:10px;padding-right:10px')
+                                                        img.CToWUd(src= luxSpecLogo, alt='photo' width='150' height='44')
+                    
+            
 
     section#propertybase
         .section-title
             h2 Email Signatures for Propertybase
             //- p If you open email using browsers like Google Chrome, Safari, or Firefox, use these templates to copy and paste signatures into your email signature through your web browser.
+            p Copy-paste the code below into your Propertybase account:
         .section-container
+            .email-wrapper.webmail-gmail(style="background-color:#f0f0f0;margin-bottom:20px;")
+                - var propertybasecode = '<a href="' + iabsUrlPrefix + licenseNumber + '">Info About Brokerage Services</a><br/><a href="' + trecUrl + '">TREC Consumer Protection Notice</a><div style="margin-top:10px;display:block;height:20px"></div><div style="display:flex;"><img src="' + logoUrl + '" style="maxwidth:100px;max-height:100px;border-right:1px solid ' + nanOrange + '"><ul style="list-style: none; font-family:arial;display:inline-block;font-stretch:normal;margin: 0;padding:0px 10px;lineheight:20px;"><li><b>' + displayName + '</b></li><li>' + title + '</li><li style="color:' + nanGrey + '">O. <a href="tel:+1' + officePhone + '" style="color:' + nanGreyDark + '" target="_blank">' + officePhoneFormat + '</a><span style="color:' + nanOrange + '"> |</span> C. <a href="tel:+1' + cell + '" style="color:' + nanGreyDark + '" target="_blank">' + cellformat + '  |</a> E. <a href="mailto:' + email + '" value="' + email + '" style="color:' + nanGreyDark + '" target="_blank">' + email + '</a></li><li style="fontsize:12.8px;color:' + nanGrey + '">2200 Post Oak Boulevard 1475, Houston, TX 77056 <br><a style="text-decoration:none;" href="' + nanUrl + '">' + nanUrlPretty + '</a></li></ul></div>'
+                pre.escapedCode(style="white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;")
+                    code
+                        | #{propertybasecode}
+            .howToAdd_Wrapper(style="margin-bottom:40px;")
+                h3 Where To Add Your Propertybase Signature:
+                ol
+                    li Click on your image in the upper-right hand corner, then click on "Settings."
+                    li In the sidebar, click on Email > My Email Settings
+                    li Paste the code in the Email Signature box.
+                p 
+                    b Please note: 
+                    | the space only allows for a maximum of 
+                    b 1333 characters.
+                    |  In some cases, longer names will cuase the code you copied to exceed this limit.
+                p If your email signature's code exceeds this limit, please contact 
+                    a(href="mailto:marketing@nanproperties.com" style="color:" + nanOrange + "" ) marketing@nanproperties.com
+                    |  so that we can adjust this code to fit within the character limit.
+
+
+            h3 Propertybase Signature Preview
+            p This is what your Propertybase email signature would look like
             .email-wrapper.webmail-gmail
-                a(href= iabsUrlPrefix + licenseNumber) Information About Brokerage Services
-                div(style='margin: 0 0 7px 0;')
-                    a(href= trecUrl) Texas Real Estate Commission Consumer Protection Notice
-                div(style='display:block;height:20px')
+                a(href= iabsUrlPrefix + licenseNumber) Info About Brokerage Services
+                br
+                a(href= trecUrl) TREC Consumer Protection Notice
+                div(style='margin-top:10px;display:block;height:20px')
                 div(style='display:flex;')
                     img(src= logoUrl, style='maxwidth:100px;max-height:100px;border-right:1px solid ' + nanOrange)
                     ul(style='list-style: none; font-family:arial;display:inline-block;font-stretch:normal;margin: 0;padding:0px 10px;lineheight:20px;')
@@ -139,11 +181,7 @@ block content
                             | 2200 Post Oak Boulevard 1475, Houston, TX 77056 
                             br
                             a(style='text-decoration:none;' href= nanUrl) #{nanUrlPretty}
-                if (CIRELuxurySpecialist == 'Yes')
-                    div(style='display:block;height:20px')
-                    div(style='display:block;')
-                        img(src= luxSpecLogo, style='maxwidth:150px;max-height:44px;')
-
+                
 
 
             //-
