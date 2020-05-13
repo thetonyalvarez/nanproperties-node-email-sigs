@@ -108,10 +108,11 @@ block content
                                                                     if officeExt
                                                                         |  ext. #{officeExt}
                                                             br
-                                                            span(style='display:inline-block')
-                                                                font(color= nanGrey) E. 
-                                                                font
-                                                                    a(href='mailto:' + email, value=email, style='color:' + nanOrange, target='_blank') #{email}
+                                                            if email
+                                                                span(style='display:inline-block')
+                                                                    font(color= nanGrey) E. 
+                                                                    font
+                                                                        a(href='mailto:' + email, value=email, style='color:' + nanOrange, target='_blank') #{email}
                                                             font(color= nanGrey style='font-size:12.8px') &nbsp;
                                                             font(color= nanGrey)
                                                                 div(style='font-family:arial;display:inline')
@@ -229,11 +230,12 @@ block content
                                                                     if officeExt
                                                                         |  ext. #{officeExt}
                                                             br
-                                                            span(style='display:inline-block')
-                                                                font(color= nanGrey) E. 
-                                                                font
-                                                                    a(href='mailto:' + email, value=email, style='color:' + nanOrange, target='_blank') #{email}
-                                                            font(color= nanGrey style='font-size:12.8px') &nbsp;
+                                                            if email
+                                                                span(style='display:inline-block')
+                                                                    font(color= nanGrey) E. 
+                                                                    font
+                                                                        a(href='mailto:' + email, value=email, style='color:' + nanOrange, target='_blank') #{email}
+                                                                font(color= nanGrey style='font-size:12.8px') &nbsp;
                                                             font(color= nanGrey)
                                                                 div(style='font-family:arial;display:inline')
                                                             span(style='text-align:initial;font-size:12.8px;color:' + nanGrey + ';display:inline-block')
@@ -314,10 +316,21 @@ block content
                     p Copy-paste the code below into your Propertybase account. Scroll down for a step-by-step walkthrough on where to find and paste your signature inside Propertybase.
                 .section-container
                     .email-wrapper.webmail-gmail#propertybase__signature(style="background-color:#f0f0f0")
-                        - var propertybasecode = '<a href="' + iabsUrlPrefix + licenseNumber + '">Info About Brokerage Services</a><br/><a href="' + trecUrl + '">TREC Consumer Protection Notice</a><div style="margin-top:10px;display:block;height:20px"></div><div style="display:flex;"><img src="' + logoUrl + '" style="maxwidth:100px;max-height:100px;border-right:1px solid ' + nanOrange + '"><ul style="list-style: none; font-family:arial;display:inline-block;font-stretch:normal;margin: 0;padding:0px 10px;lineheight:20px;"><li><b>' + displayName + '</b></li><li>' + title + '</li><li style="color:' + nanGrey + '">O. <a href="tel:+1' + officePhone + '" style="color:' + nanGreyDark + '" target="_blank">' + officePhoneFormat + '</a><span style="color:' + nanOrange + '"> |</span> C. <a href="tel:+1' + cell + '" style="color:' + nanGreyDark + '" target="_blank">' + cellformat + '  |</a> E. <a href="mailto:' + email + '" value="' + email + '" style="color:' + nanGreyDark + '" target="_blank">' + email + '</a></li><li style="fontsize:12.8px;color:' + nanGrey + '">2200 Post Oak Boulevard 1475, Houston, TX 77056 <br><a style="text-decoration:none;" href="' + nanUrl + '">' + nanUrlPretty + '</a></li></ul></div>'
+                        - var propertybasecodePt1 = '<a href="' + iabsUrlPrefix + licenseNumber + '">Info About Brokerage Services</a><br/><a href="' + trecUrl + '">TREC Consumer Protection Notice</a><div style="margin-top:10px;display:block;height:20px"></div><div style="display:flex;"><img src="' + logoUrl + '" style="maxwidth:100px;max-height:100px;border-right:1px solid ' + nanOrange + '"><ul style="list-style: none; font-family:arial;display:inline-block;font-stretch:normal;margin: 0;padding:0px 10px;lineheight:20px;"><li><b>' + displayName + '</b></li><li>' + title + '</li><li style="color:' + nanGrey + '">O. <a href="tel:+1' + officePhone + '" style="color:' + nanGreyDark + '" target="_blank">' + officePhoneFormat + '</a>'
+                        
+                        - var propertybasecodeCheckCell = '<span style="color:' + nanOrange + '"> |</span> C. <a href="tel:+1' + cell + '" style="color:' + nanGreyDark + '" target="_blank">' + cellformat + '</a>'
+
+                        - var propertybasecodeCheckEmail = '<br/>E. <a href="mailto:' + email + '" value="' + email + '" style="color:' + nanGreyDark + '" target="_blank">' + email + '</a>'
+                        
+                        - var propertybasecodePt2 = ' </li><li style="fontsize:12.8px;color:' + nanGrey + '">2200 Post Oak Boulevard 1475, Houston, TX 77056 <br><a style="text-decoration:none;" href="' + nanUrl + '">' + nanUrlPretty + '</a></li></ul></div>'
                         pre.escapedCode(style="white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;")
                             code
-                                | #{propertybasecode}
+                                | #{propertybasecodePt1}
+                                if cell 
+                                    | #{propertybasecodeCheckCell}
+                                if email
+                                    | #{propertybasecodeCheckEmail}
+                                | #{propertybasecodePt2}
                     .signature-preview
                         h3 Propertybase Signature Preview
                         p This is what your Propertybase email signature will look like:
@@ -335,11 +348,14 @@ block content
                                     li(style='color:' + nanGrey)
                                         | O. 
                                         a(href='tel:+1' + officePhone, style='color:' + nanGreyDark, target='_blank') #{officePhoneFormat}
-                                        span(style='color:' + nanOrange)  |
-                                        |  C. 
-                                        a(href='tel:+1' + cell, style='color:' + nanGreyDark, target='_blank') #{cellformat}  |
-                                        |  E. 
-                                        a(href='mailto:' + email, value=email, style='color:' + nanGreyDark, target='_blank') #{email}
+                                        if cell
+                                            span(style='color:' + nanOrange)  |
+                                            |  C. 
+                                            a(href='tel:+1' + cell, style='color:' + nanGreyDark, target='_blank') #{cellformat} 
+                                        if email  
+                                            br   
+                                            | E. 
+                                            a(href='mailto:' + email, value=email, style='color:' + nanGreyDark, target='_blank') #{email}
                                     li(style='fontsize:12.8px;color:' + nanGrey)
                                         | 2200 Post Oak Boulevard 1475, Houston, TX 77056 
                                         br
