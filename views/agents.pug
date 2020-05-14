@@ -12,10 +12,10 @@ block content
         .agentList-item
           a(href="/agents/" + item["userName"]) !{item["lastName"]}, !{item["firstName"]}
 
-  h3 Staff
-  .staffList-container.list-container
-    each item in items
-      if !(item["title"] == "Realtor Associate" || item["title"] == "Broker Associate" )
-        .agentList-item
-          a(href="/agents/" + item["userName"]) !{item["displayName"]}
-  hr
+  //- h3 Staff
+  //- .staffList-container.list-container
+  //-   each item in items
+  //-     if !(item["title"] == "Realtor Associate" || item["title"] == "Broker Associate" )
+  //-       .agentList-item
+  //-         a(href="/agents/" + item["userName"]) !{item["displayName"]}
+  //- hr
