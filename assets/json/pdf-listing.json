@@ -1,0 +1,45 @@
+{
+    "listing": 
+        {
+            "name":"218 Garrison Drive",
+            "pba__address_pb__c": "218 Garrison Drive",
+            "pba__city_pb__c":"Houston",
+            "pba__postalcode_pb__c":"77009",
+            "pba__description_pb__c":"New construction home 5 minutes from Downtown Houston! Floor Plan is the \"Mimosa” Direct access to the Metrorail to travel in comfort. Open first floor living with all bedrooms upstairs for added privacy. Electrolux stainless steel kitchen appliance package INCLUDED: gas range, side-by-side refrigerator, built-in dishwasher, and soft touch panel microwave. Smart home includes Echo Dot, Schlage Encode Smartlock, Honeywell Lyric Round Wifi Thermostat, Ring Pro Doorbell and so much more in this Wi-Fi certified home. 10 year home warranty. Let's schedule your private tour today.",
+            "pba__listing_website__c":"https://www.har.com/homedetail/0-garrison-dr-houston-tx-77009/14432223",
+            "pba__listingprice_pb__c":"319,900",
+            "pba__bedrooms_pb__c":"3",
+            "pba__fullbathrooms_pb__c":"2.5",
+            "pba__totalarea_pb__c":"1,423",
+            "pba__yearbuilt_pb__c":"2018",
+            "pba__propertytype__c":"Townhouse",
+            "media": [
+                {
+                    "file":"https://photos.harstatic.com/181443619/hr/img-1.jpeg"
+                },
+                {
+                    "file":"https://photos.harstatic.com/181443619/hr/img-1.jpeg"
+                },
+                {
+                    "file":"https://photos.harstatic.com/181443619/hr/img-1.jpeg"
+                },
+                {
+                    "file":"https://photos.harstatic.com/181443619/hr/img-1.jpeg"
+                },
+                {
+                    "file":"https://photos.harstatic.com/181443619/hr/img-1.jpeg"
+                }
+            ]
+        },
+    "user":
+        {
+            "name":"Tony Alvarez",
+            "companyname":"Nan and Company Properties",
+            "street":"2200 Post Oak Blvd",
+            "city":"Houston",
+            "postalcode":"77056",
+            "phone":"713.714.6454",
+            "mobilephone":"310.555.1212",
+            "email":"tony@nanproperties.com"
+        }
+}

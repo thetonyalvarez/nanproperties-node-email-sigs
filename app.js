@@ -10,8 +10,23 @@ var agentsRouter = require('./routes/agents');
 var developmentsRouter = require('./routes/developments');
 var affiliatesRouter = require('./routes/affiliates')
 var globalPropertiesRouter = require('./routes/global-properties')
+var propertybasePDFsRouter = require('./routes/propertybase-pdfs')
 
 var app = express();
+
+
+
+var { Liquid }  = require('liquidjs');
+var engine      = new Liquid({
+    root: path.join(__dirname, 'views/pdfs/')
+});
+
+
+
+// Use two engines with consolidate.js
+var engines = require('consolidate');
+app.engine('liquid', engines.liquid);
+
 
 
 // view engine setup
@@ -30,6 +45,9 @@ app.use('/agents', agentsRouter);
 app.use('/our-developments-page', developmentsRouter);
 app.use('/affiliates', affiliatesRouter);
 app.use('/global-properties', globalPropertiesRouter);
+app.use('/pdfs', propertybasePDFsRouter);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

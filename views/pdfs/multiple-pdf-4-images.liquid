@@ -1,0 +1,334 @@
+{% assign date_format = '%D' %}
+<!-- Define currency format -->
+{% assign currency_precision = 2 %}
+{% assign currency = listing.currencyisocode %}
+{% if currency == 'EUR'%}
+{% assign currency_unit = '€' %}
+{% assign currency_separator = ',' %}
+{% assign currency_delimiter = '.' %}
+{% assign currency_format = '%n %u' %}
+{% elsif currency == 'GBP' %}
+{% assign currency_unit = '£' %}
+{% assign currency_separator = '.' %}
+{% assign currency_delimiter = ',' %}
+{% assign currency_format = '%u%n' %}
+{% else %}
+{% assign currency_unit = '$' %}
+{% assign currency_separator = '.' %}
+{% assign currency_delimiter = ',' %}
+{% assign currency_format = '%u%n' %}
+{% endif %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <style>
+        * {
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: US-Letter;
+            margin: 0mm;
+
+            @top-left {
+                margin: 0mm;
+                content: flow(header);
+                padding: 0;
+            }
+        }
+
+        .header {
+            flow: static(header);
+            width: 100%;
+            margin: 25mm 0mm 0mm 0mm;
+        }
+
+        #logo {
+            width: auto;
+            vertical-align: middle;
+            height: 10mm;
+            margin-top: 7mm;
+            margin-left: 10mm;
+        }
+
+        a {
+            color: #f16624;
+            font-size: 14px;
+            line-height: 24px;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 24px;
+        }
+
+        p.desc {
+            margin-top: 1mm;
+            margin-bottom: 2mm;
+        }
+
+        table {
+            font-size: 14px;
+            line-height: 24px;
+        }
+
+        div.specs {
+            margin-top: 2mm;
+            margin-bottom: 4mm;
+            float: left;
+        }
+
+        div.specs table {
+            width: 100%;
+            border-spacing: 0;
+            margin: 0;
+            padding: 0;
+            table-layout: fixed;
+        }
+
+        div.specs table td {
+            padding-right: 1mm;
+            border-style: solid;
+            border: none;
+            vertical-align: bottom;
+        }
+
+        div.specs table tr {
+            display: table-row;
+        }
+
+        div.specs table td.spacer {
+            height: 3mm;
+        }
+
+        div.specs table th {
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 20px;
+            text-align: left;
+            color: #777;
+            border-style: solid;
+            border: none;
+        }
+
+        .section {
+            page-break-inside: avoid;
+            float: left;
+            width: 100%;
+            margin: 3mm 0mm 0mm 0mm;
+        }
+
+        .section.full-image {
+            margin: 25mm 0 0 0;
+        }
+
+        .section.info {
+            margin: 0 10mm;
+        }
+
+        .section.images {
+            page-break-inside: auto;
+        }
+
+        img {
+            display: block;
+            float: left;
+            width: 100%;
+        }
+
+        .listing-details {
+            float: left;
+            width: 55%;
+            height: auto;
+            padding: 0 10mm 0 0;
+            margin: 0;
+        }
+
+        .contact-details {
+            float: left;
+            width: 45%;
+            height: auto;
+            margin: 7mm 0 0 0;
+        }
+        .contact-details>p {
+            color: #777;
+            margin: 0;
+            padding: 0;
+            font-size: .8em;
+        }
+
+        .cf:before,
+        .cf:after {
+            content: "";
+            display: table;
+        }
+
+        .cf:after {
+            clear: both;
+        }
+
+        h1 {
+            font-weight: 700;
+            font-size: 24px;
+            margin-top: 7mm;
+        }
+
+        .block-grid {
+            display: block;
+        }
+
+        .box {
+            float: left;
+            width: 50%;
+            height: auto;
+            padding-bottom: 3mm;
+        }
+
+        .box:nth-child(odd) {
+            padding-right: 1.5mm;
+            clear: both;
+        }
+
+        .box:nth-child(even) {
+            padding-left: 1.5mm;
+            padding-right: 0;
+        }
+
+        .large-img {
+            width: 70%;
+            float: left;
+        }
+
+        .small-imgs {
+            width: 30%;
+            float: left;
+        }
+
+        .large {
+            width: 100%;
+            height: 130mm;
+        }
+
+        .small {
+            float: left;
+            width: 100%;
+            height: 42mm;
+            margin-left: 2mm;
+            margin-bottom: 2mm;
+        }
+
+        .small:last-child {
+            margin-bottom: 0;
+        }
+
+        .bg-img {
+            background-color: #ededed;
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+        }
+        
+    </style>
+</head>
+
+<div>{{listing.media.file}}</div>
+
+<div class="header">
+    {{TEMPLATE.pdf_logo}}
+</div>
+<div class="section full-image cf">
+    <div class="large-img">
+        <div class="bg-img large" style="background: url('{{ listing.media[0].file }}');"></div>
+    </div>
+    <div class="small-imgs">
+        <div class="bg-img small" style="background: url('{{ listing.media[1].file }}');"></div>
+        <div class="bg-img small" style="background: url('{{ listing.media[2].file }}');"></div>
+        <div class="bg-img small" style="background: url('{{ listing.media[3].file }}');"></div>
+    </div>
+</div>
+<div class="section info cf">
+    <div class="listing-details">
+        <h1>{{listing.name}}</h1>
+        <p class="address">
+            {{listing.pba__address_pb__c}}, {{listing.pba__city_pb__c}}, {{listing.pba__postalcode_pb__c}}
+        </p>
+        <p class="desc">
+            {{listing.pba__description_pb__c | truncate: 350, '...' }}
+            {% if listing.pba__listing_website__c %}
+            <a href="{{listing.pba__listing_website__c}}">View on website</a>
+            {% endif %}
+        </p>
+        <div class="specs">
+            <table>
+                <tr>
+                    <th>Price</th>
+                    <th>Bedrooms</th>
+                    <th>Bathrooms</th>
+                </tr>
+                <tr>
+                    <td>
+                        {% if listing.pba__listingprice_pb__c %}{{ listing.pba__listingprice_pb__c | money: "precision: currency_precision, unit: currency_unit, separator: currency_separator, delimiter: currency_delimiter, format: currency_format" }}{% else %}
+                        - {% endif %}
+                    </td>
+                    <td>
+                        {% if listing.pba__bedrooms_pb__c %} {{listing.pba__bedrooms_pb__c}} {% else %} - {% endif %}
+                    </td>
+                    <td>
+                        {% if listing.pba__fullbathrooms_pb__c %} {{listing.pba__fullbathrooms_pb__c}} {% else %} -
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="spacer"></td>
+                </tr>
+                <tr>
+                    <th>Size</th>
+                    <th>Year Built</th>
+                    <th>Type</th>
+                </tr>
+                <tr>
+                    <td>
+                        {% if listing.pba__totalarea_pb__c %} {{listing.pba__totalarea_pb__c}} {% else %} - {% endif %}
+                    </td>
+                    <td>
+                        {% if listing.pba__yearbuilt_pb__c %} {{listing.pba__yearbuilt_pb__c}} {% else %} - {% endif %}
+                    </td>
+                    <td>
+                        {% if listing.pba__propertytype__c %} {{listing.pba__propertytype__c}} {% else %} - {% endif %}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="contact-details">
+        <p>
+            {{user.name}}
+            <br/>
+            {{user.companyname}}
+            <br/>
+            {{user.street}}, {{user.city}}, {{user.postalcode}}
+            {% if user.phone %}
+                <br/>
+                O. {{user.phone}}
+            {% endif %}
+            {% if user.mobilephone %}
+                <br/>
+                C. {{user.mobilephone}}
+            {% endif %}
+            {% if user.email %}
+                <br/>
+                E. {{user.email}}
+            {% endif %}
+    </div>
+</div>
+
+</html>

@@ -99,9 +99,9 @@ router.get('/:regionname/:cityname', function (request, response, next) {
     var finallist = request.city;
 
     return response.render('global-properties-region-city', {
-        items: finallist,
-        continent: finallist[1].Continent,
-        locality: finallist[1].Locality
+        items: finallist
+        // continent: finallist[1].Continent,
+        // locality: finallist[1].Locality
     });
 
 });

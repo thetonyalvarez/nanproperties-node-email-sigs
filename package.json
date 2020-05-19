@@ -18,6 +18,7 @@
   "homepage": "https://github.com/thetonyalva/nanproperties-node-email-sigs#readme",
   "dependencies": {
     "axis": "^1.0.0",
+    "consolidate": "^0.15.1",
     "cookie-parser": "~1.4.4",
     "css-pipeline": "^0.3.1",
     "csv-file-to-json": "^4.0.3",
@@ -38,6 +39,7 @@
     "http-errors": "~1.6.3",
     "jquery": "^3.5.0",
     "js-pipeline": "^0.2.2",
+    "liquidjs": "^9.11.11",
     "metascraper": "^5.11.10",
     "metascraper-author": "^5.11.10",
     "metascraper-clearbit": "^5.11.12",
@@ -59,7 +61,8 @@
     "request": "^2.88.2",
     "rupture": "^0.7.1",
     "stylus": "^0.54.7",
-    "super-array": "^1.1.2"
+    "super-array": "^1.1.2",
+    "tinyliquid": "^0.2.34"
   },
   "devDependencies": {
     "@metascraper/helpers": "^5.11.10",
