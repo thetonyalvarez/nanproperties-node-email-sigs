@@ -1,0 +1,97 @@
+extends layout-nan
+
+block content
+
+    include inline-css/_site-css.pug
+    style
+        include inline-css/global-properties-css.css
+    
+    .globalPropsContainer
+
+        .globalProps__title.globalProps__title__regionsPage
+            h2 Welcome to #{items[0].affiliateCity}, #{items[0].affiliateState}
+            p #{items[0].affiliateBio}
+
+
+        if items[0].listing1StreetAddress || items[0].listing2StreetAddress || items[0].listing3StreetAddress
+
+            .globalProps__listingsWrapper
+
+                h2 Featured Listings In #{items[0].affiliateCity}
+                
+                mixin listingItem
+                    .globalProps__listingItem
+                        .globalProps__listingPhoto(style="background-image:url('" + listingImageUrl + "')")
+                        .globalProps__listingInfo
+                            .globalProps__listingInfo__address
+                                h3= listingAddress
+                            .globalProps__listingInfo__price
+                                h4= listingPrice
+                            .globalProps__listingInfo__descript
+                                p= listingDescript
+                            .globalProps__listingInfo__button
+                                a.nan-btn-primary(href= listingUrl, target="_blank") LEARN MORE
+
+                if items[0].listing1StreetAddress
+                    - var listingImageUrl = items[0].listing1Image
+                    - var listingAddress = items[0].listing1StreetAddress
+                    - var listingPrice = items[0].listing1Price
+                    - var listingDescript = items[0].listing1Description
+                    - var listingUrl = items[0].listing1Url
+                    +listingItem
+                if items[0].listing2StreetAddress
+                    - var listingImageUrl = items[0].listing2Image
+                    - var listingAddress = items[0].listing2StreetAddress
+                    - var listingPrice = items[0].listing2Price
+                    - var listingDescript = items[0].listing2Description
+                    - var listingUrl = items[0].listing2Url
+                    +listingItem
+                if items[0].listing3StreetAddress
+                    - var listingImageUrl = items[0].listing3Image
+                    - var listingAddress = items[0].listing3StreetAddress
+                    - var listingPrice = items[0].listing3Price
+                    - var listingDescript = items[0].listing3Description
+                    - var listingUrl = items[0].listing3Url
+                    +listingItem
+
+
+        if items[0].affiliateToDo1Title || items[0].affiliateToDo2Title || items[0].affiliateToDo3Title
+        
+            .globalProps__thingsToDoWrapper
+
+                h2 Things To Do in #{items[0].affiliateCity}
+
+                mixin thingsToDoItem
+                    .globalProps__thingsToDoItem
+                        h3= thingsToDoTitle
+                        img(src= thingsToDoImage)
+                        p= thingsToDoDescript
+                
+                if items[0].affiliateToDo1Title
+                    - var thingsToDoTitle = items[0].affiliateToDo1Title
+                    - var thingsToDoImage = items[0].affiliateToDo1Image
+                    - var thingsToDoDescript = items[0].affiliateToDo1Description
+                    +thingsToDoItem
+
+                if items[0].affiliateToDo2Title
+                    - var thingsToDoTitle = items[0].affiliateToDo2Title
+                    - var thingsToDoImage = items[0].affiliateToDo2Image
+                    - var thingsToDoDescript = items[0].affiliateToDo2Description
+                    +thingsToDoItem
+
+                if items[0].affiliateToDo3Title
+                    - var thingsToDoTitle = items[0].affiliateToDo3Title
+                    - var thingsToDoImage = items[0].affiliateToDo3Image
+                    - var thingsToDoDescript = items[0].affiliateToDo3Description
+                    +thingsToDoItem
+
+        .globalProps__affiliate
+            .globalProps__affiliateInfo
+                h2 #{items[0].affiliateName}
+                p #{items[0].affiliateBio}
+                a.nan-btn-primary(href= items[0].affiliateWebsite, target="_blank") VISIT WEBSITE
+            .globalProps__affiliateImage(style="background-image:url('" + items[0].affiliateLogoUrl + "')")
+                
+        .divider__orange
+
+        include partials/about-christies-block

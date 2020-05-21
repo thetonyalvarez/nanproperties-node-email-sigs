@@ -1,16 +1,16 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+var createError             = require('http-errors');
+var express                 = require('express');
+var path                    = require('path');
+var cookieParser            = require('cookie-parser');
+var logger                  = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var agentsRouter = require('./routes/agents');
-var developmentsRouter = require('./routes/developments');
-var affiliatesRouter = require('./routes/affiliates')
-var globalPropertiesRouter = require('./routes/global-properties')
-var propertybasePDFsRouter = require('./routes/propertybase-pdfs')
+var indexRouter             = require('./routes/index');
+var usersRouter             = require('./routes/users');
+var agentsRouter            = require('./routes/agents');
+var developmentsRouter      = require('./routes/developments');
+var affiliatesRouter        = require('./routes/affiliates')
+var globalPropertiesRouter  = require('./routes/global-properties')
+var propertybasePDFsRouter  = require('./routes/propertybase-pdfs')
 
 var app = express();
 

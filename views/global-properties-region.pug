@@ -1,17 +1,23 @@
 extends layout-nan
 
 block content
-    include inline-css/global-properties-css
 
-    .globalProps__title.globalProps__title__regionsPage
-        h2 Explore Properties In #{continent}
-        p A quick blurb about North America here.A quick blurb about North America here.A quick blurb about North America here.A quick blurb about North America here.A quick blurb about North America here.
+    include inline-css/_site-css.pug
+    style
+        include inline-css/global-properties-css.css
 
-    .globalProps__grid.globalRegions__cities
-        each item in items
-            a.globalProps__grid__item.globalRegions__cities__city(href="/global-properties/" + item.Locality.toLowerCase().replace(/\s/g, '-').replace(/&./g,''))
-                h2= item.Locality
+    .globalPropsContainer
     
-    .divider__orange
+        .globalProps__title.globalProps__title__regionsPage
+            h2 Explore Properties In #{continent}
+            p A quick blurb about North America here. A quick blurb about North America here.A quick blurb about North America here.A quick blurb about North America here.A quick blurb about North America here.
 
-    include partials/about-christies-block
+        .globalProps__grid.globalRegions__cities
+            each item in items
+                if item.CrossMarket
+                    a.globalProps__grid__item.globalRegions__cities__city(style="background-image:url('" + item.HeaderImage + "')", href="/global-properties/" + item.Continent.toLowerCase().replace(/\s/g, '-').replace(/&./g,'') + "/" + item.Locality.toLowerCase().replace(/\s/g, '-').replace(/&./g,'').substr(0, item.Locality.length - 1))
+                        h3= item.Locality
+        
+        .divider__orange
+
+        include partials/about-christies-block

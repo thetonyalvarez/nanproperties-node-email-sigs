@@ -1,17 +1,29 @@
 extends layout-nan
 
 block content
-    include inline-css/global-properties-css
 
-    .globalProps__title
-        h2 Find stunning properties around the globe.
-        p As a Christie’s Int’l affiliate, we do this. As a Christie’s Int’l affiliate, we do this. As a Christie’s Int’l affiliate, we do this. As a Christie’s Int’l affiliate, we do this. As a Christie’s Int’l affiliate, we do this.
+    include inline-css/_site-css.pug
+    style
+        include inline-css/global-properties-css.css
 
-    .globalProps__grid.globalProps__regions
-        each item in items
-            a.globalProps__grid__item.globalProps__regions__region(href="/global-properties/" + item.toLowerCase().replace(/\s/g, '-').replace(/&./g,''))
-                h2= item
+    .globalPropsContainer
     
-    .divider__orange
+        .globalProps__title
+            h2 Find stunning properties around the globe.
+            p As a Christie’s Int’l affiliate, we do this. As a Christie’s Int’l affiliate, we do this. As a Christie’s Int’l affiliate, we do this. As a Christie’s Int’l affiliate, we do this. As a Christie’s Int’l affiliate, we do this.
 
-    include partials/about-christies-block
+        .globalProps__grid.globalProps__regions
+            each item in items
+                - var africa    = 'https://google.com'
+                - var asia      = 'https://google.com'
+                - var australia = 'https://google.com'
+                - var europe    = 'https://google.com'
+                - var nAmerica  = 'https://google.com'
+                - var sAmerica  = 'https://google.com'
+                
+                    a.globalProps__grid__item.globalProps__regions__region(href="/global-properties/" + item.toLowerCase().replace(/\s/g, '-').replace(/&./g,''))
+                        h3= item
+        
+        .divider__orange
+
+        include partials/about-christies-block
