@@ -49,3 +49,11 @@ https://www.samanthaming.com/tidbits/76-converting-object-to-array/
 
 Then I created a new variable referencing the new array, and now I have an array that I can use to manipulate data!
 
+
+
+## Update on 5.22.2020
+### Adding a MongoDB database to allow for client-side uploading of CSV file
+The idea here is to let admin staff upload a CSV file of the agents, which will then generate the email signatures needed to send to the agent.
+
+Followed these steps here:
+http://programmerblog.net/import-csv-file-using-nodejs/
