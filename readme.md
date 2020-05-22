@@ -57,3 +57,6 @@ The idea here is to let admin staff upload a CSV file of the agents, which will 
 
 Followed these steps here:
 http://programmerblog.net/import-csv-file-using-nodejs/
+
+Then, to set up MongoDB on Heroku:
+https://medium.com/make-school/how-to-deploy-your-node-js-mongodb-app-to-the-web-using-heroku-63d4bccf2675
