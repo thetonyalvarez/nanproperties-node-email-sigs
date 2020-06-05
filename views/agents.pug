@@ -8,14 +8,14 @@ block content
   h3 Agents.
   .agentList-container.list-container
     each item in items
-      if (item["title"] == "Realtor Associate" || item["title"] == "Broker Associate" )
+      if (item["Title"] == "Realtor Associate" || item["Title"] == "Broker Associate" )
         .agentList-item
-          a(href="/agents/" + item["userName"]) !{item["lastName"]}, !{item["firstName"]}
+          a(href="/agents/" + item["Username"]) !{item["lastName"]}, !{item["firstName"]}
 
   //- h3 Staff
   //- .staffList-container.list-container
   //-   each item in items
-  //-     if !(item["title"] == "Realtor Associate" || item["title"] == "Broker Associate" )
+  //-     if !(item["Title"] == "Realtor Associate" || item["Title"] == "Broker Associate" )
   //-       .agentList-item
-  //-         a(href="/agents/" + item["userName"]) !{item["displayName"]}
+  //-         a(href="/agents/" + item["Username"]) !{item["Preferred_Name"]}
   //- hr

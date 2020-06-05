@@ -34,8 +34,8 @@ var idList          = [];
 var firstNameList   = [];
 var lastNameList    = [];
 var userNameList    = [];
-var displayNameList = [];
-var titleList       = [];
+var Preferred_NameList = [];
+var TitleList       = [];
 var cellList        = [];
 var licenseList     = [];
 
@@ -46,11 +46,11 @@ keysArray.forEach(values => {
     idList.push(values["ID"])
     firstNameList.push(values["firstName"])
     lastNameList.push(values["lastName"])
-    userNameList.push(values["userName"])
-    displayNameList.push(values["displayName"])
-    titleList.push(values["title"])
-    cellList.push(values["cell"])
-    licenseList.push(values["licenseNumber"])
+    userNameList.push(values["Username"])
+    Preferred_NameList.push(values["Preferred_Name"])
+    TitleList.push(values["Title"])
+    cellList.push(values["Cell"])
+    licenseList.push(values["License_Number"])
     
 });
 
@@ -68,8 +68,8 @@ router.get('/', function(req, res, next) {
         firstNames: firstNameList,
         lastNames: lastNameList,
         userNames: userNameList,
-        displayNames: displayNameList,
-        titles: titleList,
+        Preferred_Names: Preferred_NameList,
+        titles: TitleList,
         cells: cellList,
         licenses: licenseList
     });
@@ -83,9 +83,9 @@ var findUserByUsername = function (username, callback) {
     // Perform database query that calls callback when it's done
     // This is our fake database!
     
-    const result = outerList.find(item => item.userName === username);
+    const result = outerList.find(item => item.Username === username);
 
-    const cellformat = result.cell;
+    const cellformat = result.Cell;
 
     let formatPhoneNumber = (str) => {
         //Filter only numbers from the input

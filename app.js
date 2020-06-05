@@ -14,8 +14,17 @@ var developmentsRouter      = require('./routes/developments');
 var affiliatesRouter        = require('./routes/affiliates')
 var globalPropertiesRouter  = require('./routes/global-properties')
 var propertybasePDFsRouter  = require('./routes/propertybase-pdfs')
+var testRouter              = require('./routes/agent')
 
 var app = express();
+
+//CORS...
+app.use(function(req,res,next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Header", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE, PUT");
+  next();
+})
 
 
 var { Liquid }  = require('liquidjs');
@@ -49,6 +58,7 @@ app.use('/our-developments-page', developmentsRouter);
 app.use('/affiliates', affiliatesRouter);
 app.use('/global-properties', globalPropertiesRouter);
 app.use('/pdfs', propertybasePDFsRouter);
+app.use('/agent', testRouter);
 
 
 

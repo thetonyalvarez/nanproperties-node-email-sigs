@@ -33,7 +33,7 @@ var idList          = [];
 var firstNameList   = [];
 var lastNameList    = [];
 var userNameList    = [];
-var displayNameList = [];
+var Preferred_NameList = [];
 var titleList       = [];
 var cellList        = [];
 var licenseList     = [];
@@ -44,11 +44,11 @@ keysArray.forEach(values => {
     idList.push(values["ID"])
     firstNameList.push(values["firstName"])
     lastNameList.push(values["lastName"])
-    userNameList.push(values["userName"])
-    displayNameList.push(values["displayName"])
-    titleList.push(values["title"])
-    cellList.push(values["cell"])
-    licenseList.push(values["licenseNumber"])
+    userNameList.push(values["Username"])
+    Preferred_NameList.push(values["Preferred_Name"])
+    titleList.push(values["Title"])
+    cellList.push(values["Cell"])
+    licenseList.push(values["License_Number"])
 });
 
 
@@ -60,7 +60,7 @@ keysArray.forEach(values => {
 router.get('/', function(req, res, next) {
     res.render('index', { 
         items: outerList,
-        displayNames: displayNameList
+        Preferred_Names: Preferred_NameList
     });
 });
   
