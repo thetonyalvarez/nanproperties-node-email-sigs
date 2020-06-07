@@ -10,7 +10,7 @@ block content
     each item in items
       if (item["Title"] == "Realtor Associate" || item["Title"] == "Broker Associate" )
         .agentList-item
-          a(href="/agents/" + item["Username"]) !{item["lastName"]}, !{item["firstName"]}
+          a(href="/agents/" + item["Username"]) !{item["last_name"]}, !{item["first_name"]}
 
   //- h3 Staff
   //- .staffList-container.list-container
