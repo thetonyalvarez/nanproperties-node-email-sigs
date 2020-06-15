@@ -15,6 +15,7 @@ var affiliatesRouter        = require('./routes/affiliates')
 var globalPropertiesRouter  = require('./routes/global-properties')
 var propertybasePDFsRouter  = require('./routes/propertybase-pdfs')
 var testRouter              = require('./routes/agent')
+var agentCSVRouter          = require('./routes/agents-csv-upload')
 
 var app = express();
 
@@ -59,6 +60,7 @@ app.use('/affiliates', affiliatesRouter);
 app.use('/global-properties', globalPropertiesRouter);
 app.use('/pdfs', propertybasePDFsRouter);
 app.use('/agent', testRouter);
+app.use('/agents-csv-upload', agentCSVRouter);
 
 
 

@@ -110,6 +110,10 @@ iframe {
     text-align: center;
     text-transform:uppercase;
 }
+.nan-btn-primary:hover {
+	color:#fff;
+	text-decoration:none;
+}
 
 .divider__orange {
     height: 2px;
