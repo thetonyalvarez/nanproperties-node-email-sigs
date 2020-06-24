@@ -2,20 +2,20 @@ extends layout
 
 
 block content
-  h1= title
-  p Welcome to #{title}
-          
-  h3 Agents.
-  .agentList-container.list-container
-    each item in items
-      if (item["Title"] == "Realtor Associate" || item["Title"] == "Broker Associate" )
-        .agentList-item
-          a(href="/agents/" + item["Username"]) !{item["last_name"]}, !{item["first_name"]}
+	h1= title
+	p Welcome to #{title}
 
-  //- h3 Staff
-  //- .staffList-container.list-container
-  //-   each item in items
-  //-     if !(item["Title"] == "Realtor Associate" || item["Title"] == "Broker Associate" )
-  //-       .agentList-item
-  //-         a(href="/agents/" + item["Username"]) !{item["Preferred_Name"]}
-  //- hr
+	h3 Agents.
+	.agentList-container.list-container
+		each item in items
+			if (item["Title"] == "Realtor Associate" || item["Title"] == "Broker Associate" )
+				.agentList-item
+					a(href="/agents/" + item["Username"]) !{item["last_name"]}, !{item["first_name"]}
+
+	//- h3 Staff
+	//- .staffList-container.list-container
+	//-   each item in items
+	//-     if !(item["Title"] == "Realtor Associate" || item["Title"] == "Broker Associate" )
+	//-       .agentList-item
+	//-         a(href="/agents/" + item["Username"]) !{item["Preferred_Name"]}
+	//- hr
