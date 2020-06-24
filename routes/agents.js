@@ -13,7 +13,7 @@ module.exports = router;
 const csvToJson     = require("csv-file-to-json");
 const agents        = csvToJson(
     { 
-        filePath: "./assets/csv/agents-list/Email Signatures - 2020 - FormResponses1 (13).csv",
+        filePath: "./uploads/agentlist.csv",
         separator: ",",
         hasHeader: true
     }
