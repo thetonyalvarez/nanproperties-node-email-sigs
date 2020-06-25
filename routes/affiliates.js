@@ -18,13 +18,14 @@ const metascraper = require('metascraper')([
 const csvToJson     = require("csv-file-to-json");
 const affiliatesRaw        = csvToJson(
     { 
-        filePath: "./assets/csv/Christie's Affiliates - cire-affiliates.csv",
+        filePath: "./assets/csv/Christie's Global Properties_ Landing Pages - Affiliate List.csv",
         separator: ",",
         hasHeader: true
     }
 );
 
 const affiliates = affiliatesRaw.flat(Infinity)
+console.log(affiliates)
 
 
 // Grab all values matching Affiliate URL from objects
