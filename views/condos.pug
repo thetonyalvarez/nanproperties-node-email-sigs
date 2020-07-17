@@ -1,0 +1,84 @@
+extends layout-nan
+
+
+block content
+	// Copy the div below
+	#condos-landing-page
+		include inline-css/_site-css
+
+		style
+			include ../public/stylesheets/condos.css
+
+		#condos__intro.condos__intro.condos__section
+			h2 Condo Living In Houston
+			p High Living, new constructions and detailed craftsmanship, Houston is known for its luxurious condominiums! Travel to all of Houstons best offerings in minutes. Experience lock and leave living including a 24/7 concierge, fitness centers, indoor/outdoor rooftop lounges with grilling areas and more only found in Houstons largest and most prestigious condominium communities. Here at Nan and Company Properties, the options are endless for the modern day premiere home buyers!
+			div
+				a.nan-btn-primary.btn(href="#cms-form") Contact Us
+			
+		//- Pulls from Featured Condo Buildings CSV file
+		#condos__featuredBuildings.condos__featuredBuildings.condos__section
+			// Building
+			h2 Featured Buildings
+			.condos__featuredBuildings__Inner
+				mixin featuredBuilding(n)
+					.condos__featuredBuildings__Inner__building.col-xs-24.col-sm-8.col-md-8.col-lg-8
+						a(href= n['Link to URL'])
+							.condos__featuredBuildings__Inner__building__image(style="background-image:url('" + n.imageURL + "')")
+								.condos__featuredBuildings__Inner__building__image--featured
+									| Featured
+						.condos__featuredBuildings__Inner__building__name
+							h3= n["Building Name"]
+						.condos__featuredBuildings__Inner__building__address
+							h4= n["Building Street Address"]
+							h5= n["Building City"]
+						.condos__featuredBuildings__Inner__building__descript
+							p= n["Building Descript"].substr(0, 100) + '...'
+						.condos__featuredBuildings__Inner__building__cta
+							a(href= n['Link to URL']) Get More Info
+
+				- var condoBuildings = featuredBuildings
+					each n in condoBuildings
+						+featuredBuilding(n)
+		
+		//- Pull from Condo Price Range CSV
+		#condos__searchByPrice.condos__searchByPrice.condos__section
+			h2 Search By Price
+			.condos__searchByPrice__Inner
+				mixin priceRange(n)
+					.condos__searchByPrice__Inner__priceRangeItem.nan-btn-outline.col-xs-12.col-sm-12.col-md-6.col-lg-6
+						a(href= n["Search Link"])= n["Range"]
+
+				- var condoPriceRange = priceRanges
+					each n in condoPriceRange
+						+priceRange(n)
+
+		//- Pull from Condo Other Options CSV
+		#condos__searchByOther.condos__searchByOther.condos__section
+			h2 Or Search Condos By...
+			
+			.condos__searchByOther__Inner
+				mixin filterOptions(n)
+					.condos__searchByOther__Inner__otherItem.col-xs-24.col-sm-8.col-md-8.col-lg-8
+						a(href= n["Link to URL"])= n.Text
+						
+				- var condoOtherSearches = otherOptions
+					each n in condoOtherSearches
+						+filterOptions(n)
+
+		//- Pull from More Options CSV
+		#condos__moreOptions.condos__moreOptions.condos__section
+			h2 How Can We Help?
+			.condos__moreOptions__Inner
+				mixin moreOptions(n)
+					.condos__moreOptions__Inner__otherItem.col-xs-24.col-sm-8.col-md-8.col-lg-8
+						.condos__moreOptions__Inner__otherItem__image(style="background-image:url('" + n["Image"] + "')")
+						h3.condos__moreOptions__Inner__otherItem__title= n["Title"]
+						p.condos__moreOptions__Inner__otherItem__descript= n["Descript"]
+						.condos__moreOptions__Inner__otherItem__cta
+							a(href= n["Link to URL"]) Learn More
+				
+				- var moreOptions = moreOptionsAll
+					each n in moreOptions
+						+moreOptions(n)
+
+		include partials/cms-form

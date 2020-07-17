@@ -5,7 +5,7 @@ const csvToJson     = require("csv-file-to-json");
 // Convert the Master Affiliate Sheet to JSON
 const affiliatesRaw        = csvToJson(
     { 
-        filePath: "./assets/csv/Christie's Affiliates - cire-affiliates.csv",
+        filePath: "./assets/csv/Christie's Global Properties_ Landing Pages - Affiliate List.csv",
         separator: ",",
         hasHeader: true
     }
@@ -20,15 +20,19 @@ const affiliateInfoRaw    = csvToJson(
     }
 );
 
+// Convert the Affiliate Details Sheet to JSON
+const affiliateCountries    = csvToJson(
+    { 
+        filePath: "./assets/csv/Christie's Global Properties_ Landing Pages - Affiliate Countries.csv",
+        separator: ",",
+        hasHeader: true
+    }
+);
+
 let continentsRaw  = affiliatesRaw.map(a => a.Continent);
 let continentsList = [...new Set(continentsRaw)]
 
-/* GET Global Properties Page. */
-router.get('/', function (req, res, next) {
-    res.render('global-properties', {
-        items: continentsList.sort()
-    });
-});
+
 
 const affiliates = affiliatesRaw.flat(Infinity)
 const affiliateInfo     = affiliateInfoRaw.flat(Infinity)
@@ -48,7 +52,7 @@ var findRegionByRegionname = function (regionname, callback) {
 
     // const result = affiliateValues.filter(a => a.Continent.toLowerCase().replace(/\s/g, '-').replace(/&./g,'' === regionname));
 
-    const result = affiliateValues.filter(item => item.Continent.toLowerCase().replace(/\s/g, '-').replace(/&./g,'') === regionname);
+	const result = affiliateValues.filter(item => item.Continent.toLowerCase().replace(/\s/g, '-').replace(/&./g,'') === regionname);
     // console.log(result)
     
 
@@ -126,13 +130,22 @@ router.param('cityname', function (request, response, next, cityname) {
     );
 });
 
+/* GET Global Properties Page. */
+router.get('/', function (req, res, next) {
+    res.render('global-properties', {
+		countries: affiliateCountries.sort(),
+		cities: affiliateValues
+    });
+});
+
 router.get('/:regionname', function (request, response, next) {
     var finallist = request.region;
     // console.log("var is:", finallist, "DONE!")
 
     return response.render('global-properties-region', {
-        items: finallist,
-        continent: finallist[1].Continent
+        cities: finallist.sort(),
+		continent: finallist[0].Continent,
+		countries: affiliateCountries
     });
 });
 

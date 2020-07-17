@@ -1,0 +1,5 @@
+@media (max-width: 599px) {
+  .col-sm-4 {
+    width: 100%;
+  }
+}

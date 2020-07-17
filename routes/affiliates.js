@@ -25,7 +25,7 @@ const affiliatesRaw        = csvToJson(
 );
 
 const affiliates = affiliatesRaw.flat(Infinity)
-console.log(affiliates)
+// console.log(affiliates)
 
 
 // Grab all values matching Affiliate URL from objects

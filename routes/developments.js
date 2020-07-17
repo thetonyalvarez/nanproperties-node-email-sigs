@@ -19,8 +19,8 @@ const metascraper = require('metascraper')([
 
 
 const csvToJson = require("csv-file-to-json");
-const listingsall = csvToJson({
-    filePath: "./assets/csv/Our_Developments_list.csv",
+const developmentsall = csvToJson({
+    filePath: "./assets/csv/developments-landing-page/Our Developments_ Landing Page - Export Sheet.csv",
     separator: ",",
     hasHeader: true
 });
@@ -32,34 +32,34 @@ const buildersall = csvToJson({
 });
 
 // Convert JSON Objects to Array 
-const objectArray = Object.entries(listingsall);
-const listings = [];
+const objectArray = Object.entries(developmentsall);
+const developments = [];
 objectArray.forEach(([key, value]) => {
 
     const list = (value)
 
-    listings.push(list)
+    developments.push(list)
 
 });
 
-const listingsvalues = Object.values(listingsall);
-// console.log(listingsvalues[1])
-const listingsCleaned = [];
-listingsvalues.forEach(value => {
+const developmentsvalues = Object.values(developmentsall);
+// console.log(developmentsvalues[1])
+const developmentsCleaned = [];
+developmentsvalues.forEach(value => {
     
     // objectArray.find(item => item.builderName)
     // builderNameCleaned = value.replace(/ +/g, "")
-    const builderNameLower = value.listingBuilderName.toLowerCase()
+    const builderNameLower = value.BuilderName.toLowerCase()
     const builderNameCleaned = builderNameLower.replace(/ +/g, "-")
     
     value.builderNameCleaned = builderNameCleaned
     
-    // console.log(listingsvalues)
+    // console.log(developmentsvalues)
     
-    const list = listingsvalues
+    const list = developmentsvalues
     // console.log(Array.isArray(list))
 
-    listingsCleaned.push(list)
+    developmentsCleaned.push(list)
     
 });
 
@@ -80,8 +80,9 @@ var Preferred_NameList = [];
 var titleList = [];
 var cellList = [];
 var licenseList = [];
+var cityList = [];
 
-const keysArray = (listings);
+const keysArray = (developments);
 keysArray.forEach(values => {
 
     idList.push(values["ID"])
@@ -92,31 +93,54 @@ keysArray.forEach(values => {
     titleList.push(values["Title"])
     cellList.push(values["Cell"])
     licenseList.push(values["License_Number"])
+    cityList.push(values["DevelopmentCityorNeighborhood"])
 });
+
+// console.log(cityList);
 
 /* GET Our Developments Page. */
-router.get('/', function (req, res, next) {
-    res.render('taxonomy-developments', {
-        listings: listings
-    });
-});
+// router.get('/', function (req, res, next) {
+//     res.render('taxonomy-developments', {
+//         developments: developments
+//     });
+// });
 
 
-// console.log(listingsCleaned.flat().length)
+
+// console.log(developmentsCleaned.flat().length)
+
+var findAllDevelopments = function (request, response, callback) {
+    // if (request.params.builder) {
+		
+		const devs = developmentsall;
+		const devresult = devs.filter(dev => dev['Builder Slug URL (for Nan Site)'] === request.params.builder);
+		request.devresult = devresult;
+		if (!devresult)
+			return callback(new Error(
+				'Nothing matching ' +
+				request
+			));
+		return callback(null, devresult);
+	
+}
 
 
 var findBuilderByBuilderName = function (builder, callback) {
-    const listingsCleaned2 = listingsCleaned.flat()
-    // console.log(listingsCleaned2)
-    // listingsall.forEach(element => console.log(element))
 
-    const result = listingsCleaned2.find(item => item.builderNameCleaned === builder);
 
-    const getVideoId = require('get-video-id');
+	const devresult = developmentsall.filter(dev => dev['BuilderSlugURL(forNanSite)'] === builder);
 
-    const videoUrl = result.listingVideo
 
-    result.videoid = (getVideoId(videoUrl).id)
+    const developmentsCleaned2 = developmentsCleaned.flat()
+    // developmentsall.forEach(element => console.log(element))
+	
+    const result = developmentsCleaned2.find(item => item.builderNameCleaned === builder);
+
+    // const getVideoId = require('get-video-id');
+
+    // const videoUrl = result.listingVideo
+
+    // result.videoid = (getVideoId(videoUrl).id)
 
     
     // Get Video ID from YouTube link
@@ -130,116 +154,144 @@ var findBuilderByBuilderName = function (builder, callback) {
             builder
         ));
 
-    return callback(null, result);
+    return callback(null, devresult);
 
     };
 
 
 
 
-var findBuilderByBuilderName2 = function (builder, callback) {
-    // Perform database query that calls callback when it's done
-    // This is our fake database!
+// var findBuilderByBuilderName2 = function (builder, callback) {
+//     // Perform database query that calls callback when it's done
+//     // This is our fake database!
 
-    const result = builders.find(item => item.builderUrlSlug === builder);
-    console.log(builders)
-    // console.log(result.BuilderDevelopmentLink1)
+//     const result = builders.find(item => item.builderUrlSlug === builder);
+//     console.log(builders)
+//     // console.log(result.BuilderDevelopmentLink1)
 
-    const getVideoId = require('get-video-id');
+//     const getVideoId = require('get-video-id');
 
-    const videoUrl = result.builderVideoLink
+//     const videoUrl = result.builderVideoLink
 
-    // console.log(getVideoId(videoUrl).id)
+//     // console.log(getVideoId(videoUrl).id)
 
-    result.videoid = (getVideoId(videoUrl).id)
+//     result.videoid = (getVideoId(videoUrl).id)
 
-    const link1Image = []
+//     const link1Image = []
     
 
-    /* SCRAPING SCRIPT
-    let testing = async xyz => {
-        const {
-            body: html,
-            url
-        } = await got(xyz)
-        const metadata = await metascraper({
-            html,
-            url
-        })
-        console.log(metadata)
-        return metadata
-    }
+//     /* SCRAPING SCRIPT
+//     let testing = async xyz => {
+//         const {
+//             body: html,
+//             url
+//         } = await got(xyz)
+//         const metadata = await metascraper({
+//             html,
+//             url
+//         })
+//         console.log(metadata)
+//         return metadata
+//     }
     
     
-    testing(result.BuilderDevelopmentLink1).then(
-        async () => {
-            const image1 = await testing(result.BuilderDevelopmentLink1)
-            // result.image1link = Object.values(image1)
-            result.image1link = (image1.image)
+//     testing(result.BuilderDevelopmentLink1).then(
+//         async () => {
+//             const image1 = await testing(result.BuilderDevelopmentLink1)
+//             // result.image1link = Object.values(image1)
+//             result.image1link = (image1.image)
 
-        }
-    )
+//         }
+//     )
 
 
     
-    testing(result.BuilderDevelopmentLink2).then(
-        async () => {
-            const image2 = await testing(result.BuilderDevelopmentLink2)
-            // result.image1link = Object.values(image1)
-            result.image2link = (image2.image)
-            //console.log((image2))
+//     testing(result.BuilderDevelopmentLink2).then(
+//         async () => {
+//             const image2 = await testing(result.BuilderDevelopmentLink2)
+//             // result.image1link = Object.values(image1)
+//             result.image2link = (image2.image)
+//             //console.log((image2))
 
-        }
-    )
+//         }
+//     )
 
 
      
-    testing(result.BuilderDevelopmentLink3).then(
-        async () => {
-            const image3 = await testing(result.BuilderDevelopmentLink3)
-            // result.image1link = Object.values(image1)
-            result.image3link = (image3.image)
-            // console.log((image3))
+//     testing(result.BuilderDevelopmentLink3).then(
+//         async () => {
+//             const image3 = await testing(result.BuilderDevelopmentLink3)
+//             // result.image1link = Object.values(image1)
+//             result.image3link = (image3.image)
+//             // console.log((image3))
 
-        }
-    )
-    */
+//         }
+//     )
+//     */
 
 
 
-    if (!result)
-        return callback(new Error(
-            'No builder matching ' +
-            builder
-        ));
+//     if (!result)
+//         return callback(new Error(
+//             'No builder matching ' +
+//             builder
+//         ));
 
-    return callback(null, result);
+//     return callback(null, result);
 
-};
+// };
 
 var findBuilderByBuilderNameMiddleware = function (request, response, next) {
     if (request.params.builder) {
-        console.log('Builder param was detected: ', request.params.builder)
+        // console.log('Builder param was detected: ', request.params.builder)
         findBuilderByBuilderName(request.params.builder, function (error, user) {
-            if (error) return next(error);
-            request.user = user;
+			if (error) return next(error);
+			
+			// request.devs = devs;
+			// console.log(request.devresult)
+
+			request.user = user;
             return next();
         })
     } else {
         return next();
     }
 }
+
+
+/* GET Our Developments Ads Page. */
+router.get('/', function (req, res, next) {
+	// Remove inactive listings + 
+	var aa = developments.filter(d => d.DevelopmentStatus !== "-- REMOVE");
+
+	var a = aa.filter(d => d.DevelopmentCityorNeighborhood !== "");
+
+	// console.log(a)
+	
+	var d = [];
+	a.forEach(b => d.push(b.DevelopmentCityorNeighborhood)) ;
+	
+	var e = d.filter((c, index) => d.indexOf(c) === index);
+	
+	// console.log(e);
+
+	res.render('taxonomy-developments-ads', {
+        devs: developments,
+        cities: e.sort()
+    });
+});
+
+
 // The v2 routes that use the custom middleware
 router.get('/:builder',
-    findBuilderByBuilderNameMiddleware,
+    findBuilderByBuilderNameMiddleware,  findAllDevelopments,
     function (request, response, next) {
-        return response.render('single-builder', request.user);
-    },
-    function (request, response, next) {
-        return response.render('single-builder', {
-        items: listingsall
-    })
-}
+		// console.log(request.user);
+		return response.render('single-builder', {
+			builder: request.user[0],
+			devs: request.user
+		});
+    }
 );
 
 
@@ -247,7 +299,7 @@ router.get('/:builder',
 /* GET Our Developments: Builder: Community Page. */
 router.get('/:builderName/:communityName', function (req, res, next) {
     res.render('single-development', {
-        listings: listings
+        developments: developments
     });
 });
 

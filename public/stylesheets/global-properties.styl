@@ -1,0 +1,117 @@
+.globalPropsContainer
+    h2
+        color var(--dark-gray)
+    p
+        color var(--gray)
+
+.globalProps__title
+    text-align center
+    margin-top 50px
+    margin-bottom 50px
+    padding-bottom 50px
+
+.globalProps__grid
+    display flex
+    justify-content space-evenly
+    align-items center
+    flex-wrap wrap
+
+// .globalProps__grid__item
+.globalProps__grid__item__link
+	// width 30%
+	display flex
+	justify-content center
+	align-items center
+	background-color #f0f0f0
+	height 300px
+	margin-bottom 20px
+	background-size cover
+	background-position center
+	background-repeat no-repeat
+	.globalProps__grid__item__link__text
+		flex-direction column
+		text-align center
+		height 100%
+		width 100%
+		align-items center
+		display flex
+		justify-content center
+		background-color rgba(255,255,255,0.8)
+		font-family var(--default-font)
+		padding 20px
+		color var(--orange)
+
+.globalProps__listingsWrapper h2, .globalProps__thingsToDoWrapper h2
+    text-align center
+    margin-bottom 50px
+
+.globalProps__listingItem, .globalProps__affiliate
+    display flex
+    justify-content space-between
+
+.globalProps__listingItem, .globalProps__affiliate, .globalProps__thingsToDoWrapper
+    margin-bottom 100px
+
+.globalProps__affiliateInfo
+    width 50%
+    position relative
+    margin-top 40px
+    h2
+        &:before
+            content ''
+            background-color var(--orange)
+            width 100px
+            height 5px
+            position absolute
+            top -40px
+    p
+        margin-bottom 40px !important
+
+.globalProps__affiliateImage
+    width 40%
+    min-height 200px
+    background-size contain
+    background-repeat no-repeat
+    background-position center
+
+.globalProps__listingPhoto
+    width 40%
+    background-position center
+    background-size cover
+
+.globalProps__listingInfo
+    width 55%
+
+.globalProps__listingInfo__address
+    margin-bottom 20px
+
+.globalProps__listingInfo__price, .globalProps__listingInfo__descript
+    margin-bottom 40px
+
+.globalProps__thingsToDoItem
+    margin-bottom 80px
+    &:last-child
+        margin-bottom 40px
+    img
+        width 100%
+
+.globalProps__thingsToDoWrapper
+    padding 50px
+    background-color #f5f5f5
+
+.globalProps__thingsToDoItem h3, .globalProps__thingsToDoItem img
+    margin-bottom 40px !important
+    text-align center
+#otherProps
+	h4,
+	p
+		text-align center
+	h4
+		font-size 1.2rem
+		color var(--orange)
+	.globalProps__grid__item
+		flex 1 0 auto
+		.globalProps__grid__item__link
+			height auto
+			.globalProps__grid__item__link__text
+				background-color #fafafa

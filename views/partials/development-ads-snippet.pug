@@ -1,0 +1,38 @@
+
+.development__img-container
+	if (!n.DevelopmentURL)
+		img.development__img-container--img(alt=n.PrimaryListingAddress src=n.DevelopmentImageURL)
+	else
+		a(href=n.DevelopmentURL)
+			img.development__img-container--img(alt=n.PrimaryListingAddress src=n.DevelopmentImageURL)
+	if (n.DevelopmentStatus == 'Sold')
+		.sold-banner
+			| Sold
+.development__info
+	p.development__info--area
+		!= n.PrimaryListingAddress
+	h3.development__info--development
+		!= n.DevelopmentName
+	h4.development__info--builder
+		!= n.BuilderName
+	p.development__info--description
+		if (n.DevelopmentDescription !== '')
+			!= n.DevelopmentDescription.substr(0,250) + '...'
+		else
+			| More information about this development coming soon.
+	if (n.DevelopmentPriceRange)
+		.development__info--price
+			h5 
+				| Price Range: 
+				!= [n.DevelopmentPriceRange]
+	if (n.DevelopmentStatus == 'Current')
+		if (n.DevelopmentURL !== '')
+			a.btn.nan-btn-primary.development__info--link(href=n.DevelopmentURL)
+				| More Information
+		else
+	else
+		if (n.DevelopmentStatus == 'Sold')
+			p.sorry-sold Sorry, this development has sold.
+
+
+

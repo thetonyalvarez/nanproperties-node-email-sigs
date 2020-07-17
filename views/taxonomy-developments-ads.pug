@@ -1,0 +1,114 @@
+extends layout-nan
+
+block content
+	// Copy the div below
+	#developments-landing-page
+		include inline-css/_site-css
+		style
+			include ../public/stylesheets/taxonomy-developments-ads-css.css
+		#developments-intro
+			.incentives-title
+				h2(style="text-align:center")
+					| Your New Home Awaits
+				p From Conroe to Montrose and everything in between, we can help you find a beautiful new home - with some incredible incentives to make your life easy.
+			.incentives-wrapper
+				.incentives-wrapper__item#incentives-wrapper__no-money-down.col-lg-8.col-md-8.col-sm-8.col-xs-24
+					h3 No Money Down
+					p Pay nothing in down payment and get moved into your new home immediately.
+				.incentives-wrapper__item#incentives-wrapper__zero-closing-costs.col-lg-8.col-md-8.col-sm-8.col-xs-24
+					h3 Zero Closing Costs
+					p We'll pay for closing costs out of our pocket to help you expedite your move.
+				.incentives-wrapper__item#incentives-wrapper__appliances-included.col-lg-8.col-md-8.col-sm-8.col-xs-24
+					h3 All Appliances Included
+					p Forget about having to save for a new refrigerator. These new homes are fully equipped with state-of-the-art appliances.
+			.cta-button
+				a.btn.nan-btn-primary(href="#cms-form")
+					| FIND OUT MORE
+
+		mixin development-area(x)
+			.developments-areas__list__item.col-lg-8.col-md-12.col-sm-12.col-xs-24
+				a(href="#" + x.replace(/\s+/g, '-').toLowerCase()) 
+					h3= x
+
+		//- Update: work on maps functions below to replace menu
+		//- #developments-maps
+			.developments-maps__map
+				img(src='https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/ckeditor_assets/pictures/root/developments/245110/DevMap1.jpg' usemap='#image-map-1')
+				map(name='image-map-1')
+					area(target='' alt='Beyond Metronome' title='Beyond Metronome' href='#beyond-metronome' coords='819,468,36' shape='circle')
+					area(target='' alt='Upland Preserve' title='Upland Preserve' href='#upland-preserve' coords='818,530,34' shape='circle')
+					area(target='' alt='Fulton Station' title='Fulton Station' href='#fulton-station' coords='1420,483,26' shape='circle')
+					area(target='' alt='Chapel Heights' title='Chapel Heights' href='#chapel-heights' coords='1288,358,28' shape='circle')
+					area(target='' alt='Del Norte Heights' title='Del Norte Heights' href='#del-norte-heights' coords='1228,330,34' shape='circle')
+					area(target='' alt='Lakes of Bella Terra' title='Lakes of Bella Terra' href='#lakes-of-bella-terra' coords='157,843,32' shape='circle')
+
+			.developments-maps__map
+				img(src='https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/ckeditor_assets/pictures/root/developments/245109/DevMap2.jpg' usemap='#image-map-2')
+				map(name='image-map-2')
+					area(target='' alt='Artavia' title='Artavia' href='#artavia' coords='895,509,63' shape='circle')
+
+		mixin development-item(x)
+			.developments-city(id= x.replace(/\s+/g, '-').toLowerCase())
+				h2.developments-city__name= x
+				//- .development-city-map
+				//- 	img
+				//- 	h3= x
+
+				//- - console.log(listings)
+				
+				//- - console.log(city)
+				.development-details
+					each n in devs
+						if (n.DevelopmentCityorNeighborhood === x)
+							- var id = n.DevelopmentStatus
+							.development-details__item.col-lg-12
+								include partials/development-ads-snippet.pug
+						else
+							//- - console.log("nothing for " + city)
+
+		
+		//- - console.log(cities)
+
+
+		#developments-areas
+			h2(style="text-align:center") Search By Area
+			.developments-areas__list
+				each x in cities
+					+development-area(x)
+		.spacer-50
+		#developments-listings
+			each x in cities
+				+development-item(x)
+
+
+			//- - console.log(w.DevelopmentCityorNeighborhood)
+
+
+		//- Remove duplicates from array!
+		//- - var devcities = devs.filter((c, index) => devs.indexOf(c) === index)
+		//- - var cityList 	= devcities.filter(city => city.length > 0)
+		//- - console.log(cityList)
+
+
+
+
+		//- Remove duplicates from array!
+		//- - var devcities = cities.filter((c, index) => cities.indexOf(c) === index)
+		//- - var cityList 	= devcities.filter(city => city.length > 0)
+
+
+
+
+
+
+		//- - var allListings 	= (listings => listings.listingCityOrNeighborhood == true)
+		//- - var allListings 	= (listings => listings.listingCityOrNeighborhood == true)
+		//- - var allCities 	= ["Beyond Metronome", "Conroe", "Galleria", "Highland Heights", "Independence Heights", "Montrose", "Museum District", "Oak Forest", "Peden Square", "Richmond", "River Oaks", "Rosemont Heights", "Spring Branch", "Timbergrove"]
+
+
+		//- - var current 	= (listings => listings.listingStatus == 'Current' && listings.listingCityOrNeighborhood == city == true)
+		//- - var sold 		= (listings => listings.listingStatus == 'Sold' && listings.listingCityOrNeighborhood == city == true)
+
+		//- each n in allCities
+
+	include partials/cms-form

@@ -1,0 +1,129 @@
+position-sticky()
+	position -webkit-sticky
+	position sticky
+display-grid()
+	display -ms-grid
+	display grid
+display-flex()
+	display -webkit-box
+	display -webkit-flex
+	display -ms-flexbox
+	display flex
+justify-content(args)
+	-webkit-box-pack args
+	-webkit-justify-content args
+	-ms-flex-pack args
+	justify-content args
+flex-wrap(args)
+	-webkit-flex-wrap args
+	-ms-flex-wrap args
+	flex-wrap args
+align-items(args)
+	-webkit-box-align args
+	-webkit-align-items args
+	-ms-flex-align args
+	align-items args
+transition(args)
+	-webkit-transition args
+	-o-transition args
+	transition args
+
+#condos-landing-page
+	*
+		box-sizing border-box
+	p
+		font-size 15px
+		color #666666
+	h3
+		font-size 25px
+	h4
+		font-size 18px
+	a
+		color #545454
+	.nan-btn-outline
+		display block
+		margin-bottom 20px
+		a
+			background-color white
+			color var(--orange)
+			padding 20px
+			text-align center
+			text-decoration none
+			display block
+			border 1px solid var(--orange)
+			border-radius 10px
+			width 90%
+			margin auto
+			&:hover
+				color white
+				background-color var(--orange)
+				transition(.2s all ease-in-out)
+				
+	.condos__section
+		padding 50px 0
+		h2
+			margin-bottom 30px
+			text-align center
+	.condos__intro
+		h2,
+		p,
+		.btn
+			text-align center
+		.btn
+			color white !important
+			text-decoration none !important
+		div
+			display-flex()
+
+	.condos__featuredBuildings__Inner, 
+	.condos__searchByPrice__Inner,
+	.condos__searchByOther__Inner,
+	.condos__moreOptions__Inner
+		display-flex()
+		flex-wrap(wrap)
+		justify-content(space-between)
+	.condos__searchByPrice,
+	.condos__moreOptions
+		background-color #fafafa
+		padding-left 5%
+		padding-right 5%
+	.condos__featuredBuildings__Inner__building,
+	.condos__searchByOther__Inner__otherItem,
+	.condos__moreOptions__Inner__otherItem
+		padding 20px
+	.condos__featuredBuildings__Inner__building
+		h5
+			font-weight 400
+			text-transform uppercase
+			margin-top 0
+	.condos__featuredBuildings__Inner__building__image
+		position relative
+		.condos__featuredBuildings__Inner__building__image--featured
+			position absolute
+			top -10px
+			left -10px
+			padding 10px
+			background-color var(--orange)
+			color white
+			font-size 0.9rem
+			text-transform uppercase
+			font-weight 300
+	.condos__featuredBuildings__Inner__building__image,
+	.condos__moreOptions__Inner__otherItem__image
+		background-size cover
+		height 200px
+		width 100%
+		background-position center
+	// .condos__searchByPrice__Inner__priceRangeItem
+	// 	width 25%
+	.condos__searchByOther__Inner__otherItem
+		text-align left
+		font-size 1.1rem
+		&:after
+			content ''
+			width 90%
+			padding-bottom 20px
+			border-bottom 1px solid #cccccc
+			height 10px
+			display block
+	

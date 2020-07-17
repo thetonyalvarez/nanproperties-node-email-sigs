@@ -16,6 +16,12 @@ var globalPropertiesRouter  = require('./routes/global-properties')
 var propertybasePDFsRouter  = require('./routes/propertybase-pdfs')
 var testRouter              = require('./routes/agent')
 var agentCSVRouter          = require('./routes/agents-csv-upload')
+var condosRouter          	= require('./routes/condos')
+
+var stylus 					= require('express-stylus');
+var nib 					= require('nib');
+var join 					= require('path').join;
+var publicDir 				= join(__dirname, '/public');
 
 var app = express();
 
@@ -28,16 +34,31 @@ app.use(function(req,res,next) {
 })
 
 
-var { Liquid }  = require('liquidjs');
-var engine      = new Liquid({
-    root: path.join(__dirname, 'views/pdfs/')
-});
-
-
+// var { Liquid }  = require('liquidjs');
+// var engine      = new Liquid({
+//     root: path.join(__dirname, 'views/pdfs/')
+// });
 
 // Use two engines with consolidate.js
 var engines = require('consolidate');
 app.engine('liquid', engines.liquid);
+
+// app.use(stylus.middleware(path.join(__dirname, 'public')));
+
+// app.use(stylus.middleware({
+// 	src: __dirname + '/views',
+// 	dest: __dirname + '/public',
+// 	debug: true
+// }));
+
+app.use(stylus({
+	src: publicDir,
+	use: [nib()],
+	import: ['nib']
+}));
+
+app.use(express.static(publicDir));
+
 
 
 
@@ -61,6 +82,7 @@ app.use('/global-properties', globalPropertiesRouter);
 app.use('/pdfs', propertybasePDFsRouter);
 app.use('/agent', testRouter);
 app.use('/agents-csv-upload', agentCSVRouter);
+app.use('/condos', condosRouter);
 
 
 

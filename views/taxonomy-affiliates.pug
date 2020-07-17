@@ -3,43 +3,57 @@ extends layout-nan
 
 block content
 
-    include inline-css/taxonomy-affiliates-css
+	#taxonomy-affiliates
 
-    .affiliates__content
-        nav
-            .affiliates__sidebar
-                h3 Select a Region
-                ul
-                    each region in regions
-                        li
-                            a(href='#' + region.toLowerCase().replace(/\s/g, '-').replace(/\./g,''))= region    
-            .≈
-                //- h3 Select a Region
-                select
-                    option(value='' selected='selected') Select a region...
-                    each region in regions
-                        option(value='#' + region.toLowerCase().replace(/\s/g, '-').replace(/\./g,''))= region    
-                        
-        .affiliates__list
-            each region in regions
-                .affiliate__region
-                    h4.affiliate__region--title(id=region.toLowerCase().replace(/\s/g, '-').replace(/\./g,''))= region
+		include inline-css/taxonomy-affiliates-css
 
-                    each item in items
-                        if (item["Country"] === region)
-                            .affiliate__affiliateOffice
+		.affiliates__content
+			nav
+				.affiliates__sidebar
+					h3 Select a Region
+					ul
+						each region in regions
+							li
+								a(href='#' + region.toLowerCase().replace(/\s/g, '-').replace(/\./g,''))= region    
+					//- h3 Select a Region
+					select
+						option(value='' selected='selected') Select a region...
+						each region in regions
+							option(value='#' + region.toLowerCase().replace(/\s/g, '-').replace(/\./g,''))= region    
+							
+			.affiliates__list
+				each region in regions
+					.affiliate__region
+						h4.affiliate__region--title(id=region.toLowerCase().replace(/\s/g, '-').replace(/\./g,''))= region
 
-                                .affiliate__affiliateOffice--details
-                                    h5= item["AffiliateName"]
-                                    | #{item.StreetAddress}
-                                    br
-                                    | #{item.Locality}, #{item.Region} #{item.PostalCode}
-                                    if (item["AffiliateURL"])
-                                        .affiliate__affiliateWebsiteWrapper
-                                            a.nan-btn-primary(href= item["AffiliateURL"] target='_blank') Website
+						each item in items
+							if (item["Country"] === region)
+								.affiliate__affiliateOffice
 
-                                if (item.LogoUrl)
-                                    .affiliate__affiliateOffice--logoWrapper
-                                        .affiliate__affiliateOffice--logo
-                                            img(src= item.LogoUrl, style="width:150px;height:auto;")
-                hr
+									.affiliate__affiliateOffice--details
+										if (item["AffiliateURL"]) || (item["NanAffiliateURLSlug"])
+											if (item["NanAffiliateURLSlug"])
+												a(href= item["NanAffiliateURLSlug"])
+													h5= item["AffiliateName"]
+											else
+												a(href= item["AffiliateURL"] target='_blank')
+													h5= item["AffiliateName"]
+										else
+											h5= item["AffiliateName"]
+										| #{item.StreetAddress}
+										br
+										| #{item.Locality}, #{item.Region} #{item.PostalCode}
+										if (item["AffiliateURL"]) || (item["NanAffiliateURLSlug"])
+											.affiliate__affiliateWebsiteWrapper
+												if (item["NanAffiliateURLSlug"])
+													a.nan-btn-primary(href= item["NanAffiliateURLSlug"]) Learn More
+												else
+													a.nan-btn-primary(href= item["AffiliateURL"] target='_blank') Website
+
+									if (item.LogoUrl)
+										.affiliate__affiliateOffice--logoWrapper
+											.affiliate__affiliateOffice--logo
+												img(src= item.LogoUrl, style="width:150px;height:auto;")
+					hr
+		
+		include partials/cms-form
