@@ -1,29 +1,91 @@
-var express = require('express');
-var router = express.Router();
+var express 				= require('express');
+var router					= express.Router();
+const fs 					= require('fs');
+const readline 				= require('readline');
+const {google} 				= require('googleapis');
+const { GoogleSpreadsheet } = require('google-spreadsheet');
+const creds 				= require('../client_secret.json');
 
-const got = require('got')
-
-const metascraper = require('metascraper')([
-    //- require('metascraper-author')(),
-    //- require('metascraper-date')(),
-    require('metascraper-description')(),
-    require('metascraper-image')(),
-    //- require('metascraper-logo')(),
-    //- require('metascraper-clearbit')(),
-    //- require('metascraper-publisher')(),
-    //- require('metascraper-title')(),
-    //- require('metascraper-url')()
-])
+const got 					= require('got')
 
 
+
+
+
+var asyncDevelopments = async function (request, response, callback) {
+
+	// Identifying which document we'll be accessing/reading from
+	const doc = new GoogleSpreadsheet('1gPOPrWA9QbBduEj72JMTQ_XQHzk08d9A1y_l4q6RiYs');
+	
+	await doc.useServiceAccountAuth(creds);
+	
+	await doc.loadInfo();
+	
+	const sheet = await doc.sheetsByIndex[3]; // or use doc.sheetsById[id]
+	await sheet.loadHeaderRow();
+	await sheet.getRows();
+	await sheet.loadCells('A1:AH1000'); // A1 range
+	const rows 	= await sheet.getRows();
+
+	const devresult = rows.filter(row => row.SingleDevelopmentURLSlug === request.params.builder);
+
+	// console.log(z);
+
+	request.devresult = await devresult;
+	if (!devresult)
+		return callback(new Error(
+			'Nothing matching ' +
+			devresult
+		));
+	return callback(null, devresult);
+
+	// const cells = await sheet.loadCells();
+
+
+	// Writing an async waitFor function to wait for the results from rows variable to then show in console.log
+	// Taken from: https://codeburst.io/javascript-async-await-with-foreach-b6ba62bbf404
+	// const waitFor = (ms) => new Promise(r => setTimeout(r, ms));
+
+	// async function asyncForEach(array, callback) {
+	// 	for (let index = 0; index < array.length; index++) {
+	// 	  	await callback(array[index], index, array);
+	// 	}
+	// }
+
+	// const start = async () => {
+	// 	await asyncForEach(rows, async (b) => {
+	// 		await waitFor(50);
+	// 		const c = (b.DevelopmentStatus);
+	// 		// console.log(c)
+	// 		// await return c
+	// 	});
+	// 	console.log('Dev Sheet Async Done')
+	// }
+
+	// const y = await start();
+
+	// console.log(y)
+
+	// (async()  => {
+	// 	const y = await start()
+	// 	console.log(y)
+	// })()
+
+	// start();
+
+}
 
 
 const csvToJson = require("csv-file-to-json");
+const { waitForDebugger } = require('inspector');
+
 const developmentsall = csvToJson({
     filePath: "./assets/csv/developments-landing-page/Our Developments_ Landing Page - Export Sheet.csv",
     separator: ",",
     hasHeader: true
 });
+
+// console.log(developmentsall)
 
 const buildersall = csvToJson({
     filePath: "./assets/csv/Our Developments_ Landing Page - Builders.csv",
@@ -35,32 +97,18 @@ const buildersall = csvToJson({
 const objectArray = Object.entries(developmentsall);
 const developments = [];
 objectArray.forEach(([key, value]) => {
-
     const list = (value)
-
     developments.push(list)
-
 });
 
 const developmentsvalues = Object.values(developmentsall);
-// console.log(developmentsvalues[1])
 const developmentsCleaned = [];
 developmentsvalues.forEach(value => {
-    
-    // objectArray.find(item => item.builderName)
-    // builderNameCleaned = value.replace(/ +/g, "")
     const builderNameLower = value.BuilderName.toLowerCase()
     const builderNameCleaned = builderNameLower.replace(/ +/g, "-")
-    
     value.builderNameCleaned = builderNameCleaned
-    
-    // console.log(developmentsvalues)
-    
     const list = developmentsvalues
-    // console.log(Array.isArray(list))
-
     developmentsCleaned.push(list)
-    
 });
 
 
@@ -96,161 +144,85 @@ keysArray.forEach(values => {
     cityList.push(values["DevelopmentCityorNeighborhood"])
 });
 
-// console.log(cityList);
+// var findAllDevelopments = (request, response, callback) => {
+// 		const devs = developmentsall;
+// 		const devresult = devs.filter(dev => dev['Builder Slug URL (for Nan Site)'] === request.params.builder);
 
-/* GET Our Developments Page. */
-// router.get('/', function (req, res, next) {
-//     res.render('taxonomy-developments', {
-//         developments: developments
-//     });
-// });
+// 		request.devresult = devresult;
+// 		if (!devresult)
+// 			return callback(new Error(
+// 				'Nothing matching ' +
+// 				request
+// 			));
+// 		return callback(null, devresult);
+// }
 
-
-
-// console.log(developmentsCleaned.flat().length)
-
-var findAllDevelopments = function (request, response, callback) {
-    // if (request.params.builder) {
-		
-		const devs = developmentsall;
-		const devresult = devs.filter(dev => dev['Builder Slug URL (for Nan Site)'] === request.params.builder);
-		request.devresult = devresult;
-		if (!devresult)
-			return callback(new Error(
-				'Nothing matching ' +
-				request
-			));
-		return callback(null, devresult);
-	
-}
-
-
-var findBuilderByBuilderName = function (builder, callback) {
-
-
-	const devresult = developmentsall.filter(dev => dev['BuilderSlugURL(forNanSite)'] === builder);
-
-
-    const developmentsCleaned2 = developmentsCleaned.flat()
-    // developmentsall.forEach(element => console.log(element))
-	
-    const result = developmentsCleaned2.find(item => item.builderNameCleaned === builder);
-
-    // const getVideoId = require('get-video-id');
-
-    // const videoUrl = result.listingVideo
-
-    // result.videoid = (getVideoId(videoUrl).id)
-
-    
-    // Get Video ID from YouTube link
-    // const getVideoId = require('get-video-id');
-    // const videoUrl = result.builderVideoLink
-    // result.videoid = (getVideoId(videoUrl).id)
-
-    if (!result)
-        return callback(new Error(
-            'No builder matching ' +
-            builder
-        ));
-
-    return callback(null, devresult);
-
-    };
-
-
-
-
-// var findBuilderByBuilderName2 = function (builder, callback) {
-//     // Perform database query that calls callback when it's done
-//     // This is our fake database!
-
-//     const result = builders.find(item => item.builderUrlSlug === builder);
-//     console.log(builders)
-//     // console.log(result.BuilderDevelopmentLink1)
-
-//     const getVideoId = require('get-video-id');
-
-//     const videoUrl = result.builderVideoLink
-
-//     // console.log(getVideoId(videoUrl).id)
-
-//     result.videoid = (getVideoId(videoUrl).id)
-
-//     const link1Image = []
-    
-
-//     /* SCRAPING SCRIPT
-//     let testing = async xyz => {
-//         const {
-//             body: html,
-//             url
-//         } = await got(xyz)
-//         const metadata = await metascraper({
-//             html,
-//             url
-//         })
-//         console.log(metadata)
-//         return metadata
-//     }
-    
-    
-//     testing(result.BuilderDevelopmentLink1).then(
-//         async () => {
-//             const image1 = await testing(result.BuilderDevelopmentLink1)
-//             // result.image1link = Object.values(image1)
-//             result.image1link = (image1.image)
-
-//         }
-//     )
-
-
-    
-//     testing(result.BuilderDevelopmentLink2).then(
-//         async () => {
-//             const image2 = await testing(result.BuilderDevelopmentLink2)
-//             // result.image1link = Object.values(image1)
-//             result.image2link = (image2.image)
-//             //console.log((image2))
-
-//         }
-//     )
-
-
-     
-//     testing(result.BuilderDevelopmentLink3).then(
-//         async () => {
-//             const image3 = await testing(result.BuilderDevelopmentLink3)
-//             // result.image1link = Object.values(image1)
-//             result.image3link = (image3.image)
-//             // console.log((image3))
-
-//         }
-//     )
-//     */
-
-
-
+// var findBuilderByBuilderName = function (builder, callback) {
+// 	const devresult = developmentsall.filter(dev => dev['BuilderSlugURL(forNanSite)'] === builder);
+//     const developmentsCleaned2 = developmentsCleaned.flat()
+//     const result = developmentsCleaned2.find(item => item.builderNameCleaned === builder);
 //     if (!result)
 //         return callback(new Error(
 //             'No builder matching ' +
 //             builder
 //         ));
-
-//     return callback(null, result);
-
+//     return callback(null, devresult);
 // };
 
-var findBuilderByBuilderNameMiddleware = function (request, response, next) {
-    if (request.params.builder) {
-        // console.log('Builder param was detected: ', request.params.builder)
-        findBuilderByBuilderName(request.params.builder, function (error, user) {
-			if (error) return next(error);
-			
-			// request.devs = devs;
-			// console.log(request.devresult)
+// var findBuilderByBuilderNameMiddleware = function (request, response, next) {
+//     if (request.params.builder) {
+//         findBuilderByBuilderName(request.params.builder, function (error, user) {
+// 			if (error) return next(error);
+// 			request.user = user;
+//             return next();
+//         })
+//     } else {
+//         return next();
+//     }
+// }
 
-			request.user = user;
+
+
+var findDevelopmentByName = function (builder, callback) {
+	// const result = developmentsall.filter(dev => dev['SingleDevelopmentURLSlug'] === builder);
+    const developmentsCleaned2 = developmentsall.flat()
+    const result = developmentsCleaned2.find(dev => dev['SingleDevelopmentURLSlug'] === builder);
+    if (!result)
+        return callback(new Error(
+            'No builder matching ' +
+            builder
+        ));
+    return callback(null, result);
+};
+
+
+var asyncfindDevelopmentByName = async function (builder, callback) {
+
+	// Identifying which document we'll be accessing/reading from
+	const doc = new GoogleSpreadsheet('1gPOPrWA9QbBduEj72JMTQ_XQHzk08d9A1y_l4q6RiYs');
+	await doc.useServiceAccountAuth(creds);
+	await doc.loadInfo();
+	const sheet = await doc.sheetsByIndex[3]; // or use doc.sheetsById[id]
+	await sheet.loadHeaderRow();
+	await sheet.getRows();
+	const rows 	= await sheet.getRows();
+	
+	const result = await rows.find(row => row.SingleDevelopmentURLSlug === builder);
+	
+	if (! result)
+		return callback(new Error(
+			'No builder matching ' + 
+			builder
+		));
+	return callback(null, result);
+
+};
+
+var findDevelopmentByNameMiddleware = function (request, response, next) {
+    if (request.params.builder) {
+        asyncfindDevelopmentByName(request.params.builder, function (error, development) {
+			if (error) return next(error);
+			request.development = development;
             return next();
         })
     } else {
@@ -259,48 +231,108 @@ var findBuilderByBuilderNameMiddleware = function (request, response, next) {
 }
 
 
+var getDevelopmentsMiddleware = async function (request, response, callback) {
+
+	// Identifying which document we'll be accessing/reading from
+	const doc = new GoogleSpreadsheet('1gPOPrWA9QbBduEj72JMTQ_XQHzk08d9A1y_l4q6RiYs');
+	await doc.useServiceAccountAuth(creds);
+	await doc.loadInfo();
+	const sheet = await doc.sheetsByIndex[3]; // or use doc.sheetsById[id]
+	await sheet.loadHeaderRow();
+	await sheet.getRows();
+	const rows 	= await sheet.getRows();
+		
+	var approvedDevs 	= rows.filter(row => row.DevelopmentStatus !== "-- Inactive");
+	var devsWithCity	= approvedDevs.filter(row => row.DevelopmentCityorNeighborhood !== "");
+	// var allDevCities 	= [];
+	// devsWithCity.forEach(dev => allDevCities.push(dev.DevelopmentCityorNeighborhood));
+	// var finalDevCities	= allDevCities.filter((dev, index) => allDevCities.indexOf(dev) === index);
+	
+	request.devsWithCity = devsWithCity;
+
+	if (!devsWithCity)
+		return callback(new Error(
+			'Nothing matching ' +
+			devsWithCity
+		));
+	return callback(null, devsWithCity);
+
+}
+
+
+
+
+
+var getCitiesMiddleware = async function (request, response, callback) {
+
+	// Identifying which document we'll be accessing/reading from
+	const doc = new GoogleSpreadsheet('1gPOPrWA9QbBduEj72JMTQ_XQHzk08d9A1y_l4q6RiYs');
+	await doc.useServiceAccountAuth(creds);
+	await doc.loadInfo();
+	const sheet = await doc.sheetsByIndex[3]; // or use doc.sheetsById[id]
+	await sheet.loadHeaderRow();
+	await sheet.getRows();
+	const rows 	= await sheet.getRows();
+		
+	var approvedDevs 	= rows.filter(row => row.DevelopmentStatus !== "-- Inactive");
+	var devsWithCity	= approvedDevs.filter(row => row.DevelopmentCityorNeighborhood !== "");
+	var allDevCities 	= [];
+	devsWithCity.forEach(dev => allDevCities.push(dev.DevelopmentCityorNeighborhood));
+	var finalDevCities	= allDevCities.filter((dev, index) => allDevCities.indexOf(dev) === index);
+	
+	request.finalDevCities = finalDevCities;
+
+	if (!finalDevCities)
+		return callback(new Error(
+			'Nothing matching ' +
+			finalDevCities
+		));
+	return callback(null, finalDevCities);
+}
+
 /* GET Our Developments Ads Page. */
-router.get('/', function (req, res, next) {
-	// Remove inactive listings + 
-	var aa = developments.filter(d => d.DevelopmentStatus !== "-- REMOVE");
-
-	var a = aa.filter(d => d.DevelopmentCityorNeighborhood !== "");
-
-	// console.log(a)
-	
-	var d = [];
-	a.forEach(b => d.push(b.DevelopmentCityorNeighborhood)) ;
-	
-	var e = d.filter((c, index) => d.indexOf(c) === index);
-	
-	// console.log(e);
-
-	res.render('taxonomy-developments-ads', {
-        devs: developments,
-        cities: e.sort()
-    });
-});
+router.get('/', 
+	getCitiesMiddleware,
+	getDevelopmentsMiddleware,
+	(request, response, next) => {
+		console.log(request.finalDevCities)
+		return response.render('taxonomy-developments-ads', {
+			devs: request.devsWithCity,
+			cities: request.finalDevCities.sort()
+		})
+	}
+);
 
 
 // The v2 routes that use the custom middleware
-router.get('/:builder',
-    findBuilderByBuilderNameMiddleware,  findAllDevelopments,
-    function (request, response, next) {
-		// console.log(request.user);
-		return response.render('single-builder', {
-			builder: request.user[0],
-			devs: request.user
-		});
-    }
-);
+// router.get('/:builder',
+// 	findBuilderByBuilderNameMiddleware,  
+// 	findAllDevelopments,
+//     (request, response, next) => {
+// 		// console.log(request.development);
+// 		return response.render('single-builder', {
+// 			builder: request.development[0],
+// 			devs: request.development
+// 		});
+//     }
+// );
 
 
 
 /* GET Our Developments: Builder: Community Page. */
-router.get('/:builderName/:communityName', function (req, res, next) {
-    res.render('single-development', {
-        developments: developments
-    });
-});
+router.get('/developments-c/:builder',
+	findDevelopmentByNameMiddleware,
+	asyncDevelopments,
+	(request, response, next) => {
+		console.log(request.devsWithCity + 'done!!');
+		return response.render('single-development-c', {
+			devs: request.development,
+			// z: request.z
+		});
+	}
+);
+
+
+
 
 module.exports = router;

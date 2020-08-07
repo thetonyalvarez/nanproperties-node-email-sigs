@@ -65,7 +65,7 @@ affiliateEntries.forEach(([key, value]) => {
 router.get('/', function (req, res, next) {
     res.render('taxonomy-affiliates', {
         items: affiliates,
-        regions: countryCleaned
+		regions: countryCleaned
     });
 });
 

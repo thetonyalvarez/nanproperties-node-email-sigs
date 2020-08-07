@@ -141,7 +141,6 @@ router.get('/', function (req, res, next) {
 router.get('/:regionname', function (request, response, next) {
     var finallist = request.region;
     // console.log("var is:", finallist, "DONE!")
-
     return response.render('global-properties-region', {
         cities: finallist.sort(),
 		continent: finallist[0].Continent,

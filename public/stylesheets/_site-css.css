@@ -1,5 +1,223 @@
+:root {
+  --orange: #f16624;
+  --light-gray: #a3aaad;
+  --gray: #7c7d7d;
+  --dark-gray: #434647;
+  --default-font: 'Century Gothic W01', "Helvetica Neue", Helvetica, "Lucida Grande", arial, sans-serif;
+  --script-font: 'Playfair Display', serif;
+  --bb: 1px solid #000;
+  --h1-size: 3.052rem;
+  --h2-size: 2.441rem;
+  --h3-size: 1.953rem;
+  --h4-size: 1.563rem;
+  --h5-size: 1.25rem;
+  --p-size: 1rem;
+}
+* {
+  font-family: var(--default-font);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+h1,
+.h1 {
+  font-size: var(--h1-size);
+  font-family: var(--default-font) !important;
+  font-weight: 500 !important;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+  color: var(--dark-gray);
+  line-height: 1em;
+}
+h2,
+.h2 {
+  font-size: var(--h2-size);
+  font-family: var(--default-font) !important;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+  color: var(--orange);
+  line-height: 1.2em;
+}
+h3,
+.h3 {
+  font-size: var(--h3-size);
+  font-family: var(--default-font);
+  margin: 20px 0;
+  color: var(--orange);
+  font-weight: 200 !important;
+  text-transform: uppercase;
+}
+h4,
+.h4 {
+  font-size: var(--h4-size);
+  font-family: var(--default-font);
+  font-weight: 100 !important;
+  text-transform: uppercase;
+  margin: 10px 0;
+}
+p {
+  font-weight: 400 !important;
+  font-family: var(--default-font);
+  margin: 0 0 20px !important;
+  font-size: var(--p-size);
+  line-height: 1.7em;
+  color: var(--dark-gray);
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+li,
+a {
+  font-family: var(--default-font);
+}
+hr {
+  margin: 40px 0;
+  -webkit-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 1px;
+  background: #ccc;
+  border: none;
+}
+iframe {
+  border: none;
+}
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+.embed-container iframe,
+.embed-container object,
+.embed-container embed,
+.embed-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.nan-btn-primary {
+  display: inline-block;
+  background-color: var(--orange);
+  margin: auto;
+  color: #fff;
+  height: auto;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-family: var(--default-font);
+  padding: 16px 40px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.divider__orange {
+  height: 2px;
+  background-color: var(--orange);
+  width: 50%;
+  display: block;
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+.aboutChristies__block {
+  padding-top: 20px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -o-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-line-pack: start;
+  -webkit-align-content: flex-start;
+  align-content: flex-start;
+}
+.aboutChristies__image {
+  width: 33%;
+}
+.aboutChristies__image div {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  height: 300px;
+  width: 100%;
+  background-position: center;
+}
+.aboutChristies__details {
+  width: 60%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.aboutChristies__details h2 {
+  color: var(--dark-gray);
+}
+.aboutChristies__details p {
+  color: var(--light-gray);
+}
 @media (max-width: 599px) {
-  .col-sm-4 {
+  .aboutChristies__block {
     width: 100%;
+    display: block;
+  }
+  .aboutChristies__image {
+    width: 100%;
+  }
+  .aboutChristies__details {
+    width: 100%;
+    margin-top: 30px;
+  }
+  .aboutChristies__details p {
+    margin-bottom: 30px !important;
+  }
+}
+#banner img {
+  max-height: 560px;
+  -webkit-filter: brightness(100%);
+  filter: brightness(100%);
+}
+#banner .banner-page-title h1 {
+  background-color: transparent;
+  font-size: 3.5em;
+  text-shadow: 0 0 100px rgba(0,0,0,0.7);
+  text-transform: uppercase;
+}
+@media only screen and (max-width: 992px) {
+  #banner .banner-page-title h1 {
+    font-size: 3em;
+  }
+}
+@media only screen and (max-width: 768px) {
+  #banner .banner-page-title h1 {
+    font-size: 2em;
   }
 }

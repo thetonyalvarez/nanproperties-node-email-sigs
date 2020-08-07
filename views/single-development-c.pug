@@ -1,0 +1,76 @@
+extends layout-nan
+
+block content
+	// Copy the div below
+	
+	article#single-development-landing-page.custom-page
+		include inline-css/_site-css
+
+		style
+			include ../public/stylesheets/single-development-c.css
+
+		- var a = devs.SingleDevelopmentImage1URL
+		- var b = devs.SingleDevelopmentImage2URL
+		- var c = devs.SingleDevelopmentImage3URL
+		- var d = devs.SingleDevelopmentImage4URL
+		- var e = devs.SingleDevelopmentImage5URL
+		- var f = devs.SingleDevelopmentImage6URL
+
+		- var g = [b,c,d,e,f]
+		- console.log(g)
+		- console.log(devs)
+		
+		h1= devs.DevelopmentName.toUpperCase()
+		.divider-orange
+		.single-development-content
+			// Agent
+			aside.single-development__agentSection.col-md-3.col-12.order-md-1.order-2.d-md-block.d-sm-flex.d-block
+				.single-development__agentSection__imgWrapper.col-md-12.col-sm-4.col-12.pl-md-0.px-0
+					.single-development__agentSection__img(style="background-image:url('" + devs.SingleDevelopmentAgentImageURL + "'")
+				.single-development__agentSection__agentInfoWrapper.col-md-12.col-sm-8.col-12.px-0.pl-sm-3.pl-md-0
+					img.col-12.col-md-9.px-0(src="https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/ckeditor_assets/pictures/root/246432/NanChristies_Logo_LockupHorizontal_DarkGray_Small_Transparent__1_.png")
+					.single-development__agentSection__agentInfo
+						h2= devs.SingleDevelopmentListingAgent
+						p= devs.SingleDevelopmentAgentTitle
+					.single-development__agentSection__cta
+						a.nan-btn-primary(href="#cms-form") Contact Me
+			
+			// Image Grid
+			.single-development__devSection.col-md-9.col-12.order-md-2.order-1
+				.single-development__mainImage(style='background-image:url("' + a + '"')
+				.single-development__imageGrid--outer
+					.single-development__imageGrid--inner.flex-wrap
+						each img, index in g
+							a(href='#img_' + index + '', style='background-image:url("' + img + '"').single-development__imageGrid__image.col-md-2.col-6
+					each img, index in g	
+						a.single-development__imageGrid__image--lightbox(id='img_' + index + '', href='#_')
+							img(src= img)
+				// Details
+				.single-development__content--inner.d-md-flex.d-block
+					.single-development__content__details.col-md-6.col-12.kill-padding
+						h2.text-md-left.text-center Starting in the $#{devs.SingleDevelopmentStartingPricePoint}s
+						.single-development__content__details__features
+							.single-development__content__details__features__item.col-lg-3.mr-3
+								h3= devs.SingleDevelopmentBedrooms
+								p Bed
+							.single-development__content__details__features__item.col-lg-3.mr-3
+								h3= devs.SingleDevelopmentBathrooms
+								p Bath
+							.single-development__content__details__features__item.col-lg-3.mr-md-3.mr-xs-0
+								h3= devs.SingleDevelopmentTotalAreainSqft
+								p Sq. Ft
+						aside.single-development__content__location.col-12.m-auto.ml-md-0
+							img(src= "https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/ckeditor_assets/pictures/root/social-icons/245373/geo.png" style="height:32px;width:32px")
+							p #{devs.DevelopmentCityorNeighborhood}, #{devs.SingleDevelopmentCity}
+
+					// Map
+					.single-development__content__map.col-md-6.col-12.mt-3.mt-md-0
+						iframe(allowfullscreen='' frameborder='0' height='300' src='https://www.google.com/maps/embed/v1/place?key=AIzaSyBqJ_tTRZkle-Wnn9N7I7ahuz9DhLfeZag&q=' + devs.SingleDevelopmentAddress.replace(/\s/g, '+') + ',+' + devs.SingleDevelopmentCity + '' style="border:0" width="100%")
+				
+				// Summary 
+				summary.single-development__description
+					h2.single-development__description__title WELCOME TO #{devs.DevelopmentName.toUpperCase()}
+					p.text-muted #{devs.DevelopmentDescription}
+		
+		
+		include partials/cms-form

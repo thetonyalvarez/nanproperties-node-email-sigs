@@ -7,11 +7,14 @@ block content
 		style
 			include ../public/stylesheets/global-properties.css
 
-		//- - console.log("hey " + continent)
+		- var a = countries.filter(z => z["Affiliate Region"] === continent)
+		- console.log(a[0]["Description of Region"])
+
 		.globalProps__title.globalProps__title__regionsPage
 			h2 Explore Properties In #{continent}
-			if countries["Description of Region"]
-				p= countries["Description of Region"]
+
+			if a[0]["Description of Region"]
+				p= a[0]["Description of Region"]
 			else
 				p Christie's International Real Estate connects buyers and sellers of the world's most important properties. Our real estate company is driven by the global span and expertise of our Affiliate network, which extends to more than 138 affiliates across 940 offices in 48 countries and a combined annual sales volume of approximately $115 billion in 2016. Our unique international perspective on the worlds of art and luxury, together with our unparalleled service, has made Christie's International Real Estate the global authority in the marketing of distinctive properties.
 
@@ -32,7 +35,7 @@ block content
 		- var features 			= cities.filter(city => city.CrossMarket === "Yes" )
 		- var featuresLength 	= features.length
 		- var nofeatures 		= cities.filter(city => city.CrossMarket !== "Yes" )
-		- console.log(featuresLength)
+		//- - console.log(featuresLength)
 		
 		if featuresLength > 0
 			h2(style="text-align:center") Featured Locations

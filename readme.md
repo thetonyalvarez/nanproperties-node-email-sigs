@@ -1,3 +1,23 @@
+# How the CSS Structure is set up
+There is a 
+```
+_bootstrap_custom.css
+```
+that uses bootstrap elements but appends a ```#custom-page``` ID to every css rule.
+This is so that we can use updated Bootstrap elements that won't conflict with Propertybase's CSS framework, specifically classes like ```.col-lg-12`` and such.
+
+So you MUST wrapp all your html code in an element containing the ```#custom-page``` ID class to make sure the Bootstrap rules are applied.
+
+
+
+
+# How I created the Google Sheets API Pull
+
+I followed these instructions here:
+https://blog.stephsmith.io/tutorial-google-sheets-api-node-js/
+
+
+
 ## To convert CVS to JSON data
 Go here: https://www.convertcsv.com/csv-to-json.htm
 
@@ -49,14 +69,3 @@ https://www.samanthaming.com/tidbits/76-converting-object-to-array/
 
 Then I created a new variable referencing the new array, and now I have an array that I can use to manipulate data!
 
-
-
-## Update on 5.22.2020
-### Adding a MongoDB database to allow for client-side uploading of CSV file
-The idea here is to let admin staff upload a CSV file of the agents, which will then generate the email signatures needed to send to the agent.
-
-Followed these steps here:
-http://programmerblog.net/import-csv-file-using-nodejs/
-
-Then, to set up MongoDB on Heroku:
-https://medium.com/make-school/how-to-deploy-your-node-js-mongodb-app-to-the-web-using-heroku-63d4bccf2675
