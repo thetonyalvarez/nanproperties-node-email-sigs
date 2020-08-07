@@ -8,13 +8,17 @@ This is so that we can use updated Bootstrap elements that won't conflict with P
 
 So you MUST wrapp all your html code in an element containing the ```#custom-page``` ID class to make sure the Bootstrap rules are applied.
 
+# Developments.js
 
+The ```developments.js``` uses ```npm i google-spreadsheets``` package to authenticate to Google Sheets (through an already-authenticated Google Sheets API) and then pull data from the spreadsheet and then populate the page.
 
 
 # How I created the Google Sheets API Pull
 
 I followed these instructions here:
 https://blog.stephsmith.io/tutorial-google-sheets-api-node-js/
+
+
 
 
 ## Deprecated notes
