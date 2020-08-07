@@ -31,6 +31,9 @@ var publicDir = join(__dirname, '/public');
 
 var app = express();
 
+require('dotenv').config()
+
+
 
 
 

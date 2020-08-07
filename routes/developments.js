@@ -12,7 +12,13 @@ var asyncDevelopments = async function (request, response, callback) {
 	// Identifying which document we'll be accessing/reading from
 	const doc = new GoogleSpreadsheet('1gPOPrWA9QbBduEj72JMTQ_XQHzk08d9A1y_l4q6RiYs');
 	
-	await doc.useServiceAccountAuth(creds);
+	// await doc.useServiceAccountAuth(creds);
+
+	// use service account creds
+	await doc.useServiceAccountAuth({
+		client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+		private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+	});
 	
 	await doc.loadInfo();
 	
@@ -40,7 +46,14 @@ var asyncfindDevelopmentByName = async function (builder, callback) {
 
 	// Identifying which document we'll be accessing/reading from
 	const doc = new GoogleSpreadsheet('1gPOPrWA9QbBduEj72JMTQ_XQHzk08d9A1y_l4q6RiYs');
-	await doc.useServiceAccountAuth(creds);
+	// await doc.useServiceAccountAuth(creds);
+
+	// use service account creds
+	await doc.useServiceAccountAuth({
+		client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+		private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+	});
+	
 	await doc.loadInfo();
 	const sheet = await doc.sheetsByIndex[3]; // or use doc.sheetsById[id]
 	await sheet.loadHeaderRow();
@@ -74,7 +87,14 @@ var getDevelopmentsMiddleware = async function (request, response, callback) {
 
 	// Identifying which document we'll be accessing/reading from
 	const doc = new GoogleSpreadsheet('1gPOPrWA9QbBduEj72JMTQ_XQHzk08d9A1y_l4q6RiYs');
-	await doc.useServiceAccountAuth(creds);
+	// await doc.useServiceAccountAuth(creds);
+
+	// use service account creds
+	await doc.useServiceAccountAuth({
+		client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+		private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+	});
+	
 	await doc.loadInfo();
 	const sheet = await doc.sheetsByIndex[3]; // or use doc.sheetsById[id]
 	await sheet.loadHeaderRow();
@@ -99,7 +119,14 @@ var getCitiesMiddleware = async function (request, response, callback) {
 
 	// Identifying which document we'll be accessing/reading from
 	const doc = new GoogleSpreadsheet('1gPOPrWA9QbBduEj72JMTQ_XQHzk08d9A1y_l4q6RiYs');
-	await doc.useServiceAccountAuth(creds);
+	// await doc.useServiceAccountAuth(creds);
+
+	// use service account creds
+	await doc.useServiceAccountAuth({
+		client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+		private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+	});
+	
 	await doc.loadInfo();
 	const sheet = await doc.sheetsByIndex[3]; // or use doc.sheetsById[id]
 	await sheet.loadHeaderRow();
