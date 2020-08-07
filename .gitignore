@@ -19,6 +19,7 @@
 .env.development.local
 .env.test.local
 .env.production.local
+client_secret.json
 process.env
 
 npm-debug.log*
