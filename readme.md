@@ -17,7 +17,8 @@ I followed these instructions here:
 https://blog.stephsmith.io/tutorial-google-sheets-api-node-js/
 
 
-
+## Deprecated notes
+~~
 ## To convert CVS to JSON data
 Go here: https://www.convertcsv.com/csv-to-json.htm
 
@@ -69,3 +70,4 @@ https://www.samanthaming.com/tidbits/76-converting-object-to-array/
 
 Then I created a new variable referencing the new array, and now I have an array that I can use to manipulate data!
 
+~~
