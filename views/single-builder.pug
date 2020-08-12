@@ -1,37 +1,40 @@
 extends layout-nan
 
 block content
-	#builder-page
+	#builder-page.custom-page
 		include inline-css/_site-css
 		include inline-css/single-builder-css
 
 		.builder__title
-			- console.log(devs)
-			h2(style="text-align:center")= builder.BuilderName
-		.builder__content
-			.builder__about
-				h2= builder.BuilderName
-				.builder__description
-					h3 About #{builder.BuilderName}
-					p= builder.BuilderDescription
-				.builder__video
-					.embed-container
-						iframe(src='https://www.youtube.com/embed/' + builder.BuilderVideoURL, frameborder='0' allowfullscreen='')
-			.builder__sidebar
-				h3 Find listings from this builder
-				.builder__listings
-					mixin builderListing(n)
-						.builder__listing
-							a(href= n.DevelopmentURL)
-								.embed-container
-									img(src= n.DevelopmentImageURL, alt= n.BuilderName)
-							.builder__listing__title= n.DevelopmentName
-							.builder__listing__description= n.DevelopmentDescription.substr(0,100) + '...'
-							a(href= n.DevelopmentURL).builder__listing__link
-								| More Information
+			- console.log(devs + ": these are all the devs with this builder")
+			
+			each x in devs
+				h1= x.DevelopmentName
+			//- h2(style="text-align:center")= builder.BuilderName
+		//- .builder__content
+		//- 	.builder__about
+		//- 		h2= builder.BuilderName
+		//- 		.builder__description
+		//- 			h3 About #{builder.BuilderName}
+		//- 			p= builder.BuilderDescription
+		//- 		.builder__video
+		//- 			.embed-container
+		//- 				iframe(src='https://www.youtube.com/embed/' + builder.BuilderVideoURL, frameborder='0' allowfullscreen='')
+		//- 	.builder__sidebar
+		//- 		h3 Find listings from this builder
+		//- 		.builder__listings
+		//- 			mixin builderListing(n)
+		//- 				.builder__listing
+		//- 					a(href= n.DevelopmentURL)
+		//- 						.embed-container
+		//- 							img(src= n.DevelopmentImageURL, alt= n.BuilderName)
+		//- 					.builder__listing__title= n.DevelopmentName
+		//- 					.builder__listing__description= n.DevelopmentDescription.substr(0,100) + '...'
+		//- 					a(href= n.DevelopmentURL).builder__listing__link
+		//- 						| More Information
 					
 
-					each n in devs
-						+builderListing(n)
+		//- 			each n in devs
+		//- 				+builderListing(n)
 		
 		include partials/cms-form

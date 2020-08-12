@@ -1,0 +1,23 @@
+extends layout-nan
+
+block content
+	.custom-page
+
+		include inline-css/_site-css
+		include inline-css/taxonomy-developments-css
+
+		mixin builder(x)
+			h2= x
+		
+		mixin development(y)
+			h3 Development Name:  #{y.DevelopmentName}
+			p Development Image: #{y.DevelopmentImageURL}
+
+		each x in builders
+			+builder(x)
+
+			each y in devs
+				if y.BuilderName === x
+					+development(y)
+
+		include partials/cms-form 

@@ -16,6 +16,7 @@ const creds 				= require('./client_secret.json');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var agentsRouter = require('./routes/agents');
+var buildersRouter = require('./routes/builders');
 var developmentsRouter = require('./routes/developments');
 var affiliatesRouter = require('./routes/affiliates')
 var globalPropertiesRouter = require('./routes/global-properties')
@@ -33,19 +34,6 @@ var app = express();
 
 require('dotenv').config()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 //CORS...
 app.use(function (req, res, next) {
 	res.header("Access-Control-Allow-Origin", "*");
@@ -53,9 +41,6 @@ app.use(function (req, res, next) {
 	res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE, PUT");
 	next();
 })
-
-
-
 
 // Use two engines with consolidate.js
 var engines = require('consolidate');
@@ -69,9 +54,6 @@ app.use(stylus({
 
 app.use(express.static(publicDir));
 
-
-
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -84,10 +66,10 @@ app.use(express.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/agents', agentsRouter);
+app.use('/our-builders', buildersRouter);
 app.use('/our-developments-page', developmentsRouter);
 app.use('/affiliates', affiliatesRouter);
 app.use('/global-properties', globalPropertiesRouter);
