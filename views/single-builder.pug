@@ -5,7 +5,23 @@ block content
 		include inline-css/_site-css
 		include inline-css/_css-in-development
 		include inline-css/single-builder-css
+		
+		h2.h5.col-sm-12.d-sm-block.text-uppercase.mb-3 #{builder.BuilderName} Developments
+		.builder__listings.d-sm-block.clearfix
+			mixin builderListing(n)
+				.builder__listing.col-md-4.col-sm-6
+					a(href= n.DevelopmentURL)
+						.embed-container
+							img(src= n.DevelopmentImageURL, alt= n.BuilderName)
+					h4.h6.builder__listing__title= n.DevelopmentName
+					p.caption.builder__listing__description= n.DevelopmentDescription.substr(0,100) + '...'
+					a(href= n.DevelopmentURL).builder__listing__link.d-md-inline-block
+						| View Development
+			
 
+			each n in devs
+				+builderListing(n)
+	
 		//- h2(style="text-align:center")= builder.BuilderName
 		.builder__content
 			.builder__about.col-md-8.col-sm-12
@@ -25,20 +41,5 @@ block content
 				else
 					h3.h6= builder.BuilderName
 
-		h2.h5.col-sm-12.d-sm-block.text-uppercase.mb-3 See Developments from #{builder.BuilderName}
-		.builder__listings.d-sm-block.clearfix
-			mixin builderListing(n)
-				.builder__listing.col-md-4.col-sm-6
-					a(href= n.DevelopmentURL)
-						.embed-container
-							img(src= n.DevelopmentImageURL, alt= n.BuilderName)
-					h4.h6.builder__listing__title= n.DevelopmentName
-					p.caption.builder__listing__description= n.DevelopmentDescription.substr(0,100) + '...'
-					a(href= n.DevelopmentURL).builder__listing__link.d-md-inline-block
-						| View Development
-			
 
-			each n in devs
-				+builderListing(n)
-	
 		include partials/cms-form
