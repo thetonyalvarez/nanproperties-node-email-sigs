@@ -12,11 +12,11 @@ const got 					= require('got')
 /////////////////////////
 // SEARCH BUILDER NAME //
 /////////////////////////
-var asyncBuilders = async function (request, response, callback) {
+
+var searchGoogleSheetForBuilderDevelopments = async function (builder, callback) {
+	console.log('Launching Google Sheets search for ' + builder + "...")
 	// Identifying which document we'll be accessing/reading from
 	const doc = new GoogleSpreadsheet('1gPOPrWA9QbBduEj72JMTQ_XQHzk08d9A1y_l4q6RiYs');
-	
-	// await doc.useServiceAccountAuth(creds);
 
 	// use service account creds
 	await doc.useServiceAccountAuth({
@@ -25,44 +25,21 @@ var asyncBuilders = async function (request, response, callback) {
 	});
 	
 	await doc.loadInfo();
-	
-	const sheet = await doc.sheetsByIndex[3]; // or use doc.sheetsById[id]
-	await sheet.loadHeaderRow();
-	await sheet.getRows();
-	await sheet.loadCells('A1:AH1000'); // A1 range
-	const rows 	= await sheet.getRows();
-
-	const devresult = rows.filter(row => row.BuilderSlugURLforNanSite === request.params.builder);
-
-	request.devresult = await devresult;
-	if (!devresult)
-		return callback(new Error(
-			'Nothing matching ' +
-			devresult
-		));
-	return callback(null, devresult);
-}
-
-var asyncfindBuilderByName = async function (builder, callback) {
-
-	// Identifying which document we'll be accessing/reading from
-	const doc = new GoogleSpreadsheet('1gPOPrWA9QbBduEj72JMTQ_XQHzk08d9A1y_l4q6RiYs');
-	// await doc.useServiceAccountAuth(creds);
-
-	// use service account creds
-	await doc.useServiceAccountAuth({
-		client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-		private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
-	});
-	
-	await doc.loadInfo();
-	const sheet = await doc.sheetsByIndex[3]; // or use doc.sheetsById[id]
+	const sheet = doc.sheetsByIndex[3]; // or use doc.sheetsById[id]
+	console.log('Google Sheet found: ' + sheet)
 	await sheet.loadHeaderRow();
 	await sheet.getRows();
 	const rows 	= await sheet.getRows();
+	console.log('Google Sheet Rows found: ' + rows)
 	
-	const result = await rows.find(row => row.BuilderSlugURLforNanSite === builder);
-	
+	// const result = await rows.find(row => row.BuilderSlugURLforNanSite === builder);
+	const result = rows.filter(row => row.BuilderSlugURLforNanSite === builder);
+
+	request.builderInfoResult = await result[0];
+
+	console.log('Found these results in Google Sheets for ' + builder + ': ' + result)
+	console.log('This is the Builder\'s Name: ' + result[0].BuilderName)
+
 	if (! result)
 		return callback(new Error(
 			'No builder matching ' + 
@@ -73,10 +50,12 @@ var asyncfindBuilderByName = async function (builder, callback) {
 };
 
 var findBuilderByNameMiddleware = function (request, response, next) {
-    if (request.params.builder) {
-        asyncfindBuilderByName(request.params.builder, function (error, builder) {
+	console.log('Searching for ' + request.params.builder + "...")
+	if (request.params.builder) {
+        searchGoogleSheetForBuilderDevelopments(request.params.builder, function (error, builder) {
 			if (error) return next(error);
 			request.builder = builder;
+			console.log('Found ' + request.builder + "... Looking for records...")
             return next();
         })
     } else {
@@ -122,6 +101,7 @@ var asyncDevelopments = async function (request, response, callback) {
 
 const csvToJson = require("csv-file-to-json");
 const { waitForDebugger } = require('inspector');
+const { request } = require('express');
 
 var asyncfindDevelopmentByName = async function (development, callback) {
 
@@ -246,27 +226,16 @@ router.get('/',
 	}
 );
 
-/* GET Our Developments: Builder: Community Page. */
-router.get('/:development',
-	findDevelopmentByNameMiddleware,
-	asyncDevelopments,
-	(request, response, next) => {
-		console.log(request.devsWithCity + 'done!!');
-		return response.render('single-development-c', {
-			devs: request.development,
-			// z: request.z
-		});
-	}
-);
 
 /* GET Builder Page. */
 router.get('/:builder',
 	findBuilderByNameMiddleware,
-	asyncBuilders,
 	(request, response, next) => {
-		console.log(request.devsWithCity + 'done!!');
-		return response.render('single-development-c', {
-			devs: request.development,
+		console.log('This is the Builder\'s Info: ' + request.builderInfoResult)
+		console.log('Sending this builder\'s development request to router: ' + request.builder + '...');
+		return response.render('single-builder', {
+			devs: request.builder,
+			builder: request.builderInfoResult
 			// z: request.z
 		});
 	}
@@ -285,8 +254,5 @@ router.get('/:builder/:development',
 		});
 	}
 );
-
-
-
 
 module.exports = router;

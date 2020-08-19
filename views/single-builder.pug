@@ -3,38 +3,42 @@ extends layout-nan
 block content
 	#builder-page.custom-page
 		include inline-css/_site-css
+		include inline-css/_css-in-development
 		include inline-css/single-builder-css
 
-		.builder__title
-			- console.log(devs + ": these are all the devs with this builder")
-			
-			each x in devs
-				h1= x.DevelopmentName
-			//- h2(style="text-align:center")= builder.BuilderName
-		//- .builder__content
-		//- 	.builder__about
-		//- 		h2= builder.BuilderName
-		//- 		.builder__description
-		//- 			h3 About #{builder.BuilderName}
-		//- 			p= builder.BuilderDescription
-		//- 		.builder__video
-		//- 			.embed-container
-		//- 				iframe(src='https://www.youtube.com/embed/' + builder.BuilderVideoURL, frameborder='0' allowfullscreen='')
-		//- 	.builder__sidebar
-		//- 		h3 Find listings from this builder
-		//- 		.builder__listings
-		//- 			mixin builderListing(n)
-		//- 				.builder__listing
-		//- 					a(href= n.DevelopmentURL)
-		//- 						.embed-container
-		//- 							img(src= n.DevelopmentImageURL, alt= n.BuilderName)
-		//- 					.builder__listing__title= n.DevelopmentName
-		//- 					.builder__listing__description= n.DevelopmentDescription.substr(0,100) + '...'
-		//- 					a(href= n.DevelopmentURL).builder__listing__link
-		//- 						| More Information
-					
+		//- h2(style="text-align:center")= builder.BuilderName
+		.builder__content
+			.builder__about.col-md-8.col-sm-12
+				if builder.BuilderVideoURL
+					.builder__video
+						.embed-container
+							iframe(src='https://www.youtube.com/embed/' + builder.BuilderVideoURL, frameborder='0' allowfullscreen='')
+				.builder__description
+					if builder.BuilderSlogan
+						h3.h4= builder.BuilderSlogan
+					else
+						h3.h4 About #{builder.BuilderName}
+					p= builder.BuilderDescription
+			.builder__sidebar.col-md-3.col-sm-12
+				if builder.BuilderLogo
+					img.builder__logo(alt= builder.BuilderName, src= builder.BuilderLogo)
+				else
+					h3.h6= builder.BuilderName
 
-		//- 			each n in devs
-		//- 				+builderListing(n)
-		
+		h2.h5.col-sm-12.d-sm-block.text-uppercase.mb-3 See Developments from #{builder.BuilderName}
+		.builder__listings.d-sm-block.clearfix
+			mixin builderListing(n)
+				.builder__listing.col-md-4.col-sm-6
+					a(href= n.DevelopmentURL)
+						.embed-container
+							img(src= n.DevelopmentImageURL, alt= n.BuilderName)
+					h4.h6.builder__listing__title= n.DevelopmentName
+					p.caption.builder__listing__description= n.DevelopmentDescription.substr(0,100) + '...'
+					a(href= n.DevelopmentURL).builder__listing__link.d-md-inline-block
+						| View Development
+			
+
+			each n in devs
+				+builderListing(n)
+	
 		include partials/cms-form

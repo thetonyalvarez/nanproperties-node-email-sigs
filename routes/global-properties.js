@@ -1,5 +1,18 @@
-const express       = require('express');
-const router        = express.Router();
+var express 				= require('express');
+var router					= express.Router();
+const fs 					= require('fs');
+const readline 				= require('readline');
+const {google} 				= require('googleapis');
+const { GoogleSpreadsheet } = require('google-spreadsheet');
+const creds 				= require('../client_secret.json');
+
+const got 					= require('got')
+require('dotenv').config();
+
+// Google Sheet ID for Affiliates Landing Pages Sheet
+const googleSheetID = '1S8aCzi9qKU-4Z0P-6NTVIQpjk4aB_hQCy24vsCLgq9s';
+
+
 const csvToJson     = require("csv-file-to-json");
 
 // Convert the Master Affiliate Sheet to JSON
@@ -21,6 +34,13 @@ const affiliateInfoRaw    = csvToJson(
 );
 
 // Convert the Affiliate Details Sheet to JSON
+// const affiliateCountries    = csvToJson(
+//     { 
+//         filePath: "./assets/csv/Christie's Global Properties_ Landing Pages - Affiliate Countries.csv",
+//         separator: ",",
+//         hasHeader: true
+//     }
+// );
 const affiliateCountries    = csvToJson(
     { 
         filePath: "./assets/csv/Christie's Global Properties_ Landing Pages - Affiliate Countries.csv",
@@ -138,60 +158,132 @@ router.get('/', function (req, res, next) {
     });
 });
 
-router.get('/:regionname', function (request, response, next) {
-    var finallist = request.region;
-    // console.log("var is:", finallist, "DONE!")
-    return response.render('global-properties-region', {
-        cities: finallist.sort(),
-		continent: finallist[0].Continent,
-		countries: affiliateCountries
-    });
-});
 
 
-router.get('/:regionname/:cityname', function (request, response, next) {
-    var finallist = request.city;
-    console.log(finallist[0].affiliateCity);
-
-    return response.render('global-properties-region-city', {
-        items: finallist,
-        city: finallist[0].affiliateCity
-    });
-
-});
 
 
-/*
-var findRegionByRegionname = function (regionname, callback) {
-    // Perform database query that calls callback when it's done
-    // This is our fake database!
 
-    // const result = affiliateValues.map(a => a.Continent.toLowerCase().replace(/\s/g, '-').replace(/&./g,'' === regionname));
 
-    // const result = affiliateValues.filter(a => a.Continent.toLowerCase().replace(/\s/g, '-').replace(/&./g,'' === regionname));
+var googleSheetsCall = async (sheetID, sheetIndex) => {
+	console.log('Starting googleSheetsCall for [' + sheetID + ", " + sheetIndex + "]...")
 
-    const result = affiliatesRaw.filter(item => item.Continent.toLowerCase().replace(/\s/g, '-').replace(/&./g,'') === regionname);
-    
-    // console.log(result)
-    console.log(typeof(result))
+	const ID = sheetID;
+	const doc = new GoogleSpreadsheet(ID);
 
-    if (!result)
-        return callback(new Error(
-            'No user matching ' +
-            regionname
+	await doc.useServiceAccountAuth({
+		client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+		private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+	});
+	await doc.loadInfo();
+	const sheet = await doc.sheetsByIndex[sheetIndex]; // or use doc.sheetsById[id]
+	await sheet.loadHeaderRow();
+	await sheet.getRows();
+	const rows 	= await sheet.getRows();
+	const results = await rows;
+	console.log('GOOGLE SHEETS CALL RESULTS: ' + results)
+	return results;
+}
 
-        ));
+var googleSheetsCall_Cells = async (sheetID, sheetIndex, sheetCells) => {
+	console.log('Starting googleSheetsCall_Cells for [' + sheetID + ", " + sheetIndex + ", " + sheetCells + "]...")
 
-    return callback(null, result);
+	const ID = sheetID;
+	const doc = new GoogleSpreadsheet(ID);
 
-};
+	await doc.useServiceAccountAuth({
+		client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+		private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+	});
+	await doc.loadInfo();
+	const sheet = await doc.sheetsByIndex[sheetIndex]; // or use doc.sheetsById[id]
+	await sheet.loadHeaderRow();
+	await sheet.getRows();
+	await sheet.loadCells(sheetCells); // A1 range
+	const rows 	= await sheet.getRows();
+	
+	const results = await rows;
+	(async () => {
+		console.log('GOOGLE SHEETS CALL RESULTS: ' + await sheet.getRows())
+	})()
 
-var findRegionByRegionnameMiddleware = function (request, response, next) {
-    if (request.params.regionname) {
-        console.log('Region param was detected: ', request.params.regionname)
-        findRegionByRegionname(request.params.regionname, function (error, region) {
-            if (error) return next(error);
-            request.region = region;
+	return results;
+}
+
+
+
+
+
+var asyncContinents = async (request, response, callback) => {
+	console.log('Starting MIDDLEWARE asyncContinents...')
+	const sheetIndex = 3;
+	const sheetCells = 'A1:E7';
+	
+	const results = googleSheetsCall_Cells(googleSheetID, sheetIndex, sheetCells);
+
+	request.continentResults = await results
+
+	if (!results)
+	return callback(new Error(
+		'No list of continents: ' +
+		results + " (asyncContinents)"
+	));
+	return callback(null, results);
+	
+}
+
+var asyncCitiesByContinent = async (request, response, callback) => {
+	console.log('Starting MIDDLEWARE asyncCitiesByContinent...')
+	
+	const sheetIndex = 4;
+	const sheetCells = 'A1:BE1000';
+	
+	const results = await googleSheetsCall_Cells(googleSheetID, sheetIndex, sheetCells);
+
+	const devresult = await results.find(result => result.ContinentSlug === request.params.continent);
+
+	request.devresult = await devresult;
+	if (!devresult)
+		return callback(new Error(
+			'No continent matching ' +
+			devresult + " (asyncCitiesByContinent)"
+		));
+	return callback(null, devresult);
+}
+
+var asyncfindContinentByName = async (continent, callback) => {
+	console.log('Starting asyncfindContinentByName...')
+	console.log('The request is ' + continent + '...')
+	
+	const sheetIndex = 3;
+	const sheetCells = 'A1:E7';
+	
+	const results = await googleSheetsCall_Cells(googleSheetID, sheetIndex, sheetCells);
+	
+	console.log('Continent search: ' + continent);
+	console.log('Sheet results: ' + results);
+	
+	const contResult = results.find(result => result["URL-Safe Name"] === continent);
+	
+	
+	if (! contResult)
+	return callback(new Error(
+		'No continent matching ' + 
+		continent + " (asyncfindContinentByName)"
+		));
+	console.log('Found ' + continent + ' from googleSheetsCall_Cells in asyncfindContinentByName...');
+	return await callback(null, contResult);
+}
+
+
+var findContinentByName = function (request, response, next) {
+	console.log('Starting MIDDLEWARE findContinentByName...');
+	console.log('The request is ' + request.params.continent);
+
+	if (request.params.continent) {
+        asyncfindContinentByName(request.params.continent, function (error, continent) {
+			if (error) return next(error);
+			request.continent = continent;
+			console.log('Found ' + continent + ' in findContinentByName');
             return next();
         })
     } else {
@@ -199,12 +291,107 @@ var findRegionByRegionnameMiddleware = function (request, response, next) {
     }
 }
 
-// The v2 routes that use the custom middleware
-router.get('/:regionname', findRegionByRegionnameMiddleware, function(request, response, next) {
-    return response.render('global-properties-region', request.region);
-  });
-*/
+var asyncCities = async function (request, response, callback) {
+	console.log('Starting MIDDLEWARE asyncCities...')
 
+	const sheetIndex = 4;
+	const sheetCells = 'A1:BE1000';
+	
+	const results = googleSheetsCall_Cells(googleSheetID, sheetIndex, sheetCells);
+
+	const devresult = results.filter(result => result.CityNameSlug === request.params.cityname);
+
+	request.devresult = await devresult;
+	if (!devresult)
+		return callback(new Error(
+			'No city matching ' +
+			devresult + " (asyncCities)"
+		));
+	return callback(null, devresult);
+}
+
+var asyncfindAffiliateByCityName = async function (cityname, callback) {
+	console.log('Starting asyncfindAffiliateByCityName...')
+
+	const sheetIndex = 4;
+	const sheetCells = 'A1:BE1000';
+
+	const results = googleSheetsCall(googleSheetID, sheetIndex);
+	
+	const cityResult = await results.find(result => result.CityNameSlug === cityname);
+	
+	if (! cityResult)
+		return callback(new Error(
+			'No City matching ' + 
+			cityname + " (asyncfindAffiliateByCityName)"
+		));
+	return callback(null, cityResult);
+
+};
+
+var findAffiliateByCityName = function (request, response, next) {
+    if (request.params.cityname) {
+        asyncfindAffiliateByCityName(request.params.cityname, function (error, cityname) {
+			if (error) return next(error);
+			request.cityname = cityname;
+            return next();
+        })
+    } else {
+        return next();
+    }
+}
+
+
+
+// Get Continent page
+router.get('/:continent',
+	findContinentByName,
+	asyncCitiesByContinent,
+	asyncContinents,
+	(request, response, next) => {
+		console.log(request.continent + " -> found all continents inside router.get function");
+		return response.render('global-properties-region', {
+			// items: request.continent,
+			// cities: request.continent,
+			continent: request.continent,
+			countries: request.continentResults
+		});
+	}
+);
+
+// Get Individual Affiliate page by City Name
+router.get('/:continentname/:cityname',
+	findContinentByName,
+	findAffiliateByCityName,
+	asyncCities,
+	(request, response, next) => {
+		console.log(request.Cities + " -> found all cities inside router.get function");
+		return response.render('global-properties-region-city', {
+			items: request.city
+		});
+	}
+);
+
+
+// router.get('/:regionname', function (request, response, next) {
+//     var finallist = request.region;
+//     // console.log("var is:", finallist, "DONE!")
+//     return response.render('global-properties-region', {
+//         cities: finallist.sort(),
+// 		continent: finallist[0].Continent,
+// 		countries: affiliateCountries
+//     });
+// });
+
+// router.get('/:regionname/:cityname', function (request, response, next) {
+//     var finallist = request.city;
+//     console.log(finallist[0].affiliateCity);
+
+//     return response.render('global-properties-region-city', {
+//         items: finallist,
+//         city: finallist[0].affiliateCity
+//     });
+// });
 
 module.exports = router;
 
