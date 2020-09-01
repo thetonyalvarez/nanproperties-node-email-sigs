@@ -7,49 +7,46 @@ block content
 		style
 			include ../public/stylesheets/global-properties.css
 
-		- var a = countries.filter(z => z["Nan Affiliate URL Slug"] === "/global-properties/" + continent)
-		- console.log(a)
-
 		.globalProps__title.globalProps__title__regionsPage
-			h2 Explore Properties In #{continent}
+			h2 Explore Properties In #{continent["Affiliate Region"]}
 
-		//- 	if a[0]["Description of Region"]
-		//- 		p= a[0]["Description of Region"]
-		//- 	else
-		//- 		p Christie's International Real Estate connects buyers and sellers of the world's most important properties. Our real estate company is driven by the global span and expertise of our Affiliate network, which extends to more than 138 affiliates across 940 offices in 48 countries and a combined annual sales volume of approximately $115 billion in 2016. Our unique international perspective on the worlds of art and luxury, together with our unparalleled service, has made Christie's International Real Estate the global authority in the marketing of distinctive properties.
+			if continent["Description of Region"]
+				p= continent["Description of Region"]
+			else
+				p Christie's International Real Estate connects buyers and sellers of the world's most important properties. Our real estate company is driven by the global span and expertise of our Affiliate network, which extends to more than 138 affiliates across 940 offices in 48 countries and a combined annual sales volume of approximately $115 billion in 2016. Our unique international perspective on the worlds of art and luxury, together with our unparalleled service, has made Christie's International Real Estate the global authority in the marketing of distinctive properties.
 
-		//- mixin featuredBlock(n)
-		//- 	.globalProps__grid__item.col-lg-8.col-sm-12.col-xs-24.half-padding
-		//- 		a.globalProps__grid__item__link.globalRegions__cities__city(style="background-image:url('" + n.HeaderImage + "')" href="/global-properties/" + n.Continent.toLowerCase().replace(/\s/g, '-').replace(/&./g,'') + "/" + n.Locality.toLowerCase().replace(/\s/g, '-').replace(/&./g,'').substr(0, n.Locality.length - 1))
-		//- 			.globalProps__grid__item__link__text
-		//- 				h3= n.Locality + ", " + n.Region.substr(0, n.Region.length - 2)
-		//- 				p= n.Country
+		mixin featuredBlock(n)
+			.globalProps__grid__item.col-lg-8.col-sm-12.col-xs-24.half-padding
+				a.globalProps__grid__item__link.globalRegions__cities__city(style="background-image:url('" + n.HeaderImage + "')" href="/global-properties/" + n.Continent.toLowerCase().replace(/\s/g, '-').replace(/&./g,'') + "/" + n.Locality.toLowerCase().replace(/\s/g, '-').replace(/&./g,'').substr(0, n.Locality.length - 1))
+					.globalProps__grid__item__link__text
+						h3= n.Locality + ", " + n.Region.substr(0, n.Region.length - 2)
+						p= n.Country
 		
-		//- mixin nofeaturedBlock(n)
-		//- 	.globalProps__grid__item.col-lg-6.col-sm-12.col-xs-24.half-padding
-		//- 		a.globalProps__grid__item__link.globalRegions__cities__city(href= n.AffiliateURL, target="_blank")
-		//- 			.globalProps__grid__item__link__text
-		//- 				h4= n.Locality + ", " + n.Region.substr(0, n.Region.length - 2)
-		//- 				p= n.Country
+		mixin nofeaturedBlock(n)
+			.globalProps__grid__item.col-lg-6.col-sm-12.col-xs-24.half-padding
+				a.globalProps__grid__item__link.globalRegions__cities__city(href= n.AffiliateURL, target="_blank")
+					.globalProps__grid__item__link__text
+						h4= n.Locality + ", " + n.Region.substr(0, n.Region.length - 2)
+						p= n.Country
 
-		//- - var features 			= cities.filter(city => city.CrossMarket === "Yes" )
-		//- - var featuresLength 	= features.length
-		//- - var nofeatures 		= cities.filter(city => city.CrossMarket !== "Yes" )
+		- var features 			= cities.filter(city => city.CrossMarket === "Yes" )
+		- var featuresLength 	= features.length
+		- var nofeatures 		= cities.filter(city => city.CrossMarket !== "Yes" )
 		
-		//- if featuresLength > 0
-		//- 	h2(style="text-align:center") Featured Locations
-		//- 	#featuredProps.globalProps__grid.globalRegions__cities
-		//- 		each n in features
-		//- 			+featuredBlock(n)
+		if featuresLength > 0
+			h2(style="text-align:center") Featured Locations
+			#featuredProps.globalProps__grid.globalRegions__cities
+				each n in features
+					+featuredBlock(n)
 		
-		//- .spacer
+		.spacer
 		
-		//- #otherProps.globalProps__grid.globalRegions__cities
-		//- 	each n in nofeatures
-		//- 		+nofeaturedBlock(n)
+		#otherProps.globalProps__grid.globalRegions__cities
+			each n in nofeatures
+				+nofeaturedBlock(n)
 
-		//- .divider__orange
+		.divider__orange
 
-		//- include partials/about-christies-block
+		include partials/about-christies-block
 
 		include partials/cms-form

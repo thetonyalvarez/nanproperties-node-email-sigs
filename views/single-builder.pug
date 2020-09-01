@@ -23,8 +23,8 @@ block content
 				+builderListing(n)
 	
 		//- h2(style="text-align:center")= builder.BuilderName
-		.builder__content
-			.builder__about.col-md-8.col-sm-12
+		.builder__content.flex-wrap
+			.builder__about.col-md-8.col-sm-12.order-md-1.order-sm-2
 				if builder.BuilderVideoURL
 					.builder__video
 						.embed-container
@@ -35,7 +35,7 @@ block content
 					else
 						h3.h4 About #{builder.BuilderName}
 					p= builder.BuilderDescription
-			.builder__sidebar.col-md-3.col-sm-12
+			.builder__sidebar.col-md-3.col-sm-12.order-md-2.order-sm-1
 				if builder.BuilderLogo
 					img.builder__logo(alt= builder.BuilderName, src= builder.BuilderLogo)
 				else

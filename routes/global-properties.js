@@ -134,21 +134,21 @@ router.param('regionname', function (request, response, next, regionname) {
     );
 });
 
-router.param('cityname', function (request, response, next, cityname) {
-    console.log(
-        'City param was is detected: ',
-        cityname, "DONE!"
-    )
-    findCitybyCityname(
-        cityname,
-        function (error, city) {
-            if (error) return next(error);
-            request.city = city;
-            // console.log("this is the city:", city);
-            return next();
-        }
-    );
-});
+// router.param('cityname', function (request, response, next, cityname) {
+//     console.log(
+//         'City param was is detected: ',
+//         cityname, "DONE!"
+//     )
+//     findCitybyCityname(
+//         cityname,
+//         function (error, city) {
+//             if (error) return next(error);
+//             request.city = city;
+//             // console.log("this is the city:", city);
+//             return next();
+//         }
+//     );
+// });
 
 /* GET Global Properties Page. */
 router.get('/', function (req, res, next) {
@@ -170,6 +170,7 @@ var googleSheetsCall = async (sheetID, sheetIndex) => {
 	const ID = sheetID;
 	const doc = new GoogleSpreadsheet(ID);
 
+	console.log('Starting Google Sheet Authorization...')
 	await doc.useServiceAccountAuth({
 		client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
 		private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
@@ -179,31 +180,32 @@ var googleSheetsCall = async (sheetID, sheetIndex) => {
 	await sheet.loadHeaderRow();
 	await sheet.getRows();
 	const rows 	= await sheet.getRows();
-	const results = await rows;
+	const results = rows;
 	console.log('GOOGLE SHEETS CALL RESULTS: ' + results)
 	return results;
 }
 
 var googleSheetsCall_Cells = async (sheetID, sheetIndex, sheetCells) => {
-	console.log('Starting googleSheetsCall_Cells for [' + sheetID + ", " + sheetIndex + ", " + sheetCells + "]...")
+	console.log('Starting googleSheetsCall_Cells for [', sheetID, sheetIndex, sheetCells, "]...")
 
 	const ID = sheetID;
 	const doc = new GoogleSpreadsheet(ID);
 
+	console.log('Starting Google Sheets authorization...')
 	await doc.useServiceAccountAuth({
 		client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
 		private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
 	});
 	await doc.loadInfo();
-	const sheet = await doc.sheetsByIndex[sheetIndex]; // or use doc.sheetsById[id]
+	const sheet = doc.sheetsByIndex[sheetIndex];
 	await sheet.loadHeaderRow();
 	await sheet.getRows();
-	await sheet.loadCells(sheetCells); // A1 range
+	await sheet.loadCells(sheetCells);
 	const rows 	= await sheet.getRows();
 	
-	const results = await rows;
+	const results = rows;
 	(async () => {
-		console.log('GOOGLE SHEETS CALL RESULTS: ' + await sheet.getRows())
+		console.log('Google Sheets Call Results: ' + await sheet.getRows())
 	})()
 
 	return results;
@@ -250,40 +252,40 @@ var asyncCitiesByContinent = async (request, response, callback) => {
 	return callback(null, devresult);
 }
 
-var asyncfindContinentByName = async (continent, callback) => {
+var asyncfindContinentByName = async (continentname, callback) => {
 	console.log('Starting asyncfindContinentByName...')
-	console.log('The request is ' + continent + '...')
+	console.log('The request is ' + continentname + '...')
 	
 	const sheetIndex = 3;
 	const sheetCells = 'A1:E7';
 	
-	const results = await googleSheetsCall_Cells(googleSheetID, sheetIndex, sheetCells);
+	const results = await Promise.all([googleSheetsCall_Cells(googleSheetID, sheetIndex, sheetCells)]);
 	
-	console.log('Continent search: ' + continent);
+	console.log('Continent search: ' + continentname);
 	console.log('Sheet results: ' + results);
 	
-	const contResult = results.find(result => result["URL-Safe Name"] === continent);
+	const contResult = results.find(result => result["URL-Safe Name"] === continentname);
 	
 	
 	if (! contResult)
 	return callback(new Error(
 		'No continent matching ' + 
-		continent + " (asyncfindContinentByName)"
+		continentname + " (asyncfindContinentByName)"
 		));
-	console.log('Found ' + continent + ' from googleSheetsCall_Cells in asyncfindContinentByName...');
+	console.log('Found ' + continentname + ' from googleSheetsCall_Cells in asyncfindContinentByName...');
 	return await callback(null, contResult);
 }
 
 
 var findContinentByName = function (request, response, next) {
-	console.log('Starting MIDDLEWARE findContinentByName...');
-	console.log('The request is ' + request.params.continent);
+	console.log('Starting findContinentByName...');
+	console.log('The request is ' + request.params.continentname);
 
-	if (request.params.continent) {
-        asyncfindContinentByName(request.params.continent, function (error, continent) {
+	if (request.params.continentname) {
+        asyncfindContinentByName(request.params.continentname, function (error, continentname) {
 			if (error) return next(error);
-			request.continent = continent;
-			console.log('Found ' + continent + ' in findContinentByName');
+			request.continentname = continentname;
+			console.log('Found ' + continentname + ' in findContinentByName');
             return next();
         })
     } else {
@@ -297,7 +299,7 @@ var asyncCities = async function (request, response, callback) {
 	const sheetIndex = 4;
 	const sheetCells = 'A1:BE1000';
 	
-	const results = googleSheetsCall_Cells(googleSheetID, sheetIndex, sheetCells);
+	const results = await Promise.all([googleSheetsCall_Cells(googleSheetID, sheetIndex, sheetCells)]);
 
 	const devresult = results.filter(result => result.CityNameSlug === request.params.cityname);
 
@@ -310,15 +312,15 @@ var asyncCities = async function (request, response, callback) {
 	return callback(null, devresult);
 }
 
-var asyncfindAffiliateByCityName = async function (cityname, callback) {
+var asyncfindAffiliateByCityName = async (cityname, callback) => {
 	console.log('Starting asyncfindAffiliateByCityName...')
 
 	const sheetIndex = 4;
 	const sheetCells = 'A1:BE1000';
 
-	const results = googleSheetsCall(googleSheetID, sheetIndex);
-	
-	const cityResult = await results.find(result => result.CityNameSlug === cityname);
+	const results = await Promise.all([googleSheetsCall(googleSheetID, sheetIndex)]);
+
+	const cityResult = await results.filter(result => result.CityNameSlug === cityname);
 	
 	if (! cityResult)
 		return callback(new Error(
@@ -344,7 +346,7 @@ var findAffiliateByCityName = function (request, response, next) {
 
 
 // Get Continent page
-router.get('/:continent',
+router.get('/:continentname',
 	findContinentByName,
 	asyncCitiesByContinent,
 	asyncContinents,
@@ -365,9 +367,9 @@ router.get('/:continentname/:cityname',
 	findAffiliateByCityName,
 	asyncCities,
 	(request, response, next) => {
-		console.log(request.Cities + " -> found all cities inside router.get function");
+		console.log(devresult + " -> found all cities inside router.get function");
 		return response.render('global-properties-region-city', {
-			items: request.city
+			items: devresult
 		});
 	}
 );

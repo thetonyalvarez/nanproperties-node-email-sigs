@@ -2,6 +2,7 @@ extends layout
 
 block content
 	#global-properties-city
+
 		include inline-css/_site-css.pug
 		style
 			include inline-css/global-properties-css.css
@@ -9,15 +10,15 @@ block content
 		.globalPropsContainer
 
 			.globalProps__title.globalProps__title__regionsPage
-				h2 Welcome to #{items[0].affiliateCity}, #{items[0].affiliateState}
-				p #{items[0].affiliateBio}
+				//- p= cities
+				h2 Welcome to #{cities.affiliateCity}, #{cities.affiliateState}
+				p #{cities.affiliateBio}
 
-
-			if items[0].listing1StreetAddress || items[0].listing2StreetAddress || items[0].listing3StreetAddress
+			if cities.listing1StreetAddress || cities.listing2StreetAddress || cities.listing3StreetAddress
 
 				.globalProps__listingsWrapper
 
-					h2 Featured Listings In #{items[0].affiliateCity}
+					h2 Featured Listings In #{cities.affiliateCity}
 					
 					mixin listingItem
 						.globalProps__listingItem
@@ -32,34 +33,33 @@ block content
 								.globalProps__listingInfo__button
 									a.nan-btn-primary(href= listingUrl, target="_blank") LEARN MORE
 
-					if items[0].listing1StreetAddress
-						- var listingImageUrl = items[0].listing1Image
-						- var listingAddress = items[0].listing1StreetAddress
-						- var listingPrice = items[0].listing1Price
-						- var listingDescript = items[0].listing1Description
-						- var listingUrl = items[0].listing1Url
+					if cities.listing1StreetAddress
+						- var listingImageUrl = cities.listing1Image
+						- var listingAddress = cities.listing1StreetAddress
+						- var listingPrice = cities.listing1Price
+						- var listingDescript = cities.listing1Description
+						- var listingUrl = cities.listing1Url
 						+listingItem
-					if items[0].listing2StreetAddress
-						- var listingImageUrl = items[0].listing2Image
-						- var listingAddress = items[0].listing2StreetAddress
-						- var listingPrice = items[0].listing2Price
-						- var listingDescript = items[0].listing2Description
-						- var listingUrl = items[0].listing2Url
+					if cities.listing2StreetAddress
+						- var listingImageUrl = cities.listing2Image
+						- var listingAddress = cities.listing2StreetAddress
+						- var listingPrice = cities.listing2Price
+						- var listingDescript = cities.listing2Description
+						- var listingUrl = cities.listing2Url
 						+listingItem
-					if items[0].listing3StreetAddress
-						- var listingImageUrl = items[0].listing3Image
-						- var listingAddress = items[0].listing3StreetAddress
-						- var listingPrice = items[0].listing3Price
-						- var listingDescript = items[0].listing3Description
-						- var listingUrl = items[0].listing3Url
+					if cities.listing3StreetAddress
+						- var listingImageUrl = cities.listing3Image
+						- var listingAddress = cities.listing3StreetAddress
+						- var listingPrice = cities.listing3Price
+						- var listingDescript = cities.listing3Description
+						- var listingUrl = cities.listing3Url
 						+listingItem
 
-
-			if items[0].affiliateToDo1Title || items[0].affiliateToDo2Title || items[0].affiliateToDo3Title
+			if cities.affiliateToDo1Title || cities.affiliateToDo2Title || cities.affiliateToDo3Title
 			
 				.globalProps__thingsToDoWrapper
 
-					h2 Things To Do in #{items[0].affiliateCity}
+					h2 Things To Do in #{cities.affiliateCity}
 
 					mixin thingsToDoItem
 						.globalProps__thingsToDoItem
@@ -67,30 +67,30 @@ block content
 							img(src= thingsToDoImage)
 							p= thingsToDoDescript
 					
-					if items[0].affiliateToDo1Title
-						- var thingsToDoTitle = items[0].affiliateToDo1Title
-						- var thingsToDoImage = items[0].affiliateToDo1Image
-						- var thingsToDoDescript = items[0].affiliateToDo1Description
+					if cities.affiliateToDo1Title
+						- var thingsToDoTitle = cities.affiliateToDo1Title
+						- var thingsToDoImage = cities.affiliateToDo1Image
+						- var thingsToDoDescript = cities.affiliateToDo1Description
 						+thingsToDoItem
 
-					if items[0].affiliateToDo2Title
-						- var thingsToDoTitle = items[0].affiliateToDo2Title
-						- var thingsToDoImage = items[0].affiliateToDo2Image
-						- var thingsToDoDescript = items[0].affiliateToDo2Description
+					if cities.affiliateToDo2Title
+						- var thingsToDoTitle = cities.affiliateToDo2Title
+						- var thingsToDoImage = cities.affiliateToDo2Image
+						- var thingsToDoDescript = cities.affiliateToDo2Description
 						+thingsToDoItem
 
-					if items[0].affiliateToDo3Title
-						- var thingsToDoTitle = items[0].affiliateToDo3Title
-						- var thingsToDoImage = items[0].affiliateToDo3Image
-						- var thingsToDoDescript = items[0].affiliateToDo3Description
+					if cities.affiliateToDo3Title
+						- var thingsToDoTitle = cities.affiliateToDo3Title
+						- var thingsToDoImage = cities.affiliateToDo3Image
+						- var thingsToDoDescript = cities.affiliateToDo3Description
 						+thingsToDoItem
 
 			.globalProps__affiliate
 				.globalProps__affiliateInfo
-					h2 #{items[0].affiliateName}
-					p #{items[0].affiliateBio}
-					a.nan-btn-primary(href= items[0].affiliateWebsite, target="_blank") VISIT WEBSITE
-				.globalProps__affiliateImage(style="background-image:url('" + items[0].affiliateLogoUrl + "')")
+					h2 #{cities.affiliateName}
+					p #{cities.affiliateBio}
+					a.nan-btn-primary(href= cities.affiliateWebsite, target="_blank") VISIT WEBSITE
+				.globalProps__affiliateImage(style="background-image:url('" + cities.affiliateLogoUrl + "')")
 					
 			.divider__orange
 

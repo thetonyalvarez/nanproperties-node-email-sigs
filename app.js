@@ -24,6 +24,7 @@ var propertybasePDFsRouter = require('./routes/propertybase-pdfs')
 var testRouter = require('./routes/agent')
 var agentCSVRouter = require('./routes/agents-csv-upload')
 var condosRouter = require('./routes/condos')
+var developerServicesRouter = require('./routes/developer-services')
 
 var stylus = require('express-stylus');
 var nib = require('nib');
@@ -77,6 +78,7 @@ app.use('/pdfs', propertybasePDFsRouter);
 app.use('/agent', testRouter);
 app.use('/agents-csv-upload', agentCSVRouter);
 app.use('/condos', condosRouter);
+app.use('/developer-services', developerServicesRouter);
 
 
 // catch 404 and forward to error handler
