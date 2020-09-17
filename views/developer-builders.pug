@@ -1,0 +1,43 @@
+extends layout-nan
+
+block content
+	// Copy the div below
+
+	#developer-builders-landing-page.custom-page
+		include inline-css/_site-css
+		include inline-css/developer-services
+
+
+		main.services_body-container
+			.body-intro.d-md-flex.justify-content-center.align-items-center.clearfix.d-sm-block
+				.body-intro_content.col-md-6.col-sm-12
+					h2 Our Builders
+					.divider__orange--short
+					p We work from the from the earliest concepts, to building design and programming through construction to sales and marketing.  We are partners, sitting on the same side of the table and provide highly effective services to developers.  Through market research we deliver programs that enable the target buyer to act. We support the developer and their efforts with a dedicated core team of experts.  They are highly experienced professionals who develop, implement and monitor the competition, collaborate with the architects to ensure the product offering matches that of the designated target market and we oversee and orchestrate the marketing programs and operational needs of the project for smooth and convenient prospect visits and buyer appointments. 
+
+					a.nan-btn-primary(href="#cms-form") Contact Us Now
+				.body-intro_img.col-md-6.col-sm-12
+					img(alt='Meet Our Developer Services Team' src='https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/ckeditor_assets/pictures/root/DEVELOPER_SERVICES/249217/DSC_4877.jpg')
+			.spacer-100
+			.services.clearfix
+				.service.service_buying.d-md-flex.justify-content-center.align-items-center.clearfix.d-sm-block
+					.service_content.col-md-12.col-sm-12.flex-wrap.d-md-flex.justify-content-center.align-items-center
+						h2.text-center.col-md-12.col-sm-12.pt-3 Our Incredible Partners
+						.d-md-flex.justify-content-center.align-items-center.clearfix.d-sm-block.flex-wrap
+							.col-md-3.col-sm-6
+								img(alt='logo1' src="https://fldeals.peakseven.com/static/fldeals-2/img/lennar-logo-2.svg")
+							.col-md-3.col-sm-6
+								img.col-md-3.col-sm-6(alt='logo1' src="https://fldeals.peakseven.com/static/fldeals-2/img/lennar-logo-2.svg")
+							.col-md-3.col-sm-6
+								img.col-md-3.col-sm-6(alt='logo1' src="https://fldeals.peakseven.com/static/fldeals-2/img/lennar-logo-2.svg")
+							.col-md-3.col-sm-6
+								img.col-md-3.col-sm-6(alt='logo1' src="https://fldeals.peakseven.com/static/fldeals-2/img/lennar-logo-2.svg")
+				.spacer-50
+				
+			.spacer-100
+
+			include partials/redirection-section-developer-services.pug
+
+		include partials/cms-form
+
+

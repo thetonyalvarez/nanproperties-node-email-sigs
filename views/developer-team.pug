@@ -5,52 +5,86 @@ block content
 
 	#developer-team-landing-page.custom-page
 		include inline-css/_site-css
-		include inline-css/developer-services
+		include inline-css/developer-team
+
+		main.team-container
+			h1.pb-3.my-5.text-center Our Team
+			section.team-member-menu.d-flex.flex-wrap.justify-content-start.align-items-start.clearfix
+				a.team-member_item.nan-col-md-3.nan-col-6(href="#nancy")
+					.team-member_item_image(style="background-image:url('https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/assets/uploads/agent/photo/58906/optimized_2166110f375f4c0890c28805804f659d.jpeg')")
+					.team-member_item_name
+						p Nancy Almodovar
+					.team-member_item_title
+						p.h6 President &amp; CEO
+						p.h6 Nan Properties Developer Services
+				a.team-member_item.nan-col-md-3.nan-col-6(href="#jose")
+					.team-member_item_image(style="background-image:url('https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/assets/uploads/agent/photo/67019/optimized_2f6fb04aeed7589aef53a9ed3beb8757.jpg')")
+					.team-member_item_name
+						p Jose Almodovar
+					.team-member_item_title
+						p.h6 COO &amp; EVP BUSINESS DEVELOPMENT
+						p.h6 Nan Properties Developer Services
+				a.team-member_item.nan-col-md-3.nan-col-6(href="#michelle")
+					.team-member_item_image(style="background-image:url('https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/assets/uploads/agent/photo/62762/optimized_fdc219dc35ee81538bb49be4be5f82a3.jpg')")
+					.team-member_item_name
+						p Michelle Arreguin
+					.team-member_item_title
+						p.h6 Director of Sales and Marketing
+						p.h6 Nan Properties Developer Services
+				a.team-member_item.nan-col-md-3.nan-col-6(href="#betty")
+					.team-member_item_image(style="background-image:url('https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/ckeditor_assets/pictures/root/250064/content_IMG_4227.JPG')")
+					.team-member_item_name
+						p Betty Harcourt
+					.team-member_item_title
+						h3.h6 EXECUTIVE ADVISOR
+						h3.h6 Nan Properties Developer Services
 
 		main.team-container
 			// nancy
-			section.team-member-section.d-md-flex.justify-content-center.align-items-center.clearfix
-				.team-member_content.col-md-6.col-sm-12.order-2.order-md-1
+			section#nancy.team-member-section.d-flex.flex-wrap.justify-content-center.align-items-top.clearfix
+				.team-member_content.nan-col-md-6.nan-col-sm-12.order-2.order-md-1
 					h2 Nancy Almodovar
 					h3.h5 President &amp; CEO
+					h3.h5 Nan Properties Developer Services
 					.divider__orange--short
-					p Nancy Almodovar, President and CEO of Nan and Company Properties, thrives in the world of luxury real estate on innovation, professionalism and ambition. With over fifteen years of experience and certification as an International Property Specialist, Almodovar has soared to the top of the industry with a company driven by customer service and client satisfaction. Almodovar launched Nan and Company Properties in 2014 from her kitchen table and has since filled a gap in the Houston marketplace for premier luxury real estate services including leasing, sales, and buying.
-				.body-intro_img.col-md-6.col-sm-12.order-1.order-md-2
-					img(alt='Nancy Almodovar, CEO' height='599' src='https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/assets/uploads/agent/photo/58906/optimized_2166110f375f4c0890c28805804f659d.jpeg' width='495')
+					p Nancy leads all aspects of the Development Services efforts for each project; she works closely with Developers though the product design and development phase to ensure that projects are well positioned in the marketplace. She is uniquely positioned to provide invaluable feedback from the marketplace as she interacts regularly with luxury international buyers, relocating professionals and both move up and downsizing empty nesters. Her expertise aligns developers with design and functionality targeted to meet neighborhood trends and buyers needs. Her guidance in marketing strategies balance goals with sales pace and budgets. Ultimately, where NPDS onsite agents separate themselves from the pack, is in their constant training overseen by Nancy -- this is her passion that is brought from real experiences and methods that impact and mold the agents to listen to their buyers and close sales for developers. As President and CEO of Nan and Company Properties, Nancy thrives in the world of luxury real estate on innovation, professionalism and ambition. Almodovar launched Nan and Company Properties in 2014 from her kitchen table and has since filled a gap in the Houston marketplace for premier luxury real estate services including leasing, sales, and buying.
+				.body-intro_img.nan-col-md-6.nan-col-sm-12.order-1.order-md-2
+					img(alt='Nancy Almodovar, President & CEO' height='599' src='https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/assets/uploads/agent/photo/58906/optimized_2166110f375f4c0890c28805804f659d.jpeg' width='495')
 
 			.spacer-100
 			// jose
-			section.team-member-section.d-md-flex.justify-content-center.align-items-center.clearfix
-				.body-intro_img.col-md-6.col-sm-12.order-2.order-md-1
+			section#jose.team-member-section.d-flex.flex-wrap.justify-content-center.align-items-top.clearfix
+				.body-intro_img.nan-col-md-6.nan-col-sm-12.order-1.order-md-1
 					img(alt='Jose Almodovar, COO' height='599' src='https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/assets/uploads/agent/photo/67019/optimized_2f6fb04aeed7589aef53a9ed3beb8757.jpg' width='495')
-				.team-member_content.col-md-6.col-sm-12.order-1.order-md-2
+				.team-member_content.nan-col-md-6.nan-col-sm-12.order-2.order-md-2
 					h2 Jose Almodovar
-					h3.h5 COO
+					h3.h5 COO &amp; EVP BUSINESS DEVELOPMENT
+					h3.h5 Nan Properties Developer Services
 					.divider__orange--short
-					p Jose Almodovar grew up in his mother's clothing factory business in a New York storefront and basement as a toddler and can remember wondering the factory filled with people manning sewing machines producing garments that was sub-contracted to his mother for production. As a child he witnessed his mother's business shut its doors in New York because of fierce competition and transplant to Los Angeles to begin again and once again shut down operations all before finishing his senior year in high school. The ups and downs of small business Jose witnessed early in life is something that Jose used to power his acumen for understanding the cycles of business and how important it is for businesses to be robust and adjust to new market conditions that can affect the life of a business.
+					p Jose is the pulse and heartbeat of Nan Properties Development Services. He has developed extensive sales and planning platforms that enable him to keep an eye on every new project, land opportunity and track sales pace for new developments in Houston. He provides leadership and sales guidance though the office infrastructure that he runs with efficiency and know how. Jose is responsible for insuring Christies networking and referral opportunities are seamlessly woven into every NPDS project while remaining diligent in preserving confidentialities. Jose Almodovar grew up in his mother's clothing factory business in a New York storefront and basement as a toddler and can remember wondering the factory filled with people manning sewing machines producing garments that was sub-contracted to his mother for production.
 			.spacer-100
 			// michelle
-			section.team-member-section.d-md-flex.justify-content-center.align-items-center.clearfix
-				.team-member_content.col-md-6.col-sm-12.order-2.order-md-1
+			section#michelle.team-member-section.d-flex.flex-wrap.justify-content-center.align-items-top.clearfix
+				.team-member_content.nan-col-md-6.nan-col-sm-12.order-2.order-md-1
 					h2 Michelle Arreguin
-					h3.h5 Developer Services
+					h3.h5 DIRECTOR OF SALES AND MARKETING
+					h3.h5 Nan Properties Developer Services
 					.divider__orange--short
-					p A native Houstonian with nothing but pride for her city, Michelle Arreguin aims to contribute to the expansion of her city in her role at Nan and Company Properties. When moving to a city the size of Houston, knowing where to start the process can be very overwhelming, but working with an expert like Michelle Arreguin can help make the transition seamless. With a bachelor's in international studies from Texas State University and a master's in international business from St. Thomas University, Michelle's global-oriented mindset allows her to better understand the relationship between different cultures, ideas, and industries in Houston. Her background combined with the firm's affiliation with Christie's International Real Estate provides makes her fit to cater to your relocation needs, no matter where you're moving from or moving to. She is a certified Salesforce Administrator and Global Relocation Professional. Michelle works tirelessly to find the best residential opportunities while walking them through the entire process. Bilingual with strong interpersonal skills, providing world-class customer service is her number one value, and she promises to always seek the best for her clients.
-				.body-intro_img.col-md-6.col-sm-12.order-1.order-md-2
+					p Michelle is responsible for overseeing and coordinating all aspects of the marketing initiatives for each project. She works on behalf of the developer to manage advertising agencies, public relations, interior design, sales center coordination and numerous service providers who are tasked with delivering needed tools for each project. She works closely with the sales team to maximize awareness via digital and print advertising, event planning, and social media programs. Michelle works closely with developers to meet their budget projections and reports of effectiveness of programs to ensure the number of qualified leads are generated for the agents to convert. With a bachelor's in international studies from Texas State University and a master's in international business from St. Thomas University, Michelle's global-oriented mindset allows her to better understand the relationship between different cultures, ideas, and industries in Houston. Her background combined with the firm's affiliation with Christie's International Real Estate provides makes her fit to cater to your relocation needs, no matter where you're moving from or moving to. She is a certified Salesforce Administrator and Global Relocation Professional.
+				.body-intro_img.nan-col-md-6.nan-col-sm-12.order-1.order-md-2
 					img(alt='Michelle Arreguin' height='599' src='https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/assets/uploads/agent/photo/62762/optimized_fdc219dc35ee81538bb49be4be5f82a3.jpg' width='495')
 			.spacer-100
 			// betty
-			section.team-member-section.d-md-flex.justify-content-center.align-items-center.clearfix
-				.body-intro_img.col-md-6.col-sm-12.order-2.order-md-1
-					img(alt='Betty Harcourt, COO' height='599' src='https://st3.depositphotos.com/4111759/13425/v/450/depositphotos_134255626-stock-illustration-avatar-male-profile-gray-person.jpg' width='495')
-				.team-member_content.col-md-6.col-sm-12.order-1.order-md-2
+			section#betty.team-member-section.d-flex.flex-wrap.justify-content-center.align-items-top.clearfix
+				.body-intro_img.nan-col-md-6.nan-col-sm-12.order-1.order-md-1
+					img(alt='Betty Harcourt, COO' height='599' src='https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/ckeditor_assets/pictures/root/250064/content_IMG_4227.JPG' width='495')
+				.team-member_content.nan-col-md-6.nan-col-sm-12.order-2.order-md-2
 					h2 Betty Harcourt
-					h3.h5 Developer Services
+					h3.h5 EXECUTIVE ADVISOR
+					h3.h5 Nan Properties Developer Services
 					.divider__orange--short
-					p Betty Harcourt...
+					p As a national condominium sales and marketing expert with over 25 years of onsite development experience, Betty guides and directs all aspects of the Development Services platform at Nan Properties. She has spent four years working exclusively in Houston where she led marketing and sales efforts to over 80% of the markets burgeoning condominium projects from 2016 to 2020. Her in-depth knowledge begins with the due diligence phase of project where her proforma pricing and budgeting is key. She has a successful record of providing sales and marketing strategies from launch to sellout and her efforts have been integral to developers, investors, and lenders as they evaluate the viability of projects and identify their target market, the design and lifestyle objectives to achieve sales. Her critical path to sales expertise and practical solutions aid in driving sales, decisions, and ever lasting relationships through the NPDS executive team.
 
-			include partials/redirection-section.pug
+			include partials/redirection-section-developer-services.pug
 
 			include partials/cms-form
-
-

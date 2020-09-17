@@ -1,0 +1,50 @@
+extends layout-nan
+
+block content
+	// Copy the div below
+
+	main#developer-properties-landing-page.custom-page
+		include inline-css/_site-css
+		include inline-css/developer-properties
+
+		.spacer-50
+		.developer-properties__content
+			section#the-allen.developer-proeprties__content__row.d-flex.flex-wrap.justify-content-start
+				.developer-properties__content__column(style="background-image:url('https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/ckeditor_assets/pictures/root/condos/251286/TheAllen_Exterior_01.jpg')").col-md-6
+				.developer-properties__content__column.col-md-6.pl-md-5
+					.developer-properties__name-wrapper
+						h2 The Allen
+					.developer-properties__address-wrapper
+						h3.h4 1171 Allen Parkway, Houston, TX 77019
+					.developer-properties__price-Wrapper
+						h4= listingPrice
+					.spacer-50
+					.developer-properties__description-Wrapper
+						p The Allen is the best of Houston in one place. It is where the sophistication of the theater district meets the prestige of River Oaks overlooking the serenity of Buffalo Bayou Park. You are minutes from everything you love, but a world away among the six acres of the Thompson Hotel, Residences at The Allen, world-class dining, retail, spa, fitness, and the city’s greatest outdoor amenity – Buffalo Bayou Park.
+						p Personalized Residences with Exquisite Hotel Services Residences at The Allen is changing the way Houstonians think about high rise living. From masterfully designed indoor and outdoor spaces to luxury conveniences and modern technology. The Allen has it all including room service! The 99 luxurious condominiums are designed from the inside-out. The residences offer floor to ceiling windows, chef-inspired kitchen with state-of-the-art appliances, Italian cabinetry and outdoor living areas with plunge pools, sky gardens, puppy porch potty, summer kitchens, and unobstructed views.
+					.developer-properties__button-Wrapper
+						a.nan-btn-primary(href='https://www.nanproperties.com/our-developments/1711-allen-parkway', target="_blank") MORE INFORMATION
+			.spacer-100
+			section#astoria.developer-proeprties__content__row.d-flex.flex-wrap.justify-content-start
+				.developer-properties__content__column(style="background-image:url('https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/ckeditor_assets/pictures/root/condos/251290/Albert_-_The_Astoria_unit_1802-40_-_Albert_Cantu__1_.jpg')").col-md-6
+				.developer-properties__content__column.col-md-6.pl-md-5
+					.developer-properties__name-wrapper
+						h2 Astoria
+					.developer-properties__address-wrapper
+						h3.h4 1409 Post Oak Boulevard, Houston, TX 77019
+					.developer-properties__price-Wrapper
+						h4= listingPrice
+					.spacer-50
+					.developer-properties__description-Wrapper
+						p Magnificent Condo in the Heart of Galleria! With an exquisite floor plan and a private elevator. This stunning condo has large floor-to-ceiling windows, crafted w/timeless contemporary finishes, great natural light, and exudes elegance. Premier location near Houston Galleria, this condo has unobstructed views of the Downtown skyline and Uptown. This property is ideally situated in a walkable neighborhood near high-end shopping, dining, and is just a few blocks from Mastro's & The Post Oak Hotel. The impeccable kitchen is outfitted with Eggersmann cabinetry, Miele appliances, wine chiller, and gorgeous countertops. Two assigned parking spaces, and a downstairs storage unit, amazing two master closets, perfect for today’s modern style of luxury living. The master bedroom & bathroom offer unmatched functionality and design. Towering above Post Oak Blvd., the full-service building includes amenities such as a social lounge, resort-style pool, state-of-the-art gym, valet & 24/7 concierge.
+					.developer-properties__button-Wrapper
+						a.nan-btn-primary(href='https://www.nanproperties.com/our-developments/1409-post-oak-boulevard', target="_blank") MORE INFORMATION
+				.spacer-50
+				
+			.spacer-100
+
+			include partials/redirection-section-developer-services.pug
+
+		include partials/cms-form
+
+

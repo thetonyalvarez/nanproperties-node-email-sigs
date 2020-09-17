@@ -1,0 +1,563 @@
+extends layout-nan
+
+block content
+	// Copy the div below
+
+	#developer-landing-page.custom-page
+		include inline-css/_site-css
+		include inline-css/developer-services
+
+
+		div
+			link(href='https://cdnjs.cloudflare.com/ajax/libs/magnify/2.3.3/css/magnify.css' rel='stylesheet')
+			link(crossorigin='anonymous' href='https://use.fontawesome.com/releases/v5.6.3/css/all.css' rel='stylesheet')
+			link(href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Raleway:400,600,800&display=swap' rel='stylesheet')
+			style(type='text/css').
+				:root {
+				--orange: #f16624;
+				--light-gray: #a3aaad;
+				--gray: #7c7d7d;
+				--dark-gray: #434647;
+				--default-font: sans-serif, arial, "Helvetica Neue", Helvetica, "Lucida Grande";
+				--font1: 'Raleway', sans-serif;
+				--font2: 'Playfair Display', serif;
+				}
+				#banner h1 {
+				background-color: transparent !important;
+				}
+				.under_line {
+				margin: 4px 0 4px -0.6em;
+				box-sizing: content-box;
+				height: 1px;
+				background: linear-gradient(to right, white, var(--light-gray), var(--orange) 60%, red);
+				border: 0
+				}
+				.introduction {
+				color: var(--gray);
+				width: 100%;
+				margin: 3em auto 0 auto;
+				text-align: justify;
+				text-align-last: center;
+				font-size: 16px;
+				line-height: 23px;
+				font-family: var(--font1)
+				}
+				.introduction::first-letter {
+				font-size: 300%;
+				color: var(--dark-gray);
+				margin-top: 11px;
+				margin-right: 2px;
+				float: left;
+				font-family: initial
+				}
+				.sub-header {
+				text-align: center;
+				margin: 2em 0 0;
+				color: var(--dark-gray);
+				font-family: var(--font2);
+				font-size: 2em;
+				opacity: 1;
+				letter-spacing: 3px
+				}
+				.division {
+				height: 2px;
+				background-color: var(--orange);
+				display: block;
+				width: 150px;
+				}
+				.zoom {
+				width: 100% !important
+				}
+				.magnify>.magnify-lens {
+				width: 150px !important;
+				height: 150px !important;
+				box-shadow: 0 0 0 7px #f16624, 0 0 7px 7px rgba(0, 0, 0, 0.25), inset 0 0 40px 2px rgba(0, 0, 0, 0.25) !important
+				}
+				.map {
+				margin: 0 auto;
+				cursor: pointer
+				}
+				.link>h3 {}
+				@media only screen and (max-width:768px) {
+				p {
+				font-size: 1em
+				}
+				}
+				.about-header--main-img {
+				margin: 0 auto !important
+				}
+				.about-header--main-logo-img {
+				width: 500px;
+				margin-top: 60px !important
+				}
+				.about-header--contact {
+				width: 180px;
+				display: block;
+				margin: 30px auto;
+				padding: 8px;
+				font-size: 1em;
+				text-transform: uppercase;
+				color: #fff;
+				background: var(--orange);
+				border-radius: 50px
+				}
+				.about-header--contact:hover {
+				color: #fff !important
+				}
+				.about-main--title-wrapper {
+				margin: 1em auto 0 auto;
+				position: relative;
+				text-align: center;
+				width: 100%;
+				overflow: hidden;
+				display: none
+				}
+				.about-main--title-wrapper h1 {
+				color: transparent;
+				text-align: center;
+				font-size: 4em;
+				font-family: var(--default-font) !important;
+				font-weight: 400 !important;
+				text-transform: uppercase;
+				margin: 0;
+				letter-spacing: 5px;
+				padding-bottom: 4%
+				}
+				.about-main--title {
+				font-weight: 600 !important;
+				color: transparent;
+				background: url("https://i.ibb.co/wKybyxr/check.jpg") -20px -300px no-repeat;
+				-webkit-text-fill-color: transparent;
+				-webkit-background-clip: text
+				}
+				.about-main--list {
+				margin: .5em 0 180px 0;
+				display: flex;
+				justify-content: center;
+				cursor: pointer
+				}
+				.about-main--list>div {
+				position: relative;
+				border: 1px solid var(--light-gray);
+				width: 100px;
+				padding: 1.5em 1em;
+				overflow: hidden;
+				border-radius: 5px;
+				transition: .7s ease-out;
+				margin-right: 1.5em;
+				box-shadow: 4px 0 6px -1px var(--light-gray);
+				background-image: linear-gradient(150deg, rgba(241, 102, 36, 0.5) -100%, var(--orange), white 120%);
+				}
+				.about-main--list>div>h3 {
+				transition: .5s ease-out;
+				font-size: 1.6em;
+				position: absolute;
+				top: 65%;
+				left: -196%;
+				color: white;
+				width: 480px;
+				margin: 0;
+				font-family: var(--font1)
+				}
+				.about-main--list_item {
+				opacity: 1;
+				height: 390px
+				}
+				.about-main--list_item-wrapper {
+				transition: 1s ease-in-out;
+				opacity: 1;
+				visibility: hidden
+				}
+				.about-main--list>div:nth-child(odd) {
+				margin-top: 50px;
+				margin-bottom: -50px
+				}
+				.about-main--list>div:hover {
+				width: 30% !important;
+				background-image: linear-gradient(white, white) !important
+				}
+				.about-main--list>div:hover .about-main--list_item-img {
+				width: 100%
+				}
+				.about-main--list>div:hover .about-main--list_item-wrapper {
+				opacity: 1 !important;
+				visibility: visible !important
+				}
+				.about-main--list_item-wrapper>h3 {
+				margin: 0;
+				color: var(--orange);
+				display: inline-block;
+				font-family: var(--font2);
+				font-weight: 400;
+				font-size: 1.7em;
+				transform: translate(200px);
+				transition: 1s;
+				text-transform: none
+				}
+				.about-main--list>div:hover .about-main--list_item>h3 {
+				display: none
+				}
+				.about-main--list>div:hover .about-main--list_item-wrapper>h3 {
+				transform: translate(0px)
+				}
+				.about-main--list>div:hover .right_fade {
+				background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0))
+				}
+				.about-main--list_item-p {
+				font-family: var(--font1);
+				font-size: 14px;
+				line-height: 20px;
+				color: var(--gray);
+				}
+				.about-main--list_item-img {
+				width: 355px
+				}
+				.social_media>div>img {
+				width: 100%;
+				margin: -10% 0 -5% -2% !important
+				}
+				.social_media-icons {
+				display: flex;
+				width: 100%;
+				padding-left: 0;
+				justify-content: center;
+				margin-bottom: 1em
+				}
+				.social_media-icons li {
+				list-style: none;
+				transition: 1s;
+				opacity: 1;
+				}
+				.social_media-icons li a {
+				width: 80px;
+				height: 80px;
+				background-color: white;
+				text-align: center;
+				line-height: 80px;
+				font-size: 35px;
+				margin: 0 20px;
+				display: block;
+				border-radius: 100%;
+				position: relative;
+				overflow: hidden;
+				z-index: 1
+				}
+				.social_media-icons li a .icon {
+				position: relative;
+				color: #434647;
+				transition: .5s;
+				z-index: 3;
+				top: 25%
+				}
+				.social_media-icons li a:hover {
+				transition: .5s
+				}
+				.social_media-icons li a:hover .icon {
+				color: #fff;
+				transform: rotateY(360deg);
+				transform: scale(1.6)
+				}
+				.social_media-icons li a:hover {
+				transform: rotate(360deg)
+				}
+				.social_media-icons li a:hover:after {
+				left: 0;
+				opacity: 1
+				}
+				.social_media-icons li a:after {
+				transform: rotate(45deg);
+				background: #f16624;
+				border-radius: 100%;
+				content: "";
+				position: absolute;
+				top: 0;
+				left: -100%;
+				opacity: 1;
+				width: 100%;
+				height: 100%;
+				transition: .5s ease-in;
+				z-index: 2
+				}
+				.visible {
+				transform: none !important;
+				opacity: 1 !important;
+				transition: .7s
+				}
+				.about-main--list_item-wrapper-inside-h3 {
+				width: 324px;
+				}
+				.redirecting_section {
+				background-color: #F5F5F5;
+				margin-top: 60px;
+				padding-top: 25px;
+				padding-bottom: 30px
+				}
+				.redirecting_section-links {
+				display: flex;
+				justify-content: space-between;
+				padding: 0 40px;
+				}
+				.link {
+				width: 31%;
+				margin-top: 30px;
+				text-decoration: none;
+				color: var(--dark-gray);
+				font-family: var(--font2);
+				text-align: center;
+				font-size: 1.2em
+				}
+				@media only screen and (max-width: 601px) {
+				.redirecting_section-links {
+				flex-wrap: wrap;
+				}
+				.link {
+				width: 100%;
+				}
+				}
+				@media only screen and (max-width:1024px) {
+				.about-main--list_item-wrapper>h3 {
+				font-size: 1.2em;
+				}
+				.about-main--list>div {
+				width: 75px;
+				}
+				.about-main--list>div>h3 {
+				left: -284%;
+				top: 74%;
+				font-size: 1.4em;
+				}
+				.about-main--list_item-wrapper-inside-h3 {
+				width: 180px;
+				}
+				.about-main--list_item {
+				height: 390px;
+				}
+				}
+				@media only screen and (max-width:835px) {
+				.about-main--list>div {
+				width: 60px;
+				padding: 1.2em .8em
+				}
+				.about-main--list_item {
+				height: 365px;
+				}
+				.about-main--list_item-p {
+				font-size: .9em;
+				line-height: 1.1em
+				}
+				.about-main--list>div:hover h3 {
+				font-size: 1.2em
+				}
+				.about-main--list>div>h3 {
+				font-size: 1.2em;
+				top: 83%;
+				left: -365%;
+				}
+				}
+				@media only screen and (max-width:420px) {
+				.about-main--title-wrapper {
+				width: 100%
+				}
+				.about-main--title-wrapper h1 {
+				font-size: 10vw;
+				padding-bottom: 5%;
+				letter-spacing: 0
+				}
+				.sub-header {
+				margin-top: 2em
+				}
+				.introduction::first-letter {
+				margin-top: 12px;
+				}
+				.introduction {
+				width: 100%;
+				font-size: .9em
+				}
+				.about-main--list {
+				flex-direction: column;
+				flex-wrap: wrap;
+				height: 700px;
+				margin: 0 auto 50px auto;
+				width: 100%
+				}
+				.about-main--list_item {
+				height: 300px;
+				width: 60px
+				}
+				.about-main--list_item-p {
+				font-size: 12px;
+				}
+				.about-main--list>div {
+				margin: 0 auto;
+				padding: 1em 1em;
+				}
+				.card3 {
+				margin-top: 0 !important
+				}
+				.about-main--list>div:nth-child(odd) {
+				margin-bottom: 30px
+				}
+				.about-main--list>div:hover {
+				width: 50% !important
+				}
+				.about-main--list>div:hover .about-main--list {
+				width: 100%
+				}
+				.about-main--list>div>h3 {
+				font-size: 19px;
+				top: 85%;
+				left: -362%;
+				font-weight: 600 !important
+				}
+				.about-main--list>div:hover h3 {
+				font-size: 1em
+				}
+				.social_media-icons li a {
+				width: 70px;
+				height: 70px;
+				line-height: 75px;
+				font-size: 25px;
+				margin: 0 10px
+				}
+				.social_media-icons li a .icon {
+				top: 30%
+				}
+				}
+				@media only screen and (max-width:380px) {
+				.about-main--list>div:hover h3 {
+				font-size: .9em
+				}
+				}
+				@media only screen and (max-width:330px) {
+				.about-main--list>div {
+				margin: 0 auto;
+				padding: .7em .5em;
+				}
+				.social_media-icons li a {
+				margin: 0 4px
+				}
+				.about-main--list>div>h3 {
+				top: 88%;
+				left: -362%;
+				}
+				.about-main--list>div:hover h3 {
+				font-size: .7em
+				}
+				.about-main--title {
+				font-size: 1em
+				}
+				.about-main--list {
+				height: 700px;
+				}
+				.frontPic>img {
+				height: 90px !important;
+				}
+				}
+				.spacer {
+				height: 0 !important;
+				}
+				.cms__form-wrapper>.form_submission_form .form-group {
+				text-align: center
+				}
+				.cms__form-wrapper>.form_submission_form select,
+				.cms__form-wrapper>.form_submission_form>.form-group>.input-group,
+				.cms__form-wrapper>.form_submission_form>.row .input-group {
+				max-width: 310px !important;
+				margin: 0 auto
+				}
+				.cms__form-wrapper>.form_submission_form>.row {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				padding: 0 20px
+				}
+				.cms__form-wrapper>.form_submission_form>.row>* {
+				width: 100%;
+				padding: 0
+				}
+				#cms-form .input-sm.form-control,
+				.cms__form-wrapper>.form_submission_form input,
+				.cms__form-wrapper>.form_submission_form select {
+				border-radius: 10px !important
+				}
+				#cms-form .input-group textarea {
+				height: 8em
+				}
+				#cms-form .form-group.text-center>.btn.st-btn {
+				border-radius: 0 !important;
+				margin-top: 30px
+				}
+				#cms-form .h2.text-center {
+				font-family: var(--font2)
+				}
+				#cms-form .h2.text-center::after {
+				content: '';
+				height: 3px;
+				margin: 30px 37%;
+				background-color: var(--orange);
+				display: block
+				}
+				#cms-form .col-xs-24.radio {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-evenly;
+				margin: 25px 0 !important
+				}
+				#cms-form .radio label {
+				margin-right: 0;
+				bottom: 0;
+				border: 1px solid var(--orange);
+				color: var(--orange);
+				font-family: var(--font1);
+				text-align: center !important;
+				padding: 4px 0;
+				font-size: 14px
+				}
+				#cms-form .radio label::after,
+				#cms-form .radio label::before {
+				opacity: 0;
+				display: none
+				}
+				#cms-form .radio input[type=radio]:checked+label {
+				background-color: var(--orange);
+				color: #fff
+				}
+				#cms-form input[type=submit] {
+				background-color: var(--orange);
+				color: #fff;
+				width: 310px;
+				height: 60px
+				}
+				@media only screen and (max-width:330px) {
+				#cms-form .clear-both>.form-group.text-center>.btn.st-btn {
+				width: 100% !important
+				}
+				}
+			main
+				h2.text-center.section4(style='margin-top: 1em;') Nan and Company Properties Developer Services
+				section.about-main(style='margin: 2em auto;margin-bottom:50px')
+					.introduction(style='opacity: 1;')
+						p Nan Properties Developer Services encompasses a strategic approach to program, launch and sustain sales for a single project. We position every development directly to the consumer as an independent brand and product offering that is leveraged by Nan Properties and our Christie&rsquo;s affiliation. Ultimately, we maximize expertise and platforms within the company to drive as many qualified buyers, both locally and internationally, directly to the project as possible. We work from the from the earliest concepts, to building design and programming through construction to sales and marketing. We are partners, sitting on the same side of the table and provide highly effective services to developers. Through market research we deliver programs that enable the target buyer to act.
+						br
+						br
+						p We support the developer and their efforts with a dedicated core team of experts. They are highly experienced professionals who develop, implement and monitor the competition, collaborate with the architects to ensure the product offering matches that of the designated target market and we oversee and orchestrate the marketing programs and operational needs of the project for smooth and convenient prospect visits and buyer appointments.
+						br
+						p We staff our projects with highly trained real estate professionals who are exclusive to the project and only sell one development at a time. The on-site sales agents represent the developer and the project; they become experts of the brand, of the project, of the developer, and of the project location and its neighborhood.
+				.spacer-50
+
+
+			include partials/redirection-section-developer-services.pug
+			
+			.spacer-100
+
+			section#social-media.pt-4
+				h2.text-center CONNECT WITH US ON SOCIAL MEDIA
+				.divider__orange.my-3
+				.social-media
+					.social_media-img(style='opacity: 1;')
+						img(alt='' src='https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/ckeditor_assets/pictures/root/DEVELOPER_SERVICES/251294/device-mockups__2_.png')
+				include partials/social-links-canva.pug
+			
+			include partials/cms-form
+
+
