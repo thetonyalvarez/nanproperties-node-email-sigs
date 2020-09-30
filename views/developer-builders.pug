@@ -5,38 +5,82 @@ block content
 
 	#developer-builders-landing-page.custom-page
 		include inline-css/_site-css
-		include inline-css/developer-services
+		include inline-css/_developer-services-main
 
 
 		main.services_body-container
-			.body-intro.d-md-flex.justify-content-center.align-items-center.clearfix.d-sm-block
+			section.body-intro.d-md-flex.justify-content-center.align-items-center.clearfix.d-sm-block
 				.body-intro_content.col-md-6.col-sm-12
-					h2 Our Builders
+					h2 Builder Services
 					.divider__orange--short
 					p We provide builders with a wide range of services to help them push their homes to the front-end of the real estate market and maximize homebuyer visibility. With our innovative services, we effectively showcase all the amazing things your homes have to offer buyers. Every partner we work with is featured on the Nan and Company Properties website, HAR, Zillow, Trulia and hundreds of other websites within our distribution network.
 					a.nan-btn-primary(href="#cms-form") Contact Us Now
 				.body-intro_img.col-md-6.col-sm-12
 					img(alt='Our Developer Services' src='https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/ckeditor_assets/pictures/root/DEVELOPER_SERVICES/252235/AK3_7054-HDR__1_.jpg')
 			.spacer-100
-			.services.clearfix
+			section.services.clearfix
 				.service.service_buying.d-md-flex.justify-content-center.align-items-center.clearfix.d-sm-block
 					.service_content.col-md-12.col-sm-12.flex-wrap.d-md-flex.justify-content-center.align-items-center
-						h2.text-center.col-md-12.col-sm-12.pt-3 Our Incredible Partners
+						h2.text-center.col-md-12.col-sm-12.pt-3 Our Builders
 						.d-md-flex.justify-content-center.align-items-center.clearfix.d-sm-block.flex-wrap
-							.col-md-3.col-sm-6
-								img(alt='Lennar Homes' src="https://fldeals.peakseven.com/static/fldeals-2/img/lennar-logo-2.svg")
-							.col-md-3.col-sm-6
-								img.col-md-3.col-sm-6(alt='logo1' src="https://fldeals.peakseven.com/static/fldeals-2/img/lennar-logo-2.svg")
-							.col-md-3.col-sm-6
-								img.col-md-3.col-sm-6(alt='logo1' src="https://fldeals.peakseven.com/static/fldeals-2/img/lennar-logo-2.svg")
-							.col-md-3.col-sm-6
-								img.col-md-3.col-sm-6(alt='logo1' src="https://fldeals.peakseven.com/static/fldeals-2/img/lennar-logo-2.svg")
-				.spacer-50
-				
+							.builder-logo-item.col-md-4.col-sm-6
+								img(alt='Lennar Homes' src="https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/ckeditor_assets/pictures/root/DEVELOPER_SERVICES/252254/lennar.png")
+							.builder-logo-item.col-md-4.col-sm-6
+								img(alt='J Patrick Homes' src="https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/ckeditor_assets/pictures/root/DEVELOPER_SERVICES/252251/jpatrick.png")
+							.builder-logo-item.col-md-4.col-sm-6
+								img(alt='Ashton Woods' src="https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/ckeditor_assets/pictures/root/DEVELOPER_SERVICES/252255/ashton-woods.png")
+							.builder-logo-item.col-md-4.col-sm-6
+								img(alt='Sitterle Homes' src="https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/ckeditor_assets/pictures/root/DEVELOPER_SERVICES/252256/sitterle-logo2.png")
+							.builder-logo-item.col-md-4.col-sm-6
+								img(alt='IKLO Homes' src="https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/ckeditor_assets/pictures/root/DEVELOPER_SERVICES/252250/iklo.png")
+							.builder-logo-item.col-md-4.col-sm-6
+								img(alt='Beazer Homes' src="https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/ckeditor_assets/pictures/root/DEVELOPER_SERVICES/252252/beazer.png")
 			.spacer-100
 
-			include partials/redirection-section-developer-services.pug
+			section.builder-services--feature_section.text-center.d-block.clearfix
+				h2.builder-services--section__title Marketing Efforts
+				.builder-services--section__row.col-md-12.col-sm-12.flex-wrap.d-md-flex.justify-content-center.align-items-center(style='margin-top: 50px')
+					.col-md-4.col-sm-6
+						h3.builder-services--section__sub-title Featured On
+						p.builder-services--section__paragraph
+						| We feature our builders on Nan and Company Properties website, HAR, Zillow, Trulia and hundreds of other websites.
+					.col-md-4.col-sm-6
+						h3.builder-services--section__sub-title Landing Page
+						p.builder-services--section__paragraph
+						| Each builder page is fully customized with high resolution photography, logos, featured properties, custom videos and more.
+					.col-md-4.col-sm-6
+						h3.builder-services--section__sub-title Branding
+						p.builder-services--section__paragraph
+						| Not only do we brand ourselves, we also brand our builders by including them on all of our marketing collateral.
+				.builder-services--section__row.col-md-12.col-sm-12.flex-wrap.d-md-flex.justify-content-center.align-items-center(style='margin-top:30px;')
+					.col-md-4.col-sm-6
+						h3.builder-services--section__sub-title Renderings
+						p.builder-services--section__paragraph
+						| We display professional quality renderings to give clients a high-definition visual of what the properties will look like upon completion.
+					.col-md-4.col-sm-6.d-none.d-md-block
+						img#logo(alt='medium' src='https://i.ibb.co/j4PVqxG/Nan-Christies-Logo-Lockup-Vertical-Dark-Gray-Transparent.png' style='padding: 0 50px; padding-top: 15%;' )
+					.col-md-4.col-sm-6
+						h3.builder-services--section__sub-title Reporting
+						p.builder-services--section__paragraph
+						| Detailed reporting is provided on all traffic and leads on the properties, which allows clients to view the online exposure from all of our marketing efforts.
+				.builder-services--section__row.col-md-12.col-sm-12.flex-wrap.d-md-flex.justify-content-center.align-items-center(style='margin-top:30px;')
+					.col-md-4.col-sm-6
+						h3.builder-services--section__sub-title Print
+						p.builder-services--section__paragraph
+						| Print marketing efforts include the Christie&apos;s International Real Estate magazine, brochures, flyers, postcards, feature sheets and partnered sponsored print pieces.
+					.col-md-4.col-sm-6
+						h3.builder-services--section__sub-title Model Staging
+						p.builder-services--section__paragraph
+						| Home staging is critical for any new development. Professional staging contacts are provided and enhances a property&rsquo;s strengths and minimizes its weak points.
+					.col-md-4.col-sm-6
+						h3.builder-services--section__sub-title Digital
+						p.builder-services--section__paragraph
+						| Digital marketing efforts include email blasts, social media posts, internal digital ads and partner sponsored ads reaching thousands of different viewers on all platforms.
 
-		include partials/cms-form
+			.spacer-100
+
+			//- include partials/redirection-section-developer-services.pug
+
+		//- include partials/cms-form
 
 

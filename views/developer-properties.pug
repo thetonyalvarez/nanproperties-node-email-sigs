@@ -5,10 +5,14 @@ block content
 
 	main#developer-properties-landing-page.custom-page
 		include inline-css/_site-css
-		include inline-css/developer-properties
+		include inline-css/_developer-services-main
+
+		h1.text-center Our Properties
+		.developer-services_logo-wrapper(style="width:100%;max-width:200px;margin:auto;")
+			img(src="https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/ckeditor_assets/pictures/root/DEVELOPER_SERVICES/252270/1Development_Logo__1_.png", alt="Nan and Company Properties Developer Services")
 
 		.spacer-50
-		.developer-properties__content
+		//- .developer-properties__content
 			section#the-allen.developer-proeprties__content__row.d-flex.flex-wrap.justify-content-start
 				.developer-properties__content__column(style="background-image:url('https://b386363e680359b5cc19-97ec1140354919029c7985d2568f0e82.ssl.cf1.rackcdn.com/ckeditor_assets/pictures/root/condos/251286/TheAllen_Exterior_01.jpg')").col-md-6
 				.developer-properties__content__column.col-md-6.pl-md-5
@@ -45,6 +49,6 @@ block content
 
 			include partials/redirection-section-developer-services.pug
 
-		include partials/cms-form
+		//- include partials/cms-form
 
 
