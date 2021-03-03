@@ -74,7 +74,7 @@
     "nodemon": "^2.0.4",
     "normalize.css": "^8.0.1",
     "phone-formatter": "0.0.2",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "pug-cli": "^1.0.0-alpha6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
